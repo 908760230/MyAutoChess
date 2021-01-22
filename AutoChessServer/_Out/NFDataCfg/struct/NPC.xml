@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<XML>
+	<Propertys>
+		<Property Id="Cost" Cache="0" Desc="金币花费" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="DescID" Cache="0" Desc="desc" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="string" Upload="0" />
+		<Property Id="EffectData" Cache="0" Desc="绝对值属性包索引" Force="0" Private="1" Public="0" Ref="1" Save="0" Type="string" Upload="0" />
+		<Property Id="ElementType" Cache="0" Desc="五行属性" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="string" Upload="0" />
+		<Property Id="HP" Cache="0" Desc="生命值" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="Icon" Cache="0" Desc="图标" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="string" Upload="0" />
+		<Property Id="Level" Cache="0" Desc="等级" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="MP" Cache="0" Desc="法力值" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="Prefab" Cache="0" Desc="客户端预设模型" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="string" Upload="0" />
+		<Property Id="RaceType" Cache="0" Desc="种族属性" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="string" Upload="0" />
+		<Property Id="ShowCard" Cache="0" Desc="卡牌背景" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="string" Upload="0" />
+		<Property Id="ShowName" Cache="0" Desc="显示名字" Force="0" Private="1" Public="1" Ref="1" Save="0" Type="string" Upload="0" />
+		<Property Id="SpriteFile" Cache="0" Desc="SpriteFile" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="string" Upload="0" />
+		<Property Id="Target" Cache="0" Desc="攻击目标" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="object" Upload="0" />
+	</Propertys>
+	<Records>
+	</Records>
+	<Includes>
+		<Include Id="NFDataCfg/Struct/Comm/EffectData.xml" />
+		<Include Id="NFDataCfg/Struct/Comm/CooldownRecord.xml" />
+	</Includes>
+</XML>

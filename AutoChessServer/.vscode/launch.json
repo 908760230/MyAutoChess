@@ -1,0 +1,130 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        
+        {
+            "name": "GameServer",
+            "type": "cppdbg",
+            "request": "launch",
+            //"request": "attach",
+            "program": "${workspaceFolder}/_Out/Debug/NFServer",
+            "args": ["Server=GameServer", "ID=6", "Plugin=Plugin.xml"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/_Out/Debug/",
+            "environment": [],
+            "externalConsole": true,
+            //for mac lldb
+            "MIMode": "lldb"
+        },
+        {
+            "name": "WorldServer",
+            "type": "cppdbg",
+            "request": "launch",
+            //"request": "attach",
+            "program": "${workspaceFolder}/_Out/Debug/NFServer",
+            "args": ["Server=WorldServer", "ID=7", "Plugin=Plugin.xml"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/_Out/Debug/",
+            "environment": [],
+            "externalConsole": true,
+            //for mac lldb
+            "MIMode": "lldb"
+        },
+        {
+            "name": "ProxyServer",
+            "type": "cppdbg",
+            "request": "launch",
+            //"request": "attach",
+            "program": "${workspaceFolder}/_Out/Debug/NFServer",
+            "args": ["Server=ProxyServer", "ID=5", "Plugin=Plugin.xml"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/_Out/Debug/",
+            "environment": [],
+            "externalConsole": true,
+            //for mac lldb
+            "MIMode": "lldb"
+        },
+        {
+            "name": "DBServer",
+            "type": "cppdbg",
+            "request": "launch",
+            //"request": "attach",
+            "program": "${workspaceFolder}/_Out/Debug/NFServer",
+            "args": ["Server=DBServer", "ID=8", "Plugin=Plugin.xml"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/_Out/Debug/",
+            "environment": [],
+            "externalConsole": true,
+            //for mac lldb
+            "MIMode": "lldb"
+        },
+        {
+            "name": "MasterServer",
+            "type": "cppdbg",
+            "request": "launch",
+            //"request": "attach",
+            "program": "${workspaceFolder}/_Out/Debug/NFServer",
+            "args": ["Server=MasterServer", "ID=3", "Plugin=Plugin.xml"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/_Out/Debug/",
+            "environment": [],
+            "externalConsole": true,
+            //for mac lldb
+            "MIMode": "lldb"
+        },
+        {
+            "name": "LoginServer",
+            "type": "cppdbg",
+            "request": "launch",
+            //"request": "attach",
+            "program": "${workspaceFolder}/_Out/Debug/NFServer",
+            "args": ["Server=LoginServer", "ID=4", "Plugin=Plugin.xml"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/_Out/Debug/",
+            "environment": [],
+            "externalConsole": true,
+            //for mac lldb
+            "MIMode": "lldb"
+        },
+        {
+            "name": "ATTACH TO DEBUG NF",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "${workspaceFolder}/_Out/Debug/NFServer",
+            "processId": "${command:pickProcess}",
+            "MIMode": "lldb"
+        },
+        {
+            "name": "BluePrint",
+            "type": "cppdbg",
+            "request": "launch",
+            //"request": "attach",
+            "program": "${workspaceFolder}/_Out/Debug/NFServer",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/_Out/Debug/",
+            "environment": [],
+            "externalConsole": true,
+            //for mac lldb
+            "MIMode": "lldb"
+        },
+        {
+            "name": "FileProcess",
+            "type": "cppdbg",
+            "request": "launch",
+            //"request": "attach",
+            "program": "${workspaceFolder}/_Out/NFDataCfg/Tool/NFFileProcess",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/_Out/NFDataCfg/Tool/",
+            "environment": [],
+            "externalConsole": true,
+            //for mac lldb
+            "MIMode": "lldb"
+        },
+    ]
+}

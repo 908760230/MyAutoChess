@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<XML>
+	<Object Id="BigSword" CoolDownTime="0" Description="攻击力+45" EffectData="ItermBigSword" Icon="BigSword" ShowName="巨剑" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="CloakOfMagicResistance" CoolDownTime="0" Description="法术抗性+30" EffectData="ItermCloakOfMagicResistance" Icon="CloakOfMagicResistance" ShowName="法抗斗篷" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="ForceOfNature" CoolDownTime="0" Description="护甲+35,法术抗性+35" EffectData="ItermForceOfNature" Icon="ForceOfNature" ShowName="自然之力" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="Hauberk" CoolDownTime="0" Description="护甲+25" EffectData="ItermHauberk" Icon="Hauberk" ShowName="锁子甲" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="LifeRing" CoolDownTime="0" Description="最大生命值+500" EffectData="ItermLifeRing" Icon="LifeRing" ShowName="生命指环" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="LifeTalisman" CoolDownTime="0" Description="生命回复+10" EffectData="ItermLifeTalisman" Icon="LifeTalisman" ShowName="生命护符" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="MadmanArmor" CoolDownTime="0" Description="最大生命值+600,生命回复+15" EffectData="ItermMadmanArmor" Icon="MadmanArmor" ShowName="狂徒甲" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="MagicianRobe" CoolDownTime="0" Description="法术强度+25" EffectData="ItermMagicianRobe" Icon="MagicianRobe" ShowName="法师长袍" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="MoonBeauty" CoolDownTime="0" Description="攻击力+50，攻击速度+25" EffectData="ItermMoonBeauty" Icon="MoonBeauty" ShowName="月下美人" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="RecurveBow" CoolDownTime="0" Description="攻击速度+20" EffectData="ItermRecurveBow" Icon="RecurveBow" ShowName="反曲弓" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="RevivalArmor" CoolDownTime="0" Description="攻击力+30，护甲+30，原地满血复活一次" EffectData="ItermRevivalArmor" Icon="RevivalArmor" ShowName="复活甲" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="SageStaff" CoolDownTime="0" Description="法术强度+110,法术强度 +20% " EffectData="ItermSageStaff" Icon="SageStaff" ShowName="贤者权杖" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="SatanSword" CoolDownTime="0" Description="攻击力+50，吸血+15" EffectData="ItermSatanSword" Icon="SatanSword" ShowName="撒旦之刃" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="SharpSword" CoolDownTime="0" Description="攻击力+30" EffectData="ItermSharpSword" Icon="SharpSword" ShowName="利刃" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="ShortSword" CoolDownTime="0" Description="攻击力+15" EffectData="ItermShortSword" Icon="ShortSword" ShowName="短剑" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="SpeedGloves" CoolDownTime="0" Description="攻击速度+10" EffectData="ItermSpeedGloves" Icon="SpeedGloves" ShowName="加速手套" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="StormStaff" CoolDownTime="0" Description="法术强度+80,召唤龙卷风击飞英雄2秒" EffectData="ItermStormStaff" Icon="StormStaff" ShowName="风暴权杖" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="VampireMask" CoolDownTime="0" Description="吸血+10" EffectData="ItermVampireMask" Icon="VampireMask" ShowName="吸血鬼面罩" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="VanguardShield" CoolDownTime="0" Description="护甲+30" EffectData="ItermVanguardShield" Icon="VanguardShield" ShowName="先锋盾" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+	<Object Id="VetoStaff" CoolDownTime="0" Description="法术强度+50" EffectData="ItermVetoStaff" Icon="VetoStaff" ShowName="否决权杖" SkillId="null" SpriteFile="UIResources/ItemSprite" />
+</XML>

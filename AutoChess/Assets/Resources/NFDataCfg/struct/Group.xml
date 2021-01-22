@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<XML>
+	<Propertys>
+		<Property Id="Completed" Cache="0" Desc="完成的玩家数量" Force="0" Private="0" Public="0" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="PlayerCount" Cache="0" Desc="玩家数量" Force="0" Private="0" Public="0" Ref="0" Save="0" Type="int" Upload="0" />
+	</Propertys>
+	<Records>
+		<Record Id="ChessPlane1" Cache="0"	 Col="7"	 Force="0"	 Private="1"	 Public="1"	 Ref="0"	 Row="8"	 Save="0"	 Upload="0"	 >
+			<Col Type ="object"	Tag="HeroOne"/><!--- Desc-->
+			<Col Type ="object"	Tag="HeroTwo"/>
+			<Col Type ="object"	Tag="HeroThree"/>
+			<Col Type ="object"	Tag="HeroFour"/>
+			<Col Type ="object"	Tag="HeroFive"/>
+			<Col Type ="object"	Tag="HeroSix"/>
+			<Col Type ="object"	Tag="HeroSeven"/>
+		</Record>
+		<Record Id="ChessPlane2" Cache="0"	 Col="7"	 Force="0"	 Private="1"	 Public="1"	 Ref="0"	 Row="8"	 Save="0"	 Upload="0"	 >
+			<Col Type ="object"	Tag="HeroOne"/><!--- Desc-->
+			<Col Type ="object"	Tag="HeroTwo"/>
+			<Col Type ="object"	Tag="HeroThree"/>
+			<Col Type ="object"	Tag="HeroFour"/>
+			<Col Type ="object"	Tag="HeroFive"/>
+			<Col Type ="object"	Tag="HeroSix"/>
+			<Col Type ="object"	Tag="HeroSeven"/>
+		</Record>
+	</Records>
+	<Includes>
+	</Includes>
+</XML>

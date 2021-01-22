@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<XML>
+	<Propertys>
+		<Property Id="ARMOR" Cache="0" Desc="护甲值" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="ATK_POSITION" Cache="0" Desc="攻击位置" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="ATK_SPEED" Cache="0" Desc="攻击速度" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="float" Upload="0" />
+		<Property Id="ATK_VALUE" Cache="0" Desc="攻击力" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="ATTACK_RANGE" Cache="0" Desc="攻击范围" Force="0" Private="1" Public="0" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="EVASION" Cache="0" Desc="闪避" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="HPREGEN" Cache="0" Desc="生命值恢复" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="MAGIC_DEF" Cache="0" Desc="法术抗性" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="MAGIC_VALUE" Cache="0" Desc="法术强度" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="MAXHP" Cache="0" Desc="最大生命值" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="MAXMP" Cache="0" Desc="最大法力值" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="MOVE_SPEED" Cache="0" Desc="移动速度" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="SUCKBLOOD" Cache="0" Desc="吸血值" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+	</Propertys>
+	<Records>
+	</Records>
+	<Includes>
+	</Includes>
+</XML>
