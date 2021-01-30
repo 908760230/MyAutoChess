@@ -544,7 +544,7 @@ namespace NFrame
             //为了表现，客户端先走，后续同步
         }
 
-        public void RequireMoveImmune(NFGUID objectID, UnityEngine.Vector3 vPos)
+       /* public void RequireMoveImmune(NFGUID objectID, UnityEngine.Vector3 vPos)
         {
             NFMsg.ReqAckPlayerPosSync xData = new NFMsg.ReqAckPlayerPosSync();
 
@@ -562,10 +562,10 @@ namespace NFrame
 
 
             SendMsg((int)NFMsg.EGameMsgID.ReqMoveImmune, mxBody);
-        }
+        }*/
 
         //有可能是他副本的NPC移动,因此增加64对象ID
-        public void RequireUseSkill(NFGUID objectID, string strKillID, Int32 index, List<NFGUID> nTargetIDList)
+        /*public void RequireUseSkill(NFGUID objectID, string strKillID, Int32 index, List<NFGUID> nTargetIDList)
         {
             NFMsg.ReqAckUseSkill xData = new NFMsg.ReqAckUseSkill();
             xData.User = mHelpModule.NFToPB(objectID);
@@ -590,15 +590,15 @@ namespace NFrame
 
 
             SendMsg((int)NFMsg.EGameMsgID.ReqSkillObjectx, mxBody);
-        }
+        }*/
 
-        public void RequireSyncPosition(NFMsg.ReqAckPlayerPosSync reqAckPlayerPosSync)
+        /*public void RequireSyncPosition(NFMsg.ReqAckPlayerPosSync reqAckPlayerPosSync)
         {
             mxBody.SetLength(0);
             reqAckPlayerPosSync.WriteTo(mxBody);
 
             SendMsg((int)NFMsg.EGameMsgID.ReqPosSync, mxBody);
-        }
+        }*/
 
         public void RequireSwapScene(int nTransferType, int nSceneID, int nLineIndex)
         {

@@ -57,8 +57,7 @@ public:
 
     virtual bool AddExp(const NFGUID& self, const int64_t exp);
 
-    virtual bool FullNPC_HPMP(const NFGUID& self);
-    virtual bool FullPlayerHp(const NFGUID& self);
+    virtual bool FullHPMP(const NFGUID& self);
     virtual bool AddHP(const NFGUID& self, const int nValue);
     virtual bool ConsumeHP(const NFGUID& self, const int nValue);
 	virtual bool EnoughHP(const NFGUID& self, const int nValue);
@@ -68,6 +67,11 @@ public:
     virtual bool ConsumeMP(const NFGUID& self, const int nValue);
 	virtual bool EnoughMP(const NFGUID& self, const int nValue);
 	virtual bool DamageMP(const NFGUID& self, const int nValue);
+
+    virtual bool FullSP(const NFGUID& self);
+    virtual bool AddSP(const NFGUID& self, const int nValue);
+    virtual bool ConsumeSP(const NFGUID& self, const int nValue);
+    virtual bool EnoughSP(const NFGUID& self, const int nValue);
 
     virtual bool AddGold(const NFGUID& self, const int64_t nValue);
     virtual bool ConsumeGold(const NFGUID& self, const int64_t nValue);
@@ -86,12 +90,12 @@ protected:
 
     int OnObjectClassEvent(const NFGUID& self, const std::string& className, const CLASS_OBJECT_EVENT classEvent, const NFDataList& var);
 
-    int OnObjectLevelEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar);
-    int OnObjectConfigIDEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar);
+    int OnObjectLevelEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const NFINT64 reason);
+    int OnObjectConfigIDEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const NFINT64 reason);
 
     int OnRecordEvent(const NFGUID& self, const RECORD_EVENT_DATA& xEventData, const NFData& oldVar, const NFData& newVar);
 
-    int onPlayerStateChange(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar);
+    int onPlayerStateChange(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const NFINT64 reason);
     int calculateHeroCount(const NFGUID& self, const RECORD_EVENT_DATA& xEventData, const NFData& oldVar, const NFData& newVar);
 
 private:
@@ -103,6 +107,7 @@ private:
     NFIClassModule* m_pClassModule;
     NFILogModule* m_pLogModule;
     NFIGameServerModule* m_pGameServerModule;
+
 };
 
 

@@ -28,7 +28,6 @@
 #include "NFGameServerModule.h"
 #include "NFComm/NFKernelPlugin/NFSceneModule.h"
 
-
 vector<string> raceType = { "Saber","Archer","Wizard" };
 vector<string> elementType = { "Aurum", "Wood", "Water", "Fire", "Earth" };
 
@@ -41,16 +40,6 @@ bool NFGameServerModule::Init()
     m_pNetModule = pPluginManager->FindModule<NFINetModule>();
     return true;
 }
-
-
-bool NFGameServerModule::AfterInit()
-{
-    m_pNetModule->AddReceiveCallBack(NFMsg::EVENT_REFRESH_SHOP, this,&NFGameServerModule::OnRefreshShop);
-    m_pNetModule->AddReceiveCallBack(NFMsg::EVENT_BUY_LEVEL, this, &NFGameServerModule::OnBuyLvL);
-    m_pNetModule->AddReceiveCallBack(NFMsg::EVENT_BUY_CHAMPION, this, &NFGameServerModule::OnBuyChampion);
-    return true;
-}
-
 
 bool NFGameServerModule::Shut()
 {
@@ -75,6 +64,7 @@ bool NFGameServerModule::Execute()
     }
     */
 #endif
+
     int64_t currentTime = NFGetTimeS();
     int deltaTime = currentTime - preTime;
     preTime = currentTime;
@@ -82,7 +72,7 @@ bool NFGameServerModule::Execute()
     vector<int> groups = m_pSceneModule->GetGroups(3);
     for (int& id : groups) {
         NFDataList playerList;
-        m_pKernelModule->GetGroupObjectList(3, id, playerList,true);
+        m_pKernelModule->GetGroupObjectList(3, id, playerList, true);
         for (int i = 0; i < playerList.GetCount(); i++) {
             const NFGUID& playerId = playerList.Object(i);
             int gameStage = m_pKernelModule->GetPropertyInt(playerId, NFrame::Player::State());
@@ -110,42 +100,50 @@ bool NFGameServerModule::Execute()
     return true;
 }
 
-
-
-bool NFGameServerModule::BeforeShut()
+bool NFGameServerModule::AfterInit()
 {
-    
+
+    m_pNetModule->AddReceiveCallBack(NFMsg::EVENT_REFRESH_SHOP, this, &NFGameServerModule::OnRefreshShop);
+    m_pNetModule->AddReceiveCallBack(NFMsg::EVENT_BUY_LEVEL, this, &NFGameServerModule::OnBuyLvL);
+    m_pNetModule->AddReceiveCallBack(NFMsg::EVENT_BUY_CHAMPION, this, &NFGameServerModule::OnBuyChampion);
     return true;
 }
 
-void NFGameServerModule::refreshShopItem(const NFGUID &id)
+bool NFGameServerModule::BeforeShut()
+{
+
+    return true;
+}
+
+
+void NFGameServerModule::refreshShopItem(const NFGUID& id)
 {
     std::shared_ptr<NFIRecord> record = m_pKernelModule->FindRecord(id, NFrame::Player::ChampionShop::ThisName());
-    
+
     int rows = record->GetUsedRows();
     if (rows < 5) {
         for (int i = 0; i < 5; i++) {
-           string race = raceType[(int)m_pKernelModule->Random(0,3)];
-           string element = elementType[(int)m_pKernelModule->Random(0,5)];
+            string race = raceType[(int)m_pKernelModule->Random(0, 3)];
+            string element = elementType[(int)m_pKernelModule->Random(0, 5)];
 
-           NFDataList tmp;
-           tmp.AddString(element);
-           tmp.AddString(race);
-           tmp.AddInt(3);
-           record->AddRow(-1, tmp);
+            NFDataList tmp;
+            tmp.AddString(element);
+            tmp.AddString(race);
+            tmp.AddInt(3);
+            record->AddRow(-1, tmp);
         }
     }
     else {
         for (int i = 0; i < 5; i++) {
-            string race = raceType[(int)m_pKernelModule->Random(0,3)];
-            string element = elementType[(int)m_pKernelModule->Random(0,5)];
+            string race = raceType[(int)m_pKernelModule->Random(0, 3)];
+            string element = elementType[(int)m_pKernelModule->Random(0, 5)];
             record->SetString(i, NFrame::Player::ChampionShop::ElementType, element);
             record->SetString(i, NFrame::Player::ChampionShop::RaceType, race);
             record->SetInt(i, NFrame::Player::ChampionShop::Cost, 3);
         }
     }
 
-    
+
     cout << record->GetUsedRows();
     cout << record->ToString() << endl;
     std::shared_ptr<NFIRecord> ownRecord = m_pKernelModule->FindRecord(id, NFrame::Player::ownInventory::ThisName());
@@ -166,12 +164,12 @@ void NFGameServerModule::OnRefreshShop(const NFSOCK sockIndex, const int msgID, 
     int goldVal = m_pKernelModule->GetPropertyInt(clientID, NFrame::Player::GameGold());
     if (goldVal >= 2) {
         goldVal -= 2;
-        if (goldVal < 0 ) goldVal = 0;
+        if (goldVal < 0) goldVal = 0;
         m_pKernelModule->SetPropertyInt(clientID, NFrame::Player::GameGold(), goldVal);
 
         refreshShopItem(clientID);
     }
-    
+
 }
 
 void NFGameServerModule::OnBuyLvL(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len)
@@ -212,14 +210,14 @@ void NFGameServerModule::OnBuyChampion(const NFSOCK sockIndex, const int msgID, 
         m_pKernelModule->SetPropertyInt(clientID, NFrame::Player::GameGold(), goldVal);
         m_pNetModule->SendMsgPB(NFMsg::ACK_EVENT_SELL_CHAMPION, xMsg, sockIndex);
     }
-    
+
 }
 
-bool NFGameServerModule::SetHeroOnInventory(NFGUID self, const string& element,const string &race)
+bool NFGameServerModule::SetHeroOnInventory(NFGUID self, const string& element, const string& race)
 {
     std::shared_ptr<NFIRecord> ownInventory = m_pKernelModule->FindRecord(self, NFrame::Player::ownInventory::ThisName());
     int rows = ownInventory->GetUsedRows();
-    if(rows >= 9)return false;
+    if (rows >= 9)return false;
     int groupID = m_pKernelModule->GetPropertyInt32(self, NFrame::Player::GroupID());
 
     NF_SHARE_PTR<NFSceneInfo> pSceneInfo = m_pSceneModule->GetElement(3);
@@ -251,5 +249,3 @@ bool NFGameServerModule::SetHeroOnInventory(NFGUID self, const string& element,c
 
     return true;
 }
-
-

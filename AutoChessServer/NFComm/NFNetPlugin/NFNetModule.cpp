@@ -135,10 +135,7 @@ bool NFNetModule::Execute()
 
     KeepAlive();
 
-    for (int i = 0; i < 10; ++i)
-	{
-		m_pNet->Execute();
-	}
+	m_pNet->Execute();
 
 	return true;
 }
@@ -393,9 +390,13 @@ NFINet* NFNetModule::GetNet()
 
 void NFNetModule::OnReceiveNetPack(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len)
 {
-	m_pLogModule->LogInfo(pPluginManager->GetAppName() + std::to_string(pPluginManager->GetAppID()) + " OnReceiveNetPack " + std::to_string(msgID), __FUNCTION__, __LINE__);
+	//m_pLogModule->LogInfo(pPluginManager->GetAppName() + std::to_string(pPluginManager->GetAppID()) + " NFNetModule::OnReceiveNetPack " + std::to_string(msgID), __FILE__, __LINE__);
 
 	NFPerformance performance;
+
+#if NF_PLATFORM != NF_PLATFORM_WIN
+	NF_CRASH_TRY
+#endif
 
     std::map<int, std::list<NET_RECEIVE_FUNCTOR_PTR>>::iterator it = mxReceiveCallBack.find(msgID);
     if (mxReceiveCallBack.end() != it)
@@ -405,13 +406,8 @@ void NFNetModule::OnReceiveNetPack(const NFSOCK sockIndex, const int msgID, cons
 		{
 			NET_RECEIVE_FUNCTOR_PTR& pFunPtr = *itList;
 			NET_RECEIVE_FUNCTOR* pFunc = pFunPtr.get();
-#if NF_PLATFORM != NF_PLATFORM_WIN
-            NF_CRASH_TRY
-#endif
+
 			pFunc->operator()(sockIndex, msgID, msg, len);
-#if NF_PLATFORM != NF_PLATFORM_WIN
-    		NF_CRASH_END_TRY
-#endif
 		}
     } 
 	else
@@ -420,17 +416,16 @@ void NFNetModule::OnReceiveNetPack(const NFSOCK sockIndex, const int msgID, cons
         {
             NET_RECEIVE_FUNCTOR_PTR& pFunPtr = *itList;
             NET_RECEIVE_FUNCTOR* pFunc = pFunPtr.get();
-#if NF_PLATFORM != NF_PLATFORM_WIN
-			NF_CRASH_TRY
-#endif
+
             pFunc->operator()(sockIndex, msgID, msg, len);
-#if NF_PLATFORM != NF_PLATFORM_WIN
-			NF_CRASH_END_TRY
-#endif
         }
     }
 
-	if (performance.CheckTimePoint(1))
+#if NF_PLATFORM != NF_PLATFORM_WIN
+	NF_CRASH_END
+#endif
+/*
+	if (performance.CheckTimePoint(5))
 	{
 		std::ostringstream os;
 		os << "---------------net module performance problem------------------- ";
@@ -439,6 +434,7 @@ void NFNetModule::OnReceiveNetPack(const NFSOCK sockIndex, const int msgID, cons
 		os << msgID;
 		m_pLogModule->LogWarning(NFGUID(0, msgID), os, __FUNCTION__, __LINE__);
 	}
+ */
 }
 
 void NFNetModule::OnSocketNetEvent(const NFSOCK sockIndex, const NF_NET_EVENT eEvent, NFINet* pNet)

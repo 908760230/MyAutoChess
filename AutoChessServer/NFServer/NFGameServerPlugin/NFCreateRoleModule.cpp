@@ -62,6 +62,7 @@ bool NFCreateRoleModule::ReadyExecute()
 	m_pNetModule->RemoveReceiveCallBack(NFMsg::REQ_ENTER_GAME);
     m_pNetModule->RemoveReceiveCallBack(NFMsg::REQ_SWAP_SCENE);
 
+
 	m_pNetModule->AddReceiveCallBack(NFMsg::REQ_ROLE_LIST, this, &NFCreateRoleModule::OnRequireRoleListProcess);
 	m_pNetModule->AddReceiveCallBack(NFMsg::REQ_CREATE_ROLE, this, &NFCreateRoleModule::OnCreateRoleGameProcess);
 	m_pNetModule->AddReceiveCallBack(NFMsg::REQ_DELETE_ROLE, this, &NFCreateRoleModule::OnDeleteRoleGameProcess);
@@ -73,66 +74,6 @@ bool NFCreateRoleModule::ReadyExecute()
 
 	return true;
 }
-
-
-void NFCreateRoleModule::OnSwapScene(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len)
-{
-    NFGUID clientID;
-    NFMsg::ReqAckSwapScene xMsg;
-    if (!m_pNetModule->ReceivePB(msgID, msg, len, xMsg, clientID))
-    {
-        return;
-    }
-
-    int sceneId = xMsg.scene_id();
-    NFVector3 pos = { 1,1,1 };
-    NFDataList args;
-
-    playerPool.emplace_back(clientID);
-    if (sceneId == 3 && playerPool.size() == 1) {
-
-        NFMsg::AckPlayerEntryList xPlayerEntryInfoList;
-        for (int i = 0; i < playerPool.size(); i++) {
-            NFMsg::PlayerEntryInfo* pEntryInfo = xPlayerEntryInfoList.add_object_list();
-            *(pEntryInfo->mutable_object_guid()) = NFINetModule::NFToPB(playerPool[i]);
-            pEntryInfo->set_x(i);
-            pEntryInfo->set_y(0);
-            pEntryInfo->set_z(0);
-            pEntryInfo->set_player_state(0);
-            pEntryInfo->set_config_id(m_pKernelModule->GetPropertyString(playerPool[i], NFrame::Player::ConfigID()));
-            pEntryInfo->set_scene_id(m_pKernelModule->GetPropertyInt32(playerPool[i], NFrame::Player::SceneID()));
-            pEntryInfo->set_class_id(m_pKernelModule->GetPropertyString(playerPool[i], NFrame::Player::ClassName()));
-
-        }
-
-        if (xPlayerEntryInfoList.object_list_size() <= 0)
-        {
-            return ;
-        }
-        int group = m_pKernelModule->RequestGroupScene(sceneId);
-        
-        for (int i = 0; i < playerPool.size(); i++)
-        {
-            m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_OBJECT_ENTRY, xPlayerEntryInfoList, playerPool[i]);
-            xMsg.set_x(i + 1);
-            pos.SetX(i + 1);
-            m_pSceneModule->RequestEnterScene(clientID, sceneId, group, 0, pos, args);
-            m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_SWAP_SCENE, xMsg, playerPool[i]);
-            m_pKernelModule->SetPropertyInt(playerPool[i], NFrame::Player::HP(), 100);
-            m_pKernelModule->SetPropertyInt(playerPool[i], NFrame::Player::State(), 0);
-            m_pKernelModule->SetPropertyInt(playerPool[i], NFrame::Player::GameGold(), 3);
-            m_pKernelModule->SetPropertyInt(playerPool[i], NFrame::Player::GameLVL(), 1);
-            m_pKernelModule->SetPropertyInt(playerPool[i], NFrame::Player::MaxHero(), 3);
-            m_pGameServerModule->refreshShopItem(playerPool[i]);
-        }
-        return;
-    }
-    else if (sceneId == 1) {
-        m_pSceneModule->RequestEnterScene(clientID, sceneId, 1, 0, pos, args);
-        m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_SWAP_SCENE, xMsg, clientID);
-    }
-}
-
 
 void NFCreateRoleModule::OnRequireRoleListProcess(const NFSOCK sockIndex, const int msgID, const char * msg, const uint32_t len)
 {
@@ -154,7 +95,6 @@ void NFCreateRoleModule::OnResponseRoleListProcess(const NFSOCK sockIndex, const
 		m_pNetModule->SendMsgWithOutHead (msgID, std::string(msg, len), xGateInfo->xServerData.nFD);
 	}
 }
-
 
 void NFCreateRoleModule::OnCreateRoleGameProcess(const NFSOCK sockIndex, const int msgID, const char * msg, const uint32_t len)
 {
@@ -275,7 +215,7 @@ void NFCreateRoleModule::OnDBLoadRoleDataProcess(const NFSOCK sockIndex, const i
 		var.AddInt(1);
 		*/
 
-		NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->CreateObject(roleID, 1, 0, NFrame::Player::ThisName(), "", var);
+		NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->CreateObject(roleID, defaultSceneID, 0, NFrame::Player::ThisName(), "", var);
 		if (nullptr == pObject)
 		{
 			//mRoleBaseData
@@ -284,7 +224,8 @@ void NFCreateRoleModule::OnDBLoadRoleDataProcess(const NFSOCK sockIndex, const i
 			return;
 		}
 
-		/////////////////////////////
+		/////other modules may move the player to other scene or group at ON_FINISHED event by require
+		/////if other modules moved the player, the group id > 0
 		const int group = m_pKernelModule->GetPropertyInt(pObject->Self(), NFrame::IObject::GroupID());
 		if (group <= 0)
 		{
@@ -295,8 +236,19 @@ void NFCreateRoleModule::OnDBLoadRoleDataProcess(const NFSOCK sockIndex, const i
 			//COE_CREATE_FINISH
 
 			/////////////////////////////
-	
-            m_pSceneProcessModule->RequestEnterScene(pObject->Self(), 1, -1, 0, {0,0,0}, NFDataList::Empty());
+			const NFVector3& pos = m_pSceneModule->GetRelivePosition(defaultSceneID, 0);
+			const int sceneType = m_pElementModule->GetPropertyInt(std::to_string(defaultSceneID), NFrame::Scene::Type());
+			if (sceneType == NFMsg::SINGLE_CLONE_SCENE)
+			{
+				const int groupID = m_pKernelModule->RequestGroupScene(defaultSceneID);
+				m_pSceneModule->SetPropertyObject(defaultSceneID, groupID, NFrame::Group::MasterID(), pObject->Self());
+
+				m_pSceneProcessModule->RequestEnterScene(pObject->Self(), defaultSceneID, groupID, 0, pos, NFDataList::Empty());
+			}
+			else if (sceneType == NFMsg::NORMAL_SCENE)
+			{
+				m_pSceneProcessModule->RequestEnterScene(pObject->Self(), defaultSceneID, 1, 0, pos, NFDataList::Empty());
+			}
 		}
 	}
 }
@@ -307,14 +259,17 @@ int NFCreateRoleModule::OnObjectPlayerEvent(const NFGUID & self, const std::stri
 	{
 		//m_pDataTailModule->LogObjectData(self);
 
+		m_pKernelModule->SetPropertyInt(self, NFrame::Player::LastOfflineTime(), NFGetTimeS());
 		SaveData(self);
 	}
 	else if (CLASS_OBJECT_EVENT::COE_CREATE_LOADDATA == classEvent)
 	{
-        //m_pDataTailModule->StartTrail(self);
-        //m_pDataTailModule->LogObjectData(self);
-        AttachData(self);
-		
+		//m_pDataTailModule->StartTrail(self);
+		//m_pDataTailModule->LogObjectData(self);
+
+		AttachData(self);
+
+		m_pKernelModule->SetPropertyInt(self, NFrame::Player::OnlineTime(), NFGetTimeS());
 	}
 	else if (CLASS_OBJECT_EVENT::COE_CREATE_FINISH == classEvent)
 	{
@@ -326,11 +281,7 @@ int NFCreateRoleModule::OnObjectPlayerEvent(const NFGUID & self, const std::stri
 
 
 		m_pScheduleModule->AddSchedule(self, "SaveDataOnTime", this, &NFCreateRoleModule::SaveDataOnTime, 180.0f, -1);
-
-    }
-    else if (CLASS_OBJECT_EVENT::COE_CREATE_HASDATA == classEvent) {
-        
-    }
+	}
 
 	return 0;
 }
@@ -355,9 +306,18 @@ void NFCreateRoleModule::AttachData(const NFGUID & self)
 			{
 				NFCommonRedisModule::ConvertPBToRecordManager(it->second.record(), xRecordManager);
 			}
+
+			mxObjectDataCache.erase(it);
+
+			xObject->SetPropertyInt(NFrame::Player::GateID(), pPluginManager->GetAppID());
+
+			auto playerGateInfo = m_pGameServerNet_ServerModule->GetPlayerGateInfo(self);
+			if (playerGateInfo)
+			{
+				xObject->SetPropertyInt(NFrame::Player::GateID(), playerGateInfo->gateID);
+			}
 		}
 	}
-    
 }
 
 void NFCreateRoleModule::SaveData(const NFGUID & self)
@@ -376,12 +336,12 @@ void NFCreateRoleModule::SaveData(const NFGUID & self)
 
 		if (xPropManager)
 		{
-			NFCommonRedisModule::ConvertPropertyManagerToPB(xPropManager, xDataPack.mutable_property());
+			NFCommonRedisModule::ConvertPropertyManagerToPB(xPropManager, xDataPack.mutable_property(), false, true);
 		}
 
 		if (xRecordManager)
 		{
-			NFCommonRedisModule::ConvertRecordManagerToPB(xRecordManager, xDataPack.mutable_record());
+			NFCommonRedisModule::ConvertRecordManagerToPB(xRecordManager, xDataPack.mutable_record(), false, true);
 		}
 
 		m_pNetClientModule->SendSuitByPB(NF_SERVER_TYPES::NF_ST_DB, self.GetData(), NFMsg::REQ_SAVE_ROLE_DATA, xDataPack);
@@ -404,3 +364,65 @@ bool NFCreateRoleModule::Execute()
     return true;
 }
 
+void NFCreateRoleModule::SetDefaultSceneID(const int sceneID)
+{
+	defaultSceneID = sceneID;
+}
+
+void NFCreateRoleModule::OnSwapScene(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len)
+{
+    NFGUID clientID;
+    NFMsg::ReqAckSwapScene xMsg;
+    if (!m_pNetModule->ReceivePB(msgID, msg, len, xMsg, clientID))
+    {
+        return;
+    }
+
+    int sceneId = xMsg.scene_id();
+    NFVector3 pos = { 1,1,1 };
+    NFDataList args;
+
+    playerPool.emplace_back(clientID);
+    if (sceneId == 3 && playerPool.size() == 1) {
+
+        NFMsg::AckPlayerEntryList xPlayerEntryInfoList;
+        for (int i = 0; i < playerPool.size(); i++) {
+            NFMsg::PlayerEntryInfo* pEntryInfo = xPlayerEntryInfoList.add_object_list();
+            *(pEntryInfo->mutable_object_guid()) = NFINetModule::NFToPB(playerPool[i]);
+            pEntryInfo->set_x(i);
+            pEntryInfo->set_y(0);
+            pEntryInfo->set_z(0);
+            pEntryInfo->set_player_state(0);
+            pEntryInfo->set_config_id(m_pKernelModule->GetPropertyString(playerPool[i], NFrame::Player::ConfigID()));
+            pEntryInfo->set_scene_id(m_pKernelModule->GetPropertyInt32(playerPool[i], NFrame::Player::SceneID()));
+            pEntryInfo->set_class_id(m_pKernelModule->GetPropertyString(playerPool[i], NFrame::Player::ClassName()));
+
+        }
+
+        if (xPlayerEntryInfoList.object_list_size() <= 0)
+        {
+            return;
+        }
+        int group = m_pKernelModule->RequestGroupScene(sceneId);
+
+        for (int i = 0; i < playerPool.size(); i++)
+        {
+            m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_OBJECT_ENTRY, xPlayerEntryInfoList, playerPool[i]);
+            xMsg.set_x(i + 1);
+            pos.SetX(i + 1);
+            m_pSceneModule->RequestEnterScene(clientID, sceneId, group, 0, pos, args);
+            m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_SWAP_SCENE, xMsg, playerPool[i]);
+            m_pKernelModule->SetPropertyInt(playerPool[i], NFrame::Player::HP(), 100);
+            m_pKernelModule->SetPropertyInt(playerPool[i], NFrame::Player::State(), 0);
+            m_pKernelModule->SetPropertyInt(playerPool[i], NFrame::Player::GameGold(), 3);
+            m_pKernelModule->SetPropertyInt(playerPool[i], NFrame::Player::GameLVL(), 1);
+            m_pKernelModule->SetPropertyInt(playerPool[i], NFrame::Player::MaxHero(), 3);
+            m_pGameServerModule->refreshShopItem(playerPool[i]);
+        }
+        return;
+    }
+    else if (sceneId == 1) {
+        m_pSceneModule->RequestEnterScene(clientID, sceneId, 1, 0, pos, args);
+        m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_SWAP_SCENE, xMsg, clientID);
+    }
+}

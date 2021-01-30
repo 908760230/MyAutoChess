@@ -2684,34 +2684,36 @@ class RoleLiteInfo PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNickNameFieldNumber = 3,
-    kViewRecordFieldNumber = 10,
+    kNoobNameFieldNumber = 5,
+    kViewRecordFieldNumber = 12,
     kIdFieldNumber = 1,
-    kSexFieldNumber = 2,
-    kGameIdFieldNumber = 4,
-    kRoleLevelFieldNumber = 5,
-    kDeleteTimeFieldNumber = 6,
-    kRegTimeFieldNumber = 7,
-    kLastOfflineTimeFieldNumber = 8,
-    kLastOfflineIpFieldNumber = 9,
+    kCareerFieldNumber = 2,
+    kSexFieldNumber = 3,
+    kRaceFieldNumber = 4,
+    kGameIdFieldNumber = 6,
+    kRoleLevelFieldNumber = 7,
+    kDeleteTimeFieldNumber = 8,
+    kRegTimeFieldNumber = 9,
+    kLastOfflineTimeFieldNumber = 10,
+    kLastOfflineIpFieldNumber = 11,
   };
-  // bytes nick_name = 3;
-  void clear_nick_name();
-  const std::string& nick_name() const;
-  void set_nick_name(const std::string& value);
-  void set_nick_name(std::string&& value);
-  void set_nick_name(const char* value);
-  void set_nick_name(const void* value, size_t size);
-  std::string* mutable_nick_name();
-  std::string* release_nick_name();
-  void set_allocated_nick_name(std::string* nick_name);
+  // bytes noob_name = 5;
+  void clear_noob_name();
+  const std::string& noob_name() const;
+  void set_noob_name(const std::string& value);
+  void set_noob_name(std::string&& value);
+  void set_noob_name(const char* value);
+  void set_noob_name(const void* value, size_t size);
+  std::string* mutable_noob_name();
+  std::string* release_noob_name();
+  void set_allocated_noob_name(std::string* noob_name);
   private:
-  const std::string& _internal_nick_name() const;
-  void _internal_set_nick_name(const std::string& value);
-  std::string* _internal_mutable_nick_name();
+  const std::string& _internal_noob_name() const;
+  void _internal_set_noob_name(const std::string& value);
+  std::string* _internal_mutable_noob_name();
   public:
 
-  // bytes view_record = 10;
+  // bytes view_record = 12;
   void clear_view_record();
   const std::string& view_record() const;
   void set_view_record(const std::string& value);
@@ -2745,7 +2747,16 @@ class RoleLiteInfo PROTOBUF_FINAL :
       ::NFMsg::Ident* id);
   ::NFMsg::Ident* unsafe_arena_release_id();
 
-  // int32 sex = 2;
+  // int32 career = 2;
+  void clear_career();
+  ::PROTOBUF_NAMESPACE_ID::int32 career() const;
+  void set_career(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_career() const;
+  void _internal_set_career(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 sex = 3;
   void clear_sex();
   ::PROTOBUF_NAMESPACE_ID::int32 sex() const;
   void set_sex(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -2754,7 +2765,16 @@ class RoleLiteInfo PROTOBUF_FINAL :
   void _internal_set_sex(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // int32 game_id = 4;
+  // int32 race = 4;
+  void clear_race();
+  ::PROTOBUF_NAMESPACE_ID::int32 race() const;
+  void set_race(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_race() const;
+  void _internal_set_race(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 game_id = 6;
   void clear_game_id();
   ::PROTOBUF_NAMESPACE_ID::int32 game_id() const;
   void set_game_id(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -2763,7 +2783,7 @@ class RoleLiteInfo PROTOBUF_FINAL :
   void _internal_set_game_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // int32 role_level = 5;
+  // int32 role_level = 7;
   void clear_role_level();
   ::PROTOBUF_NAMESPACE_ID::int32 role_level() const;
   void set_role_level(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -2772,7 +2792,7 @@ class RoleLiteInfo PROTOBUF_FINAL :
   void _internal_set_role_level(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // int32 delete_time = 6;
+  // int32 delete_time = 8;
   void clear_delete_time();
   ::PROTOBUF_NAMESPACE_ID::int32 delete_time() const;
   void set_delete_time(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -2781,7 +2801,7 @@ class RoleLiteInfo PROTOBUF_FINAL :
   void _internal_set_delete_time(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // int32 reg_time = 7;
+  // int32 reg_time = 9;
   void clear_reg_time();
   ::PROTOBUF_NAMESPACE_ID::int32 reg_time() const;
   void set_reg_time(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -2790,7 +2810,7 @@ class RoleLiteInfo PROTOBUF_FINAL :
   void _internal_set_reg_time(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // int32 last_offline_time = 8;
+  // int32 last_offline_time = 10;
   void clear_last_offline_time();
   ::PROTOBUF_NAMESPACE_ID::int32 last_offline_time() const;
   void set_last_offline_time(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -2799,7 +2819,7 @@ class RoleLiteInfo PROTOBUF_FINAL :
   void _internal_set_last_offline_time(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // int32 last_offline_ip = 9;
+  // int32 last_offline_ip = 11;
   void clear_last_offline_ip();
   ::PROTOBUF_NAMESPACE_ID::int32 last_offline_ip() const;
   void set_last_offline_ip(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -2815,10 +2835,12 @@ class RoleLiteInfo PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr nick_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr noob_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr view_record_;
   ::NFMsg::Ident* id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 career_;
   ::PROTOBUF_NAMESPACE_ID::int32 sex_;
+  ::PROTOBUF_NAMESPACE_ID::int32 race_;
   ::PROTOBUF_NAMESPACE_ID::int32 game_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 role_level_;
   ::PROTOBUF_NAMESPACE_ID::int32 delete_time_;
@@ -3108,8 +3130,10 @@ class ReqCreateRole PROTOBUF_FINAL :
 
   enum : int {
     kAccountFieldNumber = 1,
-    kNickNameFieldNumber = 3,
-    kSexFieldNumber = 2,
+    kNoobNameFieldNumber = 5,
+    kCareerFieldNumber = 2,
+    kSexFieldNumber = 3,
+    kRaceFieldNumber = 4,
   };
   // bytes account = 1;
   void clear_account();
@@ -3127,29 +3151,47 @@ class ReqCreateRole PROTOBUF_FINAL :
   std::string* _internal_mutable_account();
   public:
 
-  // bytes nick_name = 3;
-  void clear_nick_name();
-  const std::string& nick_name() const;
-  void set_nick_name(const std::string& value);
-  void set_nick_name(std::string&& value);
-  void set_nick_name(const char* value);
-  void set_nick_name(const void* value, size_t size);
-  std::string* mutable_nick_name();
-  std::string* release_nick_name();
-  void set_allocated_nick_name(std::string* nick_name);
+  // bytes noob_name = 5;
+  void clear_noob_name();
+  const std::string& noob_name() const;
+  void set_noob_name(const std::string& value);
+  void set_noob_name(std::string&& value);
+  void set_noob_name(const char* value);
+  void set_noob_name(const void* value, size_t size);
+  std::string* mutable_noob_name();
+  std::string* release_noob_name();
+  void set_allocated_noob_name(std::string* noob_name);
   private:
-  const std::string& _internal_nick_name() const;
-  void _internal_set_nick_name(const std::string& value);
-  std::string* _internal_mutable_nick_name();
+  const std::string& _internal_noob_name() const;
+  void _internal_set_noob_name(const std::string& value);
+  std::string* _internal_mutable_noob_name();
   public:
 
-  // int32 sex = 2;
+  // int32 career = 2;
+  void clear_career();
+  ::PROTOBUF_NAMESPACE_ID::int32 career() const;
+  void set_career(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_career() const;
+  void _internal_set_career(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 sex = 3;
   void clear_sex();
   ::PROTOBUF_NAMESPACE_ID::int32 sex() const;
   void set_sex(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_sex() const;
   void _internal_set_sex(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 race = 4;
+  void clear_race();
+  ::PROTOBUF_NAMESPACE_ID::int32 race() const;
+  void set_race(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_race() const;
+  void _internal_set_race(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:NFMsg.ReqCreateRole)
@@ -3160,8 +3202,10 @@ class ReqCreateRole PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr account_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr nick_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr noob_name_;
+  ::PROTOBUF_NAMESPACE_ID::int32 career_;
   ::PROTOBUF_NAMESPACE_ID::int32 sex_;
+  ::PROTOBUF_NAMESPACE_ID::int32 race_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_NFMsgPreGame_2eproto;
 };
@@ -3771,7 +3815,6 @@ class RoleOnlineNotify PROTOBUF_FINAL :
     kPropertyVector3ListFieldNumber = 25,
     kNameFieldNumber = 5,
     kSelfFieldNumber = 1,
-    kClanFieldNumber = 2,
     kGameFieldNumber = 3,
     kProxyFieldNumber = 4,
     kBpFieldNumber = 6,
@@ -3918,24 +3961,6 @@ class RoleOnlineNotify PROTOBUF_FINAL :
       ::NFMsg::Ident* self);
   ::NFMsg::Ident* unsafe_arena_release_self();
 
-  // .NFMsg.Ident clan = 2;
-  bool has_clan() const;
-  private:
-  bool _internal_has_clan() const;
-  public:
-  void clear_clan();
-  const ::NFMsg::Ident& clan() const;
-  ::NFMsg::Ident* release_clan();
-  ::NFMsg::Ident* mutable_clan();
-  void set_allocated_clan(::NFMsg::Ident* clan);
-  private:
-  const ::NFMsg::Ident& _internal_clan() const;
-  ::NFMsg::Ident* _internal_mutable_clan();
-  public:
-  void unsafe_arena_set_allocated_clan(
-      ::NFMsg::Ident* clan);
-  ::NFMsg::Ident* unsafe_arena_release_clan();
-
   // int32 game = 3;
   void clear_game();
   ::PROTOBUF_NAMESPACE_ID::int32 game() const;
@@ -3978,7 +4003,6 @@ class RoleOnlineNotify PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NFMsg::PropertyVector3 > property_vector3_list_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::NFMsg::Ident* self_;
-  ::NFMsg::Ident* clan_;
   ::PROTOBUF_NAMESPACE_ID::int32 game_;
   ::PROTOBUF_NAMESPACE_ID::int32 proxy_;
   ::PROTOBUF_NAMESPACE_ID::int32 bp_;
@@ -6439,7 +6463,27 @@ inline void RoleLiteInfo::set_allocated_id(::NFMsg::Ident* id) {
   // @@protoc_insertion_point(field_set_allocated:NFMsg.RoleLiteInfo.id)
 }
 
-// int32 sex = 2;
+// int32 career = 2;
+inline void RoleLiteInfo::clear_career() {
+  career_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RoleLiteInfo::_internal_career() const {
+  return career_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RoleLiteInfo::career() const {
+  // @@protoc_insertion_point(field_get:NFMsg.RoleLiteInfo.career)
+  return _internal_career();
+}
+inline void RoleLiteInfo::_internal_set_career(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  career_ = value;
+}
+inline void RoleLiteInfo::set_career(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_career(value);
+  // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.career)
+}
+
+// int32 sex = 3;
 inline void RoleLiteInfo::clear_sex() {
   sex_ = 0;
 }
@@ -6459,69 +6503,89 @@ inline void RoleLiteInfo::set_sex(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.sex)
 }
 
-// bytes nick_name = 3;
-inline void RoleLiteInfo::clear_nick_name() {
-  nick_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+// int32 race = 4;
+inline void RoleLiteInfo::clear_race() {
+  race_ = 0;
 }
-inline const std::string& RoleLiteInfo::nick_name() const {
-  // @@protoc_insertion_point(field_get:NFMsg.RoleLiteInfo.nick_name)
-  return _internal_nick_name();
+inline ::PROTOBUF_NAMESPACE_ID::int32 RoleLiteInfo::_internal_race() const {
+  return race_;
 }
-inline void RoleLiteInfo::set_nick_name(const std::string& value) {
-  _internal_set_nick_name(value);
-  // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.nick_name)
+inline ::PROTOBUF_NAMESPACE_ID::int32 RoleLiteInfo::race() const {
+  // @@protoc_insertion_point(field_get:NFMsg.RoleLiteInfo.race)
+  return _internal_race();
 }
-inline std::string* RoleLiteInfo::mutable_nick_name() {
-  // @@protoc_insertion_point(field_mutable:NFMsg.RoleLiteInfo.nick_name)
-  return _internal_mutable_nick_name();
-}
-inline const std::string& RoleLiteInfo::_internal_nick_name() const {
-  return nick_name_.Get();
-}
-inline void RoleLiteInfo::_internal_set_nick_name(const std::string& value) {
+inline void RoleLiteInfo::_internal_set_race(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  nick_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+  race_ = value;
 }
-inline void RoleLiteInfo::set_nick_name(std::string&& value) {
+inline void RoleLiteInfo::set_race(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_race(value);
+  // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.race)
+}
+
+// bytes noob_name = 5;
+inline void RoleLiteInfo::clear_noob_name() {
+  noob_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& RoleLiteInfo::noob_name() const {
+  // @@protoc_insertion_point(field_get:NFMsg.RoleLiteInfo.noob_name)
+  return _internal_noob_name();
+}
+inline void RoleLiteInfo::set_noob_name(const std::string& value) {
+  _internal_set_noob_name(value);
+  // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.noob_name)
+}
+inline std::string* RoleLiteInfo::mutable_noob_name() {
+  // @@protoc_insertion_point(field_mutable:NFMsg.RoleLiteInfo.noob_name)
+  return _internal_mutable_noob_name();
+}
+inline const std::string& RoleLiteInfo::_internal_noob_name() const {
+  return noob_name_.Get();
+}
+inline void RoleLiteInfo::_internal_set_noob_name(const std::string& value) {
   
-  nick_name_.Set(
+  noob_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void RoleLiteInfo::set_noob_name(std::string&& value) {
+  
+  noob_name_.Set(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:NFMsg.RoleLiteInfo.nick_name)
+  // @@protoc_insertion_point(field_set_rvalue:NFMsg.RoleLiteInfo.noob_name)
 }
-inline void RoleLiteInfo::set_nick_name(const char* value) {
+inline void RoleLiteInfo::set_noob_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  nick_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  noob_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArena());
-  // @@protoc_insertion_point(field_set_char:NFMsg.RoleLiteInfo.nick_name)
+  // @@protoc_insertion_point(field_set_char:NFMsg.RoleLiteInfo.noob_name)
 }
-inline void RoleLiteInfo::set_nick_name(const void* value,
+inline void RoleLiteInfo::set_noob_name(const void* value,
     size_t size) {
   
-  nick_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  noob_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:NFMsg.RoleLiteInfo.nick_name)
+  // @@protoc_insertion_point(field_set_pointer:NFMsg.RoleLiteInfo.noob_name)
 }
-inline std::string* RoleLiteInfo::_internal_mutable_nick_name() {
+inline std::string* RoleLiteInfo::_internal_mutable_noob_name() {
   
-  return nick_name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  return noob_name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline std::string* RoleLiteInfo::release_nick_name() {
-  // @@protoc_insertion_point(field_release:NFMsg.RoleLiteInfo.nick_name)
-  return nick_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* RoleLiteInfo::release_noob_name() {
+  // @@protoc_insertion_point(field_release:NFMsg.RoleLiteInfo.noob_name)
+  return noob_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void RoleLiteInfo::set_allocated_nick_name(std::string* nick_name) {
-  if (nick_name != nullptr) {
+inline void RoleLiteInfo::set_allocated_noob_name(std::string* noob_name) {
+  if (noob_name != nullptr) {
     
   } else {
     
   }
-  nick_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), nick_name,
+  noob_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), noob_name,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:NFMsg.RoleLiteInfo.nick_name)
+  // @@protoc_insertion_point(field_set_allocated:NFMsg.RoleLiteInfo.noob_name)
 }
 
-// int32 game_id = 4;
+// int32 game_id = 6;
 inline void RoleLiteInfo::clear_game_id() {
   game_id_ = 0;
 }
@@ -6541,7 +6605,7 @@ inline void RoleLiteInfo::set_game_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.game_id)
 }
 
-// int32 role_level = 5;
+// int32 role_level = 7;
 inline void RoleLiteInfo::clear_role_level() {
   role_level_ = 0;
 }
@@ -6561,7 +6625,7 @@ inline void RoleLiteInfo::set_role_level(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.role_level)
 }
 
-// int32 delete_time = 6;
+// int32 delete_time = 8;
 inline void RoleLiteInfo::clear_delete_time() {
   delete_time_ = 0;
 }
@@ -6581,7 +6645,7 @@ inline void RoleLiteInfo::set_delete_time(::PROTOBUF_NAMESPACE_ID::int32 value) 
   // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.delete_time)
 }
 
-// int32 reg_time = 7;
+// int32 reg_time = 9;
 inline void RoleLiteInfo::clear_reg_time() {
   reg_time_ = 0;
 }
@@ -6601,7 +6665,7 @@ inline void RoleLiteInfo::set_reg_time(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.reg_time)
 }
 
-// int32 last_offline_time = 8;
+// int32 last_offline_time = 10;
 inline void RoleLiteInfo::clear_last_offline_time() {
   last_offline_time_ = 0;
 }
@@ -6621,7 +6685,7 @@ inline void RoleLiteInfo::set_last_offline_time(::PROTOBUF_NAMESPACE_ID::int32 v
   // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.last_offline_time)
 }
 
-// int32 last_offline_ip = 9;
+// int32 last_offline_ip = 11;
 inline void RoleLiteInfo::clear_last_offline_ip() {
   last_offline_ip_ = 0;
 }
@@ -6641,7 +6705,7 @@ inline void RoleLiteInfo::set_last_offline_ip(::PROTOBUF_NAMESPACE_ID::int32 val
   // @@protoc_insertion_point(field_set:NFMsg.RoleLiteInfo.last_offline_ip)
 }
 
-// bytes view_record = 10;
+// bytes view_record = 12;
 inline void RoleLiteInfo::clear_view_record() {
   view_record_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
@@ -6874,7 +6938,27 @@ inline void ReqCreateRole::set_allocated_account(std::string* account) {
   // @@protoc_insertion_point(field_set_allocated:NFMsg.ReqCreateRole.account)
 }
 
-// int32 sex = 2;
+// int32 career = 2;
+inline void ReqCreateRole::clear_career() {
+  career_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ReqCreateRole::_internal_career() const {
+  return career_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ReqCreateRole::career() const {
+  // @@protoc_insertion_point(field_get:NFMsg.ReqCreateRole.career)
+  return _internal_career();
+}
+inline void ReqCreateRole::_internal_set_career(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  career_ = value;
+}
+inline void ReqCreateRole::set_career(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_career(value);
+  // @@protoc_insertion_point(field_set:NFMsg.ReqCreateRole.career)
+}
+
+// int32 sex = 3;
 inline void ReqCreateRole::clear_sex() {
   sex_ = 0;
 }
@@ -6894,66 +6978,86 @@ inline void ReqCreateRole::set_sex(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:NFMsg.ReqCreateRole.sex)
 }
 
-// bytes nick_name = 3;
-inline void ReqCreateRole::clear_nick_name() {
-  nick_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+// int32 race = 4;
+inline void ReqCreateRole::clear_race() {
+  race_ = 0;
 }
-inline const std::string& ReqCreateRole::nick_name() const {
-  // @@protoc_insertion_point(field_get:NFMsg.ReqCreateRole.nick_name)
-  return _internal_nick_name();
+inline ::PROTOBUF_NAMESPACE_ID::int32 ReqCreateRole::_internal_race() const {
+  return race_;
 }
-inline void ReqCreateRole::set_nick_name(const std::string& value) {
-  _internal_set_nick_name(value);
-  // @@protoc_insertion_point(field_set:NFMsg.ReqCreateRole.nick_name)
+inline ::PROTOBUF_NAMESPACE_ID::int32 ReqCreateRole::race() const {
+  // @@protoc_insertion_point(field_get:NFMsg.ReqCreateRole.race)
+  return _internal_race();
 }
-inline std::string* ReqCreateRole::mutable_nick_name() {
-  // @@protoc_insertion_point(field_mutable:NFMsg.ReqCreateRole.nick_name)
-  return _internal_mutable_nick_name();
-}
-inline const std::string& ReqCreateRole::_internal_nick_name() const {
-  return nick_name_.Get();
-}
-inline void ReqCreateRole::_internal_set_nick_name(const std::string& value) {
+inline void ReqCreateRole::_internal_set_race(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  nick_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+  race_ = value;
 }
-inline void ReqCreateRole::set_nick_name(std::string&& value) {
+inline void ReqCreateRole::set_race(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_race(value);
+  // @@protoc_insertion_point(field_set:NFMsg.ReqCreateRole.race)
+}
+
+// bytes noob_name = 5;
+inline void ReqCreateRole::clear_noob_name() {
+  noob_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& ReqCreateRole::noob_name() const {
+  // @@protoc_insertion_point(field_get:NFMsg.ReqCreateRole.noob_name)
+  return _internal_noob_name();
+}
+inline void ReqCreateRole::set_noob_name(const std::string& value) {
+  _internal_set_noob_name(value);
+  // @@protoc_insertion_point(field_set:NFMsg.ReqCreateRole.noob_name)
+}
+inline std::string* ReqCreateRole::mutable_noob_name() {
+  // @@protoc_insertion_point(field_mutable:NFMsg.ReqCreateRole.noob_name)
+  return _internal_mutable_noob_name();
+}
+inline const std::string& ReqCreateRole::_internal_noob_name() const {
+  return noob_name_.Get();
+}
+inline void ReqCreateRole::_internal_set_noob_name(const std::string& value) {
   
-  nick_name_.Set(
+  noob_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void ReqCreateRole::set_noob_name(std::string&& value) {
+  
+  noob_name_.Set(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:NFMsg.ReqCreateRole.nick_name)
+  // @@protoc_insertion_point(field_set_rvalue:NFMsg.ReqCreateRole.noob_name)
 }
-inline void ReqCreateRole::set_nick_name(const char* value) {
+inline void ReqCreateRole::set_noob_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  nick_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  noob_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArena());
-  // @@protoc_insertion_point(field_set_char:NFMsg.ReqCreateRole.nick_name)
+  // @@protoc_insertion_point(field_set_char:NFMsg.ReqCreateRole.noob_name)
 }
-inline void ReqCreateRole::set_nick_name(const void* value,
+inline void ReqCreateRole::set_noob_name(const void* value,
     size_t size) {
   
-  nick_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  noob_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:NFMsg.ReqCreateRole.nick_name)
+  // @@protoc_insertion_point(field_set_pointer:NFMsg.ReqCreateRole.noob_name)
 }
-inline std::string* ReqCreateRole::_internal_mutable_nick_name() {
+inline std::string* ReqCreateRole::_internal_mutable_noob_name() {
   
-  return nick_name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  return noob_name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline std::string* ReqCreateRole::release_nick_name() {
-  // @@protoc_insertion_point(field_release:NFMsg.ReqCreateRole.nick_name)
-  return nick_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* ReqCreateRole::release_noob_name() {
+  // @@protoc_insertion_point(field_release:NFMsg.ReqCreateRole.noob_name)
+  return noob_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void ReqCreateRole::set_allocated_nick_name(std::string* nick_name) {
-  if (nick_name != nullptr) {
+inline void ReqCreateRole::set_allocated_noob_name(std::string* noob_name) {
+  if (noob_name != nullptr) {
     
   } else {
     
   }
-  nick_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), nick_name,
+  noob_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), noob_name,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:NFMsg.ReqCreateRole.nick_name)
+  // @@protoc_insertion_point(field_set_allocated:NFMsg.ReqCreateRole.noob_name)
 }
 
 // -------------------------------------------------------------------
@@ -7355,83 +7459,6 @@ inline void RoleOnlineNotify::set_allocated_self(::NFMsg::Ident* self) {
   }
   self_ = self;
   // @@protoc_insertion_point(field_set_allocated:NFMsg.RoleOnlineNotify.self)
-}
-
-// .NFMsg.Ident clan = 2;
-inline bool RoleOnlineNotify::_internal_has_clan() const {
-  return this != internal_default_instance() && clan_ != nullptr;
-}
-inline bool RoleOnlineNotify::has_clan() const {
-  return _internal_has_clan();
-}
-inline const ::NFMsg::Ident& RoleOnlineNotify::_internal_clan() const {
-  const ::NFMsg::Ident* p = clan_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::NFMsg::Ident*>(
-      &::NFMsg::_Ident_default_instance_);
-}
-inline const ::NFMsg::Ident& RoleOnlineNotify::clan() const {
-  // @@protoc_insertion_point(field_get:NFMsg.RoleOnlineNotify.clan)
-  return _internal_clan();
-}
-inline void RoleOnlineNotify::unsafe_arena_set_allocated_clan(
-    ::NFMsg::Ident* clan) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(clan_);
-  }
-  clan_ = clan;
-  if (clan) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NFMsg.RoleOnlineNotify.clan)
-}
-inline ::NFMsg::Ident* RoleOnlineNotify::release_clan() {
-  
-  ::NFMsg::Ident* temp = clan_;
-  clan_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::NFMsg::Ident* RoleOnlineNotify::unsafe_arena_release_clan() {
-  // @@protoc_insertion_point(field_release:NFMsg.RoleOnlineNotify.clan)
-  
-  ::NFMsg::Ident* temp = clan_;
-  clan_ = nullptr;
-  return temp;
-}
-inline ::NFMsg::Ident* RoleOnlineNotify::_internal_mutable_clan() {
-  
-  if (clan_ == nullptr) {
-    auto* p = CreateMaybeMessage<::NFMsg::Ident>(GetArena());
-    clan_ = p;
-  }
-  return clan_;
-}
-inline ::NFMsg::Ident* RoleOnlineNotify::mutable_clan() {
-  // @@protoc_insertion_point(field_mutable:NFMsg.RoleOnlineNotify.clan)
-  return _internal_mutable_clan();
-}
-inline void RoleOnlineNotify::set_allocated_clan(::NFMsg::Ident* clan) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(clan_);
-  }
-  if (clan) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(clan)->GetArena();
-    if (message_arena != submessage_arena) {
-      clan = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, clan, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  clan_ = clan;
-  // @@protoc_insertion_point(field_set_allocated:NFMsg.RoleOnlineNotify.clan)
 }
 
 // int32 game = 3;

@@ -37,13 +37,8 @@
 #include "NFComm/NFPluginModule/NFIDataTailModule.h"
 #include "NFComm/NFPluginModule/NFISceneModule.h"
 #include "NFComm/NFPluginModule/NFIEventModule.h"
-
+#include "NFComm/NFPluginModule/NFICreateRoleModule.h"
 class NFIGameServerModule;
-
-class NFICreateRoleModule : public NFIModule
-{
-
-};
 
 class NFCreateRoleModule
     : public NFICreateRoleModule
@@ -61,10 +56,12 @@ public:
     virtual bool Execute();
     virtual bool AfterInit();
 
+	virtual void SetDefaultSceneID(const int sceneID);
+
 protected:
 	void OnRequireRoleListProcess(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
 	void OnResponseRoleListProcess(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
-
+	
 	void OnCreateRoleGameProcess(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
 	void OnDeleteRoleGameProcess(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
 	void OnClientEnterGameProcess(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
@@ -72,8 +69,9 @@ protected:
 	void OnDBLoadRoleDataProcess(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
 
 	int OnObjectPlayerEvent(const NFGUID & self, const std::string & className, const CLASS_OBJECT_EVENT classEvent, const NFDataList & var);
+
     void OnSwapScene(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
-    
+
 private:
 
 	void AttachData(const NFGUID& self);
@@ -83,6 +81,7 @@ private:
 
 private:
 
+	int defaultSceneID = 1;
 	std::map<NFGUID, NFMsg::RoleDataPack> mxObjectDataCache;
 
 private:
@@ -98,6 +97,7 @@ private:
 	NFIScheduleModule* m_pScheduleModule;
 	NFIDataTailModule* m_pDataTailModule;
 	NFIEventModule* m_pEventModule;
+
     NFIGameServerModule* m_pGameServerModule;
     vector<NFGUID> playerPool;
 };

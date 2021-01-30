@@ -56,39 +56,40 @@ namespace NFMsg {
             "ZF9rZXkYByABKAwiIwoPUmVxU2VsZWN0U2VydmVyEhAKCHdvcmxkX2lkGAEg",
             "ASgFIjUKEFJlcUtpY2tGcm9tV29ybGQSEAoId29ybGRfaWQYASABKAUSDwoH",
             "YWNjb3VudBgCIAEoDCIvCgtSZXFSb2xlTGlzdBIPCgdnYW1lX2lkGAEgASgF",
-            "Eg8KB2FjY291bnQYAiABKAwi3QEKDFJvbGVMaXRlSW5mbxIYCgJpZBgBIAEo",
-            "CzIMLk5GTXNnLklkZW50EgsKA3NleBgCIAEoBRIRCgluaWNrX25hbWUYAyAB",
-            "KAwSDwoHZ2FtZV9pZBgEIAEoBRISCgpyb2xlX2xldmVsGAUgASgFEhMKC2Rl",
-            "bGV0ZV90aW1lGAYgASgFEhAKCHJlZ190aW1lGAcgASgFEhkKEWxhc3Rfb2Zm",
-            "bGluZV90aW1lGAggASgFEhcKD2xhc3Rfb2ZmbGluZV9pcBgJIAEoBRITCgt2",
-            "aWV3X3JlY29yZBgKIAEoDCJOChNBY2tSb2xlTGl0ZUluZm9MaXN0EiYKCWNo",
-            "YXJfZGF0YRgBIAMoCzITLk5GTXNnLlJvbGVMaXRlSW5mbxIPCgdhY2NvdW50",
-            "GAIgASgMIkAKDVJlcUNyZWF0ZVJvbGUSDwoHYWNjb3VudBgBIAEoDBILCgNz",
-            "ZXgYAiABKAUSEQoJbmlja19uYW1lGAMgASgMIj8KDVJlcURlbGV0ZVJvbGUS",
-            "DwoHYWNjb3VudBgBIAEoDBIMCgRuYW1lGAIgASgMEg8KB2dhbWVfaWQYAyAB",
-            "KAUiQAoOUmVxUmVjb3ZlclJvbGUSDwoHYWNjb3VudBgBIAEoDBIMCgRuYW1l",
-            "GAIgASgMEg8KB2dhbWVfaWQYAyABKAUiIAoPU2VydmVySGVhcnRCZWF0Eg0K",
-            "BWNvdW50GAEgASgFIrsDChBSb2xlT25saW5lTm90aWZ5EhoKBHNlbGYYASAB",
-            "KAsyDC5ORk1zZy5JZGVudBIaCgRjbGFuGAIgASgLMgwuTkZNc2cuSWRlbnQS",
-            "DAoEZ2FtZRgDIAEoBRINCgVwcm94eRgEIAEoBRIMCgRuYW1lGAUgASgMEgoK",
-            "AmJwGAYgASgFEi0KEXByb3BlcnR5X2ludF9saXN0GBQgAygLMhIuTkZNc2cu",
-            "UHJvcGVydHlJbnQSMQoTcHJvcGVydHlfZmxvYXRfbGlzdBgVIAMoCzIULk5G",
-            "TXNnLlByb3BlcnR5RmxvYXQSMwoUcHJvcGVydHlfc3RyaW5nX2xpc3QYFiAD",
-            "KAsyFS5ORk1zZy5Qcm9wZXJ0eVN0cmluZxIzChRwcm9wZXJ0eV9vYmplY3Rf",
-            "bGlzdBgXIAMoCzIVLk5GTXNnLlByb3BlcnR5T2JqZWN0EjUKFXByb3BlcnR5",
-            "X3ZlY3RvcjJfbGlzdBgYIAMoCzIWLk5GTXNnLlByb3BlcnR5VmVjdG9yMhI1",
-            "ChVwcm9wZXJ0eV92ZWN0b3IzX2xpc3QYGSADKAsyFi5ORk1zZy5Qcm9wZXJ0",
-            "eVZlY3RvcjMiaAoRUm9sZU9mZmxpbmVOb3RpZnkSGgoEc2VsZhgBIAEoCzIM",
-            "Lk5GTXNnLklkZW50EhoKBGNsYW4YAiABKAsyDC5ORk1zZy5JZGVudBIMCgRn",
-            "YW1lGAMgASgFEg0KBXByb3h5GAQgASgFIn4KDFJvbGVEYXRhUGFjaxIYCgJp",
-            "ZBgBIAEoCzIMLk5GTXNnLklkZW50EisKCHByb3BlcnR5GAIgASgLMhkuTkZN",
-            "c2cuT2JqZWN0UHJvcGVydHlMaXN0EicKBnJlY29yZBgDIAEoCzIXLk5GTXNn",
-            "Lk9iamVjdFJlY29yZExpc3QqWgoMRVNlcnZlclN0YXRlEg0KCUVTVF9DUkFT",
-            "SBAAEg4KCkVTVF9OQVJNQUwQARIMCghFU1RfQlVTWRACEgwKCEVTVF9GSVJF",
-            "EAMSDwoLRVNUX01BSU5URU4QBCpKCgpFTG9naW5Nb2RlEg0KCUVMTV9MT0dJ",
-            "ThAAEhAKDEVMTV9SRUdJU1RFUhABEhsKF0VMTV9BVVRPX1JFR0lTVEVSX0xP",
-            "R0lOEAIqQAoRUmVxU2VydmVyTGlzdFR5cGUSFQoRUlNMVF9XT1JMRF9TRVJW",
-            "RVIQABIUChBSU0xUX0dBTUVTX0VSVkVSEAFiBnByb3RvMw=="));
+            "Eg8KB2FjY291bnQYAiABKAwi+wEKDFJvbGVMaXRlSW5mbxIYCgJpZBgBIAEo",
+            "CzIMLk5GTXNnLklkZW50Eg4KBmNhcmVlchgCIAEoBRILCgNzZXgYAyABKAUS",
+            "DAoEcmFjZRgEIAEoBRIRCglub29iX25hbWUYBSABKAwSDwoHZ2FtZV9pZBgG",
+            "IAEoBRISCgpyb2xlX2xldmVsGAcgASgFEhMKC2RlbGV0ZV90aW1lGAggASgF",
+            "EhAKCHJlZ190aW1lGAkgASgFEhkKEWxhc3Rfb2ZmbGluZV90aW1lGAogASgF",
+            "EhcKD2xhc3Rfb2ZmbGluZV9pcBgLIAEoBRITCgt2aWV3X3JlY29yZBgMIAEo",
+            "DCJOChNBY2tSb2xlTGl0ZUluZm9MaXN0EiYKCWNoYXJfZGF0YRgBIAMoCzIT",
+            "Lk5GTXNnLlJvbGVMaXRlSW5mbxIPCgdhY2NvdW50GAIgASgMIl4KDVJlcUNy",
+            "ZWF0ZVJvbGUSDwoHYWNjb3VudBgBIAEoDBIOCgZjYXJlZXIYAiABKAUSCwoD",
+            "c2V4GAMgASgFEgwKBHJhY2UYBCABKAUSEQoJbm9vYl9uYW1lGAUgASgMIj8K",
+            "DVJlcURlbGV0ZVJvbGUSDwoHYWNjb3VudBgBIAEoDBIMCgRuYW1lGAIgASgM",
+            "Eg8KB2dhbWVfaWQYAyABKAUiQAoOUmVxUmVjb3ZlclJvbGUSDwoHYWNjb3Vu",
+            "dBgBIAEoDBIMCgRuYW1lGAIgASgMEg8KB2dhbWVfaWQYAyABKAUiIAoPU2Vy",
+            "dmVySGVhcnRCZWF0Eg0KBWNvdW50GAEgASgFIp8DChBSb2xlT25saW5lTm90",
+            "aWZ5EhoKBHNlbGYYASABKAsyDC5ORk1zZy5JZGVudBIMCgRnYW1lGAMgASgF",
+            "Eg0KBXByb3h5GAQgASgFEgwKBG5hbWUYBSABKAwSCgoCYnAYBiABKAUSLQoR",
+            "cHJvcGVydHlfaW50X2xpc3QYFCADKAsyEi5ORk1zZy5Qcm9wZXJ0eUludBIx",
+            "ChNwcm9wZXJ0eV9mbG9hdF9saXN0GBUgAygLMhQuTkZNc2cuUHJvcGVydHlG",
+            "bG9hdBIzChRwcm9wZXJ0eV9zdHJpbmdfbGlzdBgWIAMoCzIVLk5GTXNnLlBy",
+            "b3BlcnR5U3RyaW5nEjMKFHByb3BlcnR5X29iamVjdF9saXN0GBcgAygLMhUu",
+            "TkZNc2cuUHJvcGVydHlPYmplY3QSNQoVcHJvcGVydHlfdmVjdG9yMl9saXN0",
+            "GBggAygLMhYuTkZNc2cuUHJvcGVydHlWZWN0b3IyEjUKFXByb3BlcnR5X3Zl",
+            "Y3RvcjNfbGlzdBgZIAMoCzIWLk5GTXNnLlByb3BlcnR5VmVjdG9yMyJoChFS",
+            "b2xlT2ZmbGluZU5vdGlmeRIaCgRzZWxmGAEgASgLMgwuTkZNc2cuSWRlbnQS",
+            "GgoEY2xhbhgCIAEoCzIMLk5GTXNnLklkZW50EgwKBGdhbWUYAyABKAUSDQoF",
+            "cHJveHkYBCABKAUifgoMUm9sZURhdGFQYWNrEhgKAmlkGAEgASgLMgwuTkZN",
+            "c2cuSWRlbnQSKwoIcHJvcGVydHkYAiABKAsyGS5ORk1zZy5PYmplY3RQcm9w",
+            "ZXJ0eUxpc3QSJwoGcmVjb3JkGAMgASgLMhcuTkZNc2cuT2JqZWN0UmVjb3Jk",
+            "TGlzdCpaCgxFU2VydmVyU3RhdGUSDQoJRVNUX0NSQVNIEAASDgoKRVNUX05B",
+            "Uk1BTBABEgwKCEVTVF9CVVNZEAISDAoIRVNUX0ZJUkUQAxIPCgtFU1RfTUFJ",
+            "TlRFThAEKkoKCkVMb2dpbk1vZGUSDQoJRUxNX0xPR0lOEAASEAoMRUxNX1JF",
+            "R0lTVEVSEAESGwoXRUxNX0FVVE9fUkVHSVNURVJfTE9HSU4QAipAChFSZXFT",
+            "ZXJ2ZXJMaXN0VHlwZRIVChFSU0xUX1dPUkxEX1NFUlZFUhAAEhQKEFJTTFRf",
+            "R0FNRVNfRVJWRVIQAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::NFMsg.NFDefineReflection.Descriptor, global::NFMsg.NFMsgBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::NFMsg.EServerState), typeof(global::NFMsg.ELoginMode), typeof(global::NFMsg.ReqServerListType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -105,13 +106,13 @@ namespace NFMsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqSelectServer), global::NFMsg.ReqSelectServer.Parser, new[]{ "WorldId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqKickFromWorld), global::NFMsg.ReqKickFromWorld.Parser, new[]{ "WorldId", "Account" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqRoleList), global::NFMsg.ReqRoleList.Parser, new[]{ "GameId", "Account" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.RoleLiteInfo), global::NFMsg.RoleLiteInfo.Parser, new[]{ "Id", "Sex", "NickName", "GameId", "RoleLevel", "DeleteTime", "RegTime", "LastOfflineTime", "LastOfflineIp", "ViewRecord" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.RoleLiteInfo), global::NFMsg.RoleLiteInfo.Parser, new[]{ "Id", "Career", "Sex", "Race", "NoobName", "GameId", "RoleLevel", "DeleteTime", "RegTime", "LastOfflineTime", "LastOfflineIp", "ViewRecord" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.AckRoleLiteInfoList), global::NFMsg.AckRoleLiteInfoList.Parser, new[]{ "CharData", "Account" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqCreateRole), global::NFMsg.ReqCreateRole.Parser, new[]{ "Account", "Sex", "NickName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqCreateRole), global::NFMsg.ReqCreateRole.Parser, new[]{ "Account", "Career", "Sex", "Race", "NoobName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqDeleteRole), global::NFMsg.ReqDeleteRole.Parser, new[]{ "Account", "Name", "GameId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqRecoverRole), global::NFMsg.ReqRecoverRole.Parser, new[]{ "Account", "Name", "GameId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ServerHeartBeat), global::NFMsg.ServerHeartBeat.Parser, new[]{ "Count" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.RoleOnlineNotify), global::NFMsg.RoleOnlineNotify.Parser, new[]{ "Self", "Clan", "Game", "Proxy", "Name", "Bp", "PropertyIntList", "PropertyFloatList", "PropertyStringList", "PropertyObjectList", "PropertyVector2List", "PropertyVector3List" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.RoleOnlineNotify), global::NFMsg.RoleOnlineNotify.Parser, new[]{ "Self", "Game", "Proxy", "Name", "Bp", "PropertyIntList", "PropertyFloatList", "PropertyStringList", "PropertyObjectList", "PropertyVector2List", "PropertyVector3List" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.RoleOfflineNotify), global::NFMsg.RoleOfflineNotify.Parser, new[]{ "Self", "Clan", "Game", "Proxy" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.RoleDataPack), global::NFMsg.RoleDataPack.Parser, new[]{ "Id", "Property", "Record" }, null, null, null, null)
           }));
@@ -3697,8 +3698,10 @@ namespace NFMsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public RoleLiteInfo(RoleLiteInfo other) : this() {
       id_ = other.id_ != null ? other.id_.Clone() : null;
+      career_ = other.career_;
       sex_ = other.sex_;
-      nickName_ = other.nickName_;
+      race_ = other.race_;
+      noobName_ = other.noobName_;
       gameId_ = other.gameId_;
       roleLevel_ = other.roleLevel_;
       deleteTime_ = other.deleteTime_;
@@ -3725,8 +3728,19 @@ namespace NFMsg {
       }
     }
 
+    /// <summary>Field number for the "career" field.</summary>
+    public const int CareerFieldNumber = 2;
+    private int career_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Career {
+      get { return career_; }
+      set {
+        career_ = value;
+      }
+    }
+
     /// <summary>Field number for the "sex" field.</summary>
-    public const int SexFieldNumber = 2;
+    public const int SexFieldNumber = 3;
     private int sex_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Sex {
@@ -3736,19 +3750,30 @@ namespace NFMsg {
       }
     }
 
-    /// <summary>Field number for the "nick_name" field.</summary>
-    public const int NickNameFieldNumber = 3;
-    private pb::ByteString nickName_ = pb::ByteString.Empty;
+    /// <summary>Field number for the "race" field.</summary>
+    public const int RaceFieldNumber = 4;
+    private int race_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString NickName {
-      get { return nickName_; }
+    public int Race {
+      get { return race_; }
       set {
-        nickName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        race_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "noob_name" field.</summary>
+    public const int NoobNameFieldNumber = 5;
+    private pb::ByteString noobName_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString NoobName {
+      get { return noobName_; }
+      set {
+        noobName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "game_id" field.</summary>
-    public const int GameIdFieldNumber = 4;
+    public const int GameIdFieldNumber = 6;
     private int gameId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int GameId {
@@ -3759,7 +3784,7 @@ namespace NFMsg {
     }
 
     /// <summary>Field number for the "role_level" field.</summary>
-    public const int RoleLevelFieldNumber = 5;
+    public const int RoleLevelFieldNumber = 7;
     private int roleLevel_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int RoleLevel {
@@ -3770,7 +3795,7 @@ namespace NFMsg {
     }
 
     /// <summary>Field number for the "delete_time" field.</summary>
-    public const int DeleteTimeFieldNumber = 6;
+    public const int DeleteTimeFieldNumber = 8;
     private int deleteTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int DeleteTime {
@@ -3781,7 +3806,7 @@ namespace NFMsg {
     }
 
     /// <summary>Field number for the "reg_time" field.</summary>
-    public const int RegTimeFieldNumber = 7;
+    public const int RegTimeFieldNumber = 9;
     private int regTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int RegTime {
@@ -3792,7 +3817,7 @@ namespace NFMsg {
     }
 
     /// <summary>Field number for the "last_offline_time" field.</summary>
-    public const int LastOfflineTimeFieldNumber = 8;
+    public const int LastOfflineTimeFieldNumber = 10;
     private int lastOfflineTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int LastOfflineTime {
@@ -3803,7 +3828,7 @@ namespace NFMsg {
     }
 
     /// <summary>Field number for the "last_offline_ip" field.</summary>
-    public const int LastOfflineIpFieldNumber = 9;
+    public const int LastOfflineIpFieldNumber = 11;
     private int lastOfflineIp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int LastOfflineIp {
@@ -3814,7 +3839,7 @@ namespace NFMsg {
     }
 
     /// <summary>Field number for the "view_record" field.</summary>
-    public const int ViewRecordFieldNumber = 10;
+    public const int ViewRecordFieldNumber = 12;
     private pb::ByteString viewRecord_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString ViewRecord {
@@ -3838,8 +3863,10 @@ namespace NFMsg {
         return true;
       }
       if (!object.Equals(Id, other.Id)) return false;
+      if (Career != other.Career) return false;
       if (Sex != other.Sex) return false;
-      if (NickName != other.NickName) return false;
+      if (Race != other.Race) return false;
+      if (NoobName != other.NoobName) return false;
       if (GameId != other.GameId) return false;
       if (RoleLevel != other.RoleLevel) return false;
       if (DeleteTime != other.DeleteTime) return false;
@@ -3854,8 +3881,10 @@ namespace NFMsg {
     public override int GetHashCode() {
       int hash = 1;
       if (id_ != null) hash ^= Id.GetHashCode();
+      if (Career != 0) hash ^= Career.GetHashCode();
       if (Sex != 0) hash ^= Sex.GetHashCode();
-      if (NickName.Length != 0) hash ^= NickName.GetHashCode();
+      if (Race != 0) hash ^= Race.GetHashCode();
+      if (NoobName.Length != 0) hash ^= NoobName.GetHashCode();
       if (GameId != 0) hash ^= GameId.GetHashCode();
       if (RoleLevel != 0) hash ^= RoleLevel.GetHashCode();
       if (DeleteTime != 0) hash ^= DeleteTime.GetHashCode();
@@ -3883,40 +3912,48 @@ namespace NFMsg {
         output.WriteRawTag(10);
         output.WriteMessage(Id);
       }
-      if (Sex != 0) {
+      if (Career != 0) {
         output.WriteRawTag(16);
+        output.WriteInt32(Career);
+      }
+      if (Sex != 0) {
+        output.WriteRawTag(24);
         output.WriteInt32(Sex);
       }
-      if (NickName.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(NickName);
+      if (Race != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Race);
+      }
+      if (NoobName.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteBytes(NoobName);
       }
       if (GameId != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(48);
         output.WriteInt32(GameId);
       }
       if (RoleLevel != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(56);
         output.WriteInt32(RoleLevel);
       }
       if (DeleteTime != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(64);
         output.WriteInt32(DeleteTime);
       }
       if (RegTime != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(72);
         output.WriteInt32(RegTime);
       }
       if (LastOfflineTime != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(80);
         output.WriteInt32(LastOfflineTime);
       }
       if (LastOfflineIp != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(88);
         output.WriteInt32(LastOfflineIp);
       }
       if (ViewRecord.Length != 0) {
-        output.WriteRawTag(82);
+        output.WriteRawTag(98);
         output.WriteBytes(ViewRecord);
       }
       if (_unknownFields != null) {
@@ -3932,40 +3969,48 @@ namespace NFMsg {
         output.WriteRawTag(10);
         output.WriteMessage(Id);
       }
-      if (Sex != 0) {
+      if (Career != 0) {
         output.WriteRawTag(16);
+        output.WriteInt32(Career);
+      }
+      if (Sex != 0) {
+        output.WriteRawTag(24);
         output.WriteInt32(Sex);
       }
-      if (NickName.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(NickName);
+      if (Race != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Race);
+      }
+      if (NoobName.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteBytes(NoobName);
       }
       if (GameId != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(48);
         output.WriteInt32(GameId);
       }
       if (RoleLevel != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(56);
         output.WriteInt32(RoleLevel);
       }
       if (DeleteTime != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(64);
         output.WriteInt32(DeleteTime);
       }
       if (RegTime != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(72);
         output.WriteInt32(RegTime);
       }
       if (LastOfflineTime != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(80);
         output.WriteInt32(LastOfflineTime);
       }
       if (LastOfflineIp != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(88);
         output.WriteInt32(LastOfflineIp);
       }
       if (ViewRecord.Length != 0) {
-        output.WriteRawTag(82);
+        output.WriteRawTag(98);
         output.WriteBytes(ViewRecord);
       }
       if (_unknownFields != null) {
@@ -3980,11 +4025,17 @@ namespace NFMsg {
       if (id_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
       }
+      if (Career != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Career);
+      }
       if (Sex != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Sex);
       }
-      if (NickName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(NickName);
+      if (Race != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Race);
+      }
+      if (NoobName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(NoobName);
       }
       if (GameId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(GameId);
@@ -4024,11 +4075,17 @@ namespace NFMsg {
         }
         Id.MergeFrom(other.Id);
       }
+      if (other.Career != 0) {
+        Career = other.Career;
+      }
       if (other.Sex != 0) {
         Sex = other.Sex;
       }
-      if (other.NickName.Length != 0) {
-        NickName = other.NickName;
+      if (other.Race != 0) {
+        Race = other.Race;
+      }
+      if (other.NoobName.Length != 0) {
+        NoobName = other.NoobName;
       }
       if (other.GameId != 0) {
         GameId = other.GameId;
@@ -4073,38 +4130,46 @@ namespace NFMsg {
             break;
           }
           case 16: {
+            Career = input.ReadInt32();
+            break;
+          }
+          case 24: {
             Sex = input.ReadInt32();
             break;
           }
-          case 26: {
-            NickName = input.ReadBytes();
-            break;
-          }
           case 32: {
-            GameId = input.ReadInt32();
+            Race = input.ReadInt32();
             break;
           }
-          case 40: {
-            RoleLevel = input.ReadInt32();
+          case 42: {
+            NoobName = input.ReadBytes();
             break;
           }
           case 48: {
-            DeleteTime = input.ReadInt32();
+            GameId = input.ReadInt32();
             break;
           }
           case 56: {
-            RegTime = input.ReadInt32();
+            RoleLevel = input.ReadInt32();
             break;
           }
           case 64: {
-            LastOfflineTime = input.ReadInt32();
+            DeleteTime = input.ReadInt32();
             break;
           }
           case 72: {
+            RegTime = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            LastOfflineTime = input.ReadInt32();
+            break;
+          }
+          case 88: {
             LastOfflineIp = input.ReadInt32();
             break;
           }
-          case 82: {
+          case 98: {
             ViewRecord = input.ReadBytes();
             break;
           }
@@ -4130,38 +4195,46 @@ namespace NFMsg {
             break;
           }
           case 16: {
+            Career = input.ReadInt32();
+            break;
+          }
+          case 24: {
             Sex = input.ReadInt32();
             break;
           }
-          case 26: {
-            NickName = input.ReadBytes();
-            break;
-          }
           case 32: {
-            GameId = input.ReadInt32();
+            Race = input.ReadInt32();
             break;
           }
-          case 40: {
-            RoleLevel = input.ReadInt32();
+          case 42: {
+            NoobName = input.ReadBytes();
             break;
           }
           case 48: {
-            DeleteTime = input.ReadInt32();
+            GameId = input.ReadInt32();
             break;
           }
           case 56: {
-            RegTime = input.ReadInt32();
+            RoleLevel = input.ReadInt32();
             break;
           }
           case 64: {
-            LastOfflineTime = input.ReadInt32();
+            DeleteTime = input.ReadInt32();
             break;
           }
           case 72: {
+            RegTime = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            LastOfflineTime = input.ReadInt32();
+            break;
+          }
+          case 88: {
             LastOfflineIp = input.ReadInt32();
             break;
           }
-          case 82: {
+          case 98: {
             ViewRecord = input.ReadBytes();
             break;
           }
@@ -4399,8 +4472,10 @@ namespace NFMsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ReqCreateRole(ReqCreateRole other) : this() {
       account_ = other.account_;
+      career_ = other.career_;
       sex_ = other.sex_;
-      nickName_ = other.nickName_;
+      race_ = other.race_;
+      noobName_ = other.noobName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4420,8 +4495,19 @@ namespace NFMsg {
       }
     }
 
+    /// <summary>Field number for the "career" field.</summary>
+    public const int CareerFieldNumber = 2;
+    private int career_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Career {
+      get { return career_; }
+      set {
+        career_ = value;
+      }
+    }
+
     /// <summary>Field number for the "sex" field.</summary>
-    public const int SexFieldNumber = 2;
+    public const int SexFieldNumber = 3;
     private int sex_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Sex {
@@ -4431,14 +4517,25 @@ namespace NFMsg {
       }
     }
 
-    /// <summary>Field number for the "nick_name" field.</summary>
-    public const int NickNameFieldNumber = 3;
-    private pb::ByteString nickName_ = pb::ByteString.Empty;
+    /// <summary>Field number for the "race" field.</summary>
+    public const int RaceFieldNumber = 4;
+    private int race_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString NickName {
-      get { return nickName_; }
+    public int Race {
+      get { return race_; }
       set {
-        nickName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        race_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "noob_name" field.</summary>
+    public const int NoobNameFieldNumber = 5;
+    private pb::ByteString noobName_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString NoobName {
+      get { return noobName_; }
+      set {
+        noobName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -4456,8 +4553,10 @@ namespace NFMsg {
         return true;
       }
       if (Account != other.Account) return false;
+      if (Career != other.Career) return false;
       if (Sex != other.Sex) return false;
-      if (NickName != other.NickName) return false;
+      if (Race != other.Race) return false;
+      if (NoobName != other.NoobName) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4465,8 +4564,10 @@ namespace NFMsg {
     public override int GetHashCode() {
       int hash = 1;
       if (Account.Length != 0) hash ^= Account.GetHashCode();
+      if (Career != 0) hash ^= Career.GetHashCode();
       if (Sex != 0) hash ^= Sex.GetHashCode();
-      if (NickName.Length != 0) hash ^= NickName.GetHashCode();
+      if (Race != 0) hash ^= Race.GetHashCode();
+      if (NoobName.Length != 0) hash ^= NoobName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4487,13 +4588,21 @@ namespace NFMsg {
         output.WriteRawTag(10);
         output.WriteBytes(Account);
       }
-      if (Sex != 0) {
+      if (Career != 0) {
         output.WriteRawTag(16);
+        output.WriteInt32(Career);
+      }
+      if (Sex != 0) {
+        output.WriteRawTag(24);
         output.WriteInt32(Sex);
       }
-      if (NickName.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(NickName);
+      if (Race != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Race);
+      }
+      if (NoobName.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteBytes(NoobName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4508,13 +4617,21 @@ namespace NFMsg {
         output.WriteRawTag(10);
         output.WriteBytes(Account);
       }
-      if (Sex != 0) {
+      if (Career != 0) {
         output.WriteRawTag(16);
+        output.WriteInt32(Career);
+      }
+      if (Sex != 0) {
+        output.WriteRawTag(24);
         output.WriteInt32(Sex);
       }
-      if (NickName.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(NickName);
+      if (Race != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Race);
+      }
+      if (NoobName.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteBytes(NoobName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -4528,11 +4645,17 @@ namespace NFMsg {
       if (Account.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Account);
       }
+      if (Career != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Career);
+      }
       if (Sex != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Sex);
       }
-      if (NickName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(NickName);
+      if (Race != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Race);
+      }
+      if (NoobName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(NoobName);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4548,11 +4671,17 @@ namespace NFMsg {
       if (other.Account.Length != 0) {
         Account = other.Account;
       }
+      if (other.Career != 0) {
+        Career = other.Career;
+      }
       if (other.Sex != 0) {
         Sex = other.Sex;
       }
-      if (other.NickName.Length != 0) {
-        NickName = other.NickName;
+      if (other.Race != 0) {
+        Race = other.Race;
+      }
+      if (other.NoobName.Length != 0) {
+        NoobName = other.NoobName;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4573,11 +4702,19 @@ namespace NFMsg {
             break;
           }
           case 16: {
+            Career = input.ReadInt32();
+            break;
+          }
+          case 24: {
             Sex = input.ReadInt32();
             break;
           }
-          case 26: {
-            NickName = input.ReadBytes();
+          case 32: {
+            Race = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            NoobName = input.ReadBytes();
             break;
           }
         }
@@ -4599,11 +4736,19 @@ namespace NFMsg {
             break;
           }
           case 16: {
+            Career = input.ReadInt32();
+            break;
+          }
+          case 24: {
             Sex = input.ReadInt32();
             break;
           }
-          case 26: {
-            NickName = input.ReadBytes();
+          case 32: {
+            Race = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            NoobName = input.ReadBytes();
             break;
           }
         }
@@ -5303,7 +5448,6 @@ namespace NFMsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public RoleOnlineNotify(RoleOnlineNotify other) : this() {
       self_ = other.self_ != null ? other.self_.Clone() : null;
-      clan_ = other.clan_ != null ? other.clan_.Clone() : null;
       game_ = other.game_;
       proxy_ = other.proxy_;
       name_ = other.name_;
@@ -5330,17 +5474,6 @@ namespace NFMsg {
       get { return self_; }
       set {
         self_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "clan" field.</summary>
-    public const int ClanFieldNumber = 2;
-    private global::NFMsg.Ident clan_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::NFMsg.Ident Clan {
-      get { return clan_; }
-      set {
-        clan_ = value;
       }
     }
 
@@ -5462,7 +5595,6 @@ namespace NFMsg {
         return true;
       }
       if (!object.Equals(Self, other.Self)) return false;
-      if (!object.Equals(Clan, other.Clan)) return false;
       if (Game != other.Game) return false;
       if (Proxy != other.Proxy) return false;
       if (Name != other.Name) return false;
@@ -5480,7 +5612,6 @@ namespace NFMsg {
     public override int GetHashCode() {
       int hash = 1;
       if (self_ != null) hash ^= Self.GetHashCode();
-      if (clan_ != null) hash ^= Clan.GetHashCode();
       if (Game != 0) hash ^= Game.GetHashCode();
       if (Proxy != 0) hash ^= Proxy.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
@@ -5510,10 +5641,6 @@ namespace NFMsg {
       if (self_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Self);
-      }
-      if (clan_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Clan);
       }
       if (Game != 0) {
         output.WriteRawTag(24);
@@ -5550,10 +5677,6 @@ namespace NFMsg {
         output.WriteRawTag(10);
         output.WriteMessage(Self);
       }
-      if (clan_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Clan);
-      }
       if (Game != 0) {
         output.WriteRawTag(24);
         output.WriteInt32(Game);
@@ -5587,9 +5710,6 @@ namespace NFMsg {
       int size = 0;
       if (self_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Self);
-      }
-      if (clan_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Clan);
       }
       if (Game != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Game);
@@ -5625,12 +5745,6 @@ namespace NFMsg {
           Self = new global::NFMsg.Ident();
         }
         Self.MergeFrom(other.Self);
-      }
-      if (other.clan_ != null) {
-        if (clan_ == null) {
-          Clan = new global::NFMsg.Ident();
-        }
-        Clan.MergeFrom(other.Clan);
       }
       if (other.Game != 0) {
         Game = other.Game;
@@ -5669,13 +5783,6 @@ namespace NFMsg {
               Self = new global::NFMsg.Ident();
             }
             input.ReadMessage(Self);
-            break;
-          }
-          case 18: {
-            if (clan_ == null) {
-              Clan = new global::NFMsg.Ident();
-            }
-            input.ReadMessage(Clan);
             break;
           }
           case 24: {
@@ -5737,13 +5844,6 @@ namespace NFMsg {
               Self = new global::NFMsg.Ident();
             }
             input.ReadMessage(Self);
-            break;
-          }
-          case 18: {
-            if (clan_ == null) {
-              Clan = new global::NFMsg.Ident();
-            }
-            input.ReadMessage(Clan);
             break;
           }
           case 24: {

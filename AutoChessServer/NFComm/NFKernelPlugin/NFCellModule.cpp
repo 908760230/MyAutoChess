@@ -232,7 +232,7 @@ const bool NFCellModule::DestroyGroupCell(const int & sceneID, const int & group
 
 const NFGUID NFCellModule::OnObjectMove(const NFGUID& self, const int& sceneID, const int& groupID, const NFGUID& fromCell, const NFGUID& toCell)
 {
-    if (toCell == toCell)
+    if (fromCell == toCell)
     {
         return toCell;
     }
@@ -324,7 +324,7 @@ const NFGUID NFCellModule::ComputeCellID(const NFGUID & selfGrid, ECELL_DIRECTIO
 		return NFGUID(selfGrid.nHead64 + 1, selfGrid.nData64);
 		break;
 	case ECELL_LEFT_TOP:
-		return NFGUID(selfGrid.nHead64 + 1, selfGrid.nData64 + 1);
+		return NFGUID(selfGrid.nHead64 - 1, selfGrid.nData64 + 1);
 		break;
 	case ECELL_LEFT_DOWN:
 		return NFGUID(selfGrid.nHead64 - 1, selfGrid.nData64 - 1);
@@ -462,7 +462,7 @@ int NFCellModule::OnObjectEvent(const NFGUID & self, const std::string & classNa
 	return 0;
 }
 
-int NFCellModule::OnPositionEvent(const NFGUID & self, const std::string & propertyName, const NFData & oldVar, const NFData & newVar)
+int NFCellModule::OnPositionEvent(const NFGUID & self, const std::string & propertyName, const NFData & oldVar, const NFData & newVar, const NFINT64 reason)
 {
 	const int sceneID = m_pKernelModule->GetPropertyInt32(self, NFrame::IObject::SceneID());
 	const int groupID = m_pKernelModule->GetPropertyInt32(self, NFrame::IObject::GroupID());

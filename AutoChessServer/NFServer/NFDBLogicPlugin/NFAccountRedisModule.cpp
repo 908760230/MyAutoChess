@@ -77,7 +77,7 @@ bool NFAccountRedisModule::AddAccount(const std::string & account, const std::st
 	std::string strAccountKey = m_pCommonRedisModule->GetAccountCacheKey(account);
 	NF_SHARE_PTR<NFIRedisClient> xNoSqlDriver = m_pNoSqlModule->GetDriverBySuit(account);
 	if (xNoSqlDriver)
-	{   // ÉèÖÃ 12345_AccountInfo
+	{
 		return xNoSqlDriver->HSET(strAccountKey, "Password", strPwd);
 	}
 	return false;

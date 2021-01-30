@@ -28,6 +28,14 @@
 #include "NFComm/NFMessageDefine/NFMsgDefine.h"
 #include "NFComm/NFMessageDefine/NFProtocolDefine.hpp"
 
+bool NFDBNet_ServerModule::Awake()
+{
+	this->pPluginManager->SetAppType(NF_SERVER_TYPES::NF_ST_DB);
+
+	return true;
+}
+
+
 bool NFDBNet_ServerModule::Init()
 {
 	m_pNetModule = pPluginManager->FindModule<NFINetModule>();
@@ -144,7 +152,6 @@ void NFDBNet_ServerModule::OnRequireRoleListProcess(const NFSOCK sockIndex, cons
 
 	NFGUID xPlayerID;
 	std::string strRoleName;
-    // 如果没有找到 就发空的
 	if (!m_pPlayerRedisModule->GetRoleInfo(xMsg.account(), strRoleName, xPlayerID))
 	{
 		NFMsg::AckRoleLiteInfoList xAckRoleLiteInfoList;
@@ -152,21 +159,22 @@ void NFDBNet_ServerModule::OnRequireRoleListProcess(const NFSOCK sockIndex, cons
 		m_pNetModule->SendMsgPB(NFMsg::ACK_ROLE_LIST, xAckRoleLiteInfoList, sockIndex, clientID);
 		return;
 	}
-    // TO DO
-    // 下面应该 是从mgr 里面查找出角色的 结果 然后发给client
+
 	NFMsg::AckRoleLiteInfoList xAckRoleLiteInfoList;
 	xAckRoleLiteInfoList.set_account(xMsg.account());
 
 	NFMsg::RoleLiteInfo* pData = xAckRoleLiteInfoList.add_char_data();
 	pData->mutable_id()->CopyFrom(NFINetModule::NFToPB(xPlayerID));
 	pData->set_game_id(pPluginManager->GetAppID());
-	pData->set_sex(2);
-	pData->set_nick_name(strRoleName);
-	pData->set_role_level(4);
-	pData->set_delete_time(5);
-	pData->set_reg_time(6);
-	pData->set_last_offline_time(7);
-	pData->set_last_offline_ip(8);
+	pData->set_career(0);
+	pData->set_sex(0);
+	pData->set_race(0);
+	pData->set_noob_name(strRoleName);
+	pData->set_role_level(0);
+	pData->set_delete_time(0);
+	pData->set_reg_time(0);
+	pData->set_last_offline_time(0);
+	pData->set_last_offline_ip(0);
 	pData->set_view_record("");
 
 	m_pNetModule->SendMsgPB(NFMsg::ACK_ROLE_LIST, xAckRoleLiteInfoList, sockIndex, clientID);
@@ -176,15 +184,15 @@ void NFDBNet_ServerModule::OnCreateRoleGameProcess(const NFSOCK sockIndex, const
 {
 	NFGUID clientID;
 	NFMsg::ReqCreateRole xMsg;
-	if (!m_pNetModule->ReceivePB(msgID, msg, len, xMsg, clientID))  // clientID 5-1601362340147000000
+	if (!m_pNetModule->ReceivePB(msgID, msg, len, xMsg, clientID))
 	{
 		return;
 	}
 
 	const std::string& account = xMsg.account();
-	const std::string& name = xMsg.nick_name(); // 账号+ Role
+	const std::string& name = xMsg.noob_name();
 	const int nHomeSceneID = 1;
-	NFGUID xID = m_pKernelModule->CreateGUID(); // 8-1601362621969000000
+	NFGUID xID = m_pKernelModule->CreateGUID();
 
 	if (m_pPlayerRedisModule->CreateRole(account, name, xID, nHomeSceneID))
 	{
@@ -193,10 +201,12 @@ void NFDBNet_ServerModule::OnCreateRoleGameProcess(const NFSOCK sockIndex, const
 
 		NFMsg::RoleLiteInfo* pData = xAckRoleLiteInfoList.add_char_data();
 		pData->mutable_id()->CopyFrom(NFINetModule::NFToPB(xID));
+		pData->set_career(xMsg.career());
 		pData->set_game_id(pPluginManager->GetAppID());
 		pData->set_sex(xMsg.sex());
-		pData->set_nick_name(xMsg.nick_name());
-		pData->set_role_level(1);
+		pData->set_race(xMsg.race());
+		pData->set_noob_name(xMsg.noob_name());
+		pData->set_role_level(0);
 		pData->set_delete_time(0);
 		pData->set_reg_time(0);
 		pData->set_last_offline_time(0);
@@ -256,4 +266,3 @@ void NFDBNet_ServerModule::OnSaveRoleDataProcess(const NFSOCK sockIndex, const i
 	NFPlayerRedisModule* pPlayerRedisModule = (NFPlayerRedisModule*)m_pPlayerRedisModule;
 	pPlayerRedisModule->SavePlayerData(roleID, xMsg);
 }
-

@@ -26,16 +26,20 @@
 
 #ifndef NF_LUA_PB_MODULE_H
 #define NF_LUA_PB_MODULE_H
+
+#define LUAINTF_LINK_LUA_COMPILED_IN_CXX 0
+
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/descriptor.pb.h>
 #include <google/protobuf/compiler/importer.h>
 #include <google/protobuf/dynamic_message.h>
 #include "Dependencies/LuaIntf/LuaIntf.h"
 #include "Dependencies/LuaIntf/LuaRef.h"
-#include "NFComm/NFCore/NFException.h"
-#include "NFComm/NFPluginModule/NFILuaScriptModule.h"
 #include "NFComm/NFPluginModule/NFILogModule.h"
-#include "NFComm/NFPluginModule/NFILuaPBModule.h"
+
+#if NF_PLATFORM != NF_PLATFORM_WIN
+#include "NFComm/NFCore/NFException.hpp"
+#endif
 
 class NFMultiFileErrorCollector : public google::protobuf::compiler::MultiFileErrorCollector
 {
@@ -49,6 +53,13 @@ public:
 	{
 		std::cout << filename << " line:" << line << " column:" << column  << " message:" << message  << std::endl;
 	}
+};
+
+class NFILuaPBModule
+		: public NFIModule
+{
+public:
+	virtual void ImportProtoFile(const std::string& strFile) = 0;
 };
 
 class NFLuaPBModule
@@ -99,6 +110,8 @@ private:
 	int GetEnumValue(google::protobuf::Message& message, const LuaIntf::LuaRef& luaValue, const google::protobuf::FieldDescriptor* field) const;
 
 protected:
+	NFILogModule* m_pLogModule;
+
     int64_t mnTime;
     std::string strVersionCode;
 	lua_State* m_pLuaState;

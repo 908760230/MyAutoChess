@@ -27,109 +27,111 @@ namespace NFMsg {
             "Cg9ORk1zZ0Jhc2UucHJvdG8SBU5GTXNnIiUKBUlkZW50Eg0KBXN2cmlkGAEg",
             "ASgDEg0KBWluZGV4GAIgASgDIh8KB1ZlY3RvcjISCQoBeBgBIAEoAhIJCgF5",
             "GAIgASgCIioKB1ZlY3RvcjMSCQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoY",
-            "AyABKAIiMgoLUHJvcGVydHlJbnQSFQoNcHJvcGVydHlfbmFtZRgBIAEoDBIM",
-            "CgRkYXRhGAIgASgDIjQKDVByb3BlcnR5RmxvYXQSFQoNcHJvcGVydHlfbmFt",
-            "ZRgBIAEoDBIMCgRkYXRhGAIgASgCIjUKDlByb3BlcnR5U3RyaW5nEhUKDXBy",
-            "b3BlcnR5X25hbWUYASABKAwSDAoEZGF0YRgCIAEoDCJDCg5Qcm9wZXJ0eU9i",
-            "amVjdBIVCg1wcm9wZXJ0eV9uYW1lGAEgASgMEhoKBGRhdGEYAiABKAsyDC5O",
-            "Rk1zZy5JZGVudCJGCg9Qcm9wZXJ0eVZlY3RvcjISFQoNcHJvcGVydHlfbmFt",
-            "ZRgBIAEoDBIcCgRkYXRhGAIgASgLMg4uTkZNc2cuVmVjdG9yMiJGCg9Qcm9w",
-            "ZXJ0eVZlY3RvcjMSFQoNcHJvcGVydHlfbmFtZRgBIAEoDBIcCgRkYXRhGAIg",
-            "ASgLMg4uTkZNc2cuVmVjdG9yMyIzCglSZWNvcmRJbnQSCwoDcm93GAEgASgF",
-            "EgsKA2NvbBgCIAEoBRIMCgRkYXRhGAMgASgDIjUKC1JlY29yZEZsb2F0EgsK",
-            "A3JvdxgBIAEoBRILCgNjb2wYAiABKAUSDAoEZGF0YRgDIAEoAiI2CgxSZWNv",
-            "cmRTdHJpbmcSCwoDcm93GAEgASgFEgsKA2NvbBgCIAEoBRIMCgRkYXRhGAMg",
-            "ASgMIkQKDFJlY29yZE9iamVjdBILCgNyb3cYASABKAUSCwoDY29sGAIgASgF",
-            "EhoKBGRhdGEYAyABKAsyDC5ORk1zZy5JZGVudCJHCg1SZWNvcmRWZWN0b3Iy",
-            "EgsKA3JvdxgBIAEoBRILCgNjb2wYAiABKAUSHAoEZGF0YRgDIAEoCzIOLk5G",
-            "TXNnLlZlY3RvcjIiRwoNUmVjb3JkVmVjdG9yMxILCgNyb3cYASABKAUSCwoD",
-            "Y29sGAIgASgFEhwKBGRhdGEYAyABKAsyDi5ORk1zZy5WZWN0b3IzIsMCChJS",
-            "ZWNvcmRBZGRSb3dTdHJ1Y3QSCwoDcm93GAEgASgFEikKD3JlY29yZF9pbnRf",
-            "bGlzdBgCIAMoCzIQLk5GTXNnLlJlY29yZEludBItChFyZWNvcmRfZmxvYXRf",
-            "bGlzdBgDIAMoCzISLk5GTXNnLlJlY29yZEZsb2F0Ei8KEnJlY29yZF9zdHJp",
-            "bmdfbGlzdBgEIAMoCzITLk5GTXNnLlJlY29yZFN0cmluZxIvChJyZWNvcmRf",
-            "b2JqZWN0X2xpc3QYBSADKAsyEy5ORk1zZy5SZWNvcmRPYmplY3QSMQoTcmVj",
-            "b3JkX3ZlY3RvcjJfbGlzdBgGIAMoCzIULk5GTXNnLlJlY29yZFZlY3RvcjIS",
-            "MQoTcmVjb3JkX3ZlY3RvcjNfbGlzdBgHIAMoCzIULk5GTXNnLlJlY29yZFZl",
-            "Y3RvcjMiVgoQT2JqZWN0UmVjb3JkQmFzZRITCgtyZWNvcmRfbmFtZRgBIAEo",
-            "DBItCgpyb3dfc3RydWN0GAIgAygLMhkuTkZNc2cuUmVjb3JkQWRkUm93U3Ry",
-            "dWN0Il8KEU9iamVjdFByb3BlcnR5SW50Eh8KCXBsYXllcl9pZBgBIAEoCzIM",
-            "Lk5GTXNnLklkZW50EikKDXByb3BlcnR5X2xpc3QYAiADKAsyEi5ORk1zZy5Q",
-            "cm9wZXJ0eUludCJjChNPYmplY3RQcm9wZXJ0eUZsb2F0Eh8KCXBsYXllcl9p",
-            "ZBgBIAEoCzIMLk5GTXNnLklkZW50EisKDXByb3BlcnR5X2xpc3QYAiADKAsy",
-            "FC5ORk1zZy5Qcm9wZXJ0eUZsb2F0ImUKFE9iamVjdFByb3BlcnR5U3RyaW5n",
-            "Eh8KCXBsYXllcl9pZBgBIAEoCzIMLk5GTXNnLklkZW50EiwKDXByb3BlcnR5",
-            "X2xpc3QYAiADKAsyFS5ORk1zZy5Qcm9wZXJ0eVN0cmluZyJlChRPYmplY3RQ",
-            "cm9wZXJ0eU9iamVjdBIfCglwbGF5ZXJfaWQYASABKAsyDC5ORk1zZy5JZGVu",
-            "dBIsCg1wcm9wZXJ0eV9saXN0GAIgAygLMhUuTkZNc2cuUHJvcGVydHlPYmpl",
-            "Y3QiZwoVT2JqZWN0UHJvcGVydHlWZWN0b3IyEh8KCXBsYXllcl9pZBgBIAEo",
-            "CzIMLk5GTXNnLklkZW50Ei0KDXByb3BlcnR5X2xpc3QYAiADKAsyFi5ORk1z",
-            "Zy5Qcm9wZXJ0eVZlY3RvcjIiZwoVT2JqZWN0UHJvcGVydHlWZWN0b3IzEh8K",
-            "CXBsYXllcl9pZBgBIAEoCzIMLk5GTXNnLklkZW50Ei0KDXByb3BlcnR5X2xp",
-            "c3QYAiADKAsyFi5ORk1zZy5Qcm9wZXJ0eVZlY3RvcjMicAoPT2JqZWN0UmVj",
-            "b3JkSW50Eh8KCXBsYXllcl9pZBgBIAEoCzIMLk5GTXNnLklkZW50EhMKC3Jl",
-            "Y29yZF9uYW1lGAIgASgMEicKDXByb3BlcnR5X2xpc3QYAyADKAsyEC5ORk1z",
-            "Zy5SZWNvcmRJbnQidAoRT2JqZWN0UmVjb3JkRmxvYXQSHwoJcGxheWVyX2lk",
-            "GAEgASgLMgwuTkZNc2cuSWRlbnQSEwoLcmVjb3JkX25hbWUYAiABKAwSKQoN",
-            "cHJvcGVydHlfbGlzdBgDIAMoCzISLk5GTXNnLlJlY29yZEZsb2F0InYKEk9i",
-            "amVjdFJlY29yZFN0cmluZxIfCglwbGF5ZXJfaWQYASABKAsyDC5ORk1zZy5J",
-            "ZGVudBITCgtyZWNvcmRfbmFtZRgCIAEoDBIqCg1wcm9wZXJ0eV9saXN0GAMg",
-            "AygLMhMuTkZNc2cuUmVjb3JkU3RyaW5nInYKEk9iamVjdFJlY29yZE9iamVj",
-            "dBIfCglwbGF5ZXJfaWQYASABKAsyDC5ORk1zZy5JZGVudBITCgtyZWNvcmRf",
-            "bmFtZRgCIAEoDBIqCg1wcm9wZXJ0eV9saXN0GAMgAygLMhMuTkZNc2cuUmVj",
-            "b3JkT2JqZWN0IngKE09iamVjdFJlY29yZFZlY3RvcjISHwoJcGxheWVyX2lk",
-            "GAEgASgLMgwuTkZNc2cuSWRlbnQSEwoLcmVjb3JkX25hbWUYAiABKAwSKwoN",
-            "cHJvcGVydHlfbGlzdBgDIAMoCzIULk5GTXNnLlJlY29yZFZlY3RvcjIieAoT",
-            "T2JqZWN0UmVjb3JkVmVjdG9yMxIfCglwbGF5ZXJfaWQYASABKAsyDC5ORk1z",
-            "Zy5JZGVudBITCgtyZWNvcmRfbmFtZRgCIAEoDBIrCg1wcm9wZXJ0eV9saXN0",
-            "GAMgAygLMhQuTkZNc2cuUmVjb3JkVmVjdG9yMyKTAQoQT2JqZWN0UmVjb3Jk",
-            "U3dhcBIfCglwbGF5ZXJfaWQYASABKAsyDC5ORk1zZy5JZGVudBIaChJvcmln",
-            "aW5fcmVjb3JkX25hbWUYAiABKAwSGgoSdGFyZ2V0X3JlY29yZF9uYW1lGAMg",
-            "ASgMEhIKCnJvd19vcmlnaW4YBCABKAUSEgoKcm93X3RhcmdldBgFIAEoBSJ3",
-            "ChJPYmplY3RSZWNvcmRBZGRSb3cSHwoJcGxheWVyX2lkGAEgASgLMgwuTkZN",
-            "c2cuSWRlbnQSEwoLcmVjb3JkX25hbWUYAiABKAwSKwoIcm93X2RhdGEYAyAD",
-            "KAsyGS5ORk1zZy5SZWNvcmRBZGRSb3dTdHJ1Y3QiXgoST2JqZWN0UmVjb3Jk",
-            "UmVtb3ZlEh8KCXBsYXllcl9pZBgBIAEoCzIMLk5GTXNnLklkZW50EhMKC3Jl",
-            "Y29yZF9uYW1lGAIgASgMEhIKCnJlbW92ZV9yb3cYAyADKAUi7wIKEk9iamVj",
-            "dFByb3BlcnR5TGlzdBIfCglwbGF5ZXJfaWQYASABKAsyDC5ORk1zZy5JZGVu",
-            "dBItChFwcm9wZXJ0eV9pbnRfbGlzdBgCIAMoCzISLk5GTXNnLlByb3BlcnR5",
-            "SW50EjEKE3Byb3BlcnR5X2Zsb2F0X2xpc3QYAyADKAsyFC5ORk1zZy5Qcm9w",
-            "ZXJ0eUZsb2F0EjMKFHByb3BlcnR5X3N0cmluZ19saXN0GAQgAygLMhUuTkZN",
-            "c2cuUHJvcGVydHlTdHJpbmcSMwoUcHJvcGVydHlfb2JqZWN0X2xpc3QYBSAD",
-            "KAsyFS5ORk1zZy5Qcm9wZXJ0eU9iamVjdBI1ChVwcm9wZXJ0eV92ZWN0b3Iy",
-            "X2xpc3QYBiADKAsyFi5ORk1zZy5Qcm9wZXJ0eVZlY3RvcjISNQoVcHJvcGVy",
-            "dHlfdmVjdG9yM19saXN0GAcgAygLMhYuTkZNc2cuUHJvcGVydHlWZWN0b3Iz",
-            "IlMKF011bHRpT2JqZWN0UHJvcGVydHlMaXN0EjgKFW11bHRpX3BsYXllcl9w",
-            "cm9wZXJ0eRgBIAMoCzIZLk5GTXNnLk9iamVjdFByb3BlcnR5TGlzdCJhChBP",
-            "YmplY3RSZWNvcmRMaXN0Eh8KCXBsYXllcl9pZBgBIAEoCzIMLk5GTXNnLklk",
-            "ZW50EiwKC3JlY29yZF9saXN0GAIgAygLMhcuTkZNc2cuT2JqZWN0UmVjb3Jk",
-            "QmFzZSJNChVNdWx0aU9iamVjdFJlY29yZExpc3QSNAoTbXVsdGlfcGxheWVy",
-            "X3JlY29yZBgBIAMoCzIXLk5GTXNnLk9iamVjdFJlY29yZExpc3QiiAEKB01z",
-            "Z0Jhc2USHwoJcGxheWVyX2lkGAEgASgLMgwuTkZNc2cuSWRlbnQSEAoIbXNn",
-            "X2RhdGEYAiABKAwSKAoScGxheWVyX0NsaWVudF9saXN0GAMgAygLMgwuTkZN",
-            "c2cuSWRlbnQSIAoKaGFzaF9pZGVudBgEIAEoCzIMLk5GTXNnLklkZW50Ih4K",
-            "DVJlcUFja0xhZ1Rlc3QSDQoFaW5kZXgYASABKAUiiwMKClJlcUNvbW1hbmQS",
-            "IAoKY29udHJvbF9pZBgBIAEoCzIMLk5GTXNnLklkZW50EjYKCmNvbW1hbmRf",
-            "aWQYAiABKA4yIi5ORk1zZy5SZXFDb21tYW5kLkVHYW1lQ29tbWFuZFR5cGUS",
-            "GQoRY29tbWFuZF9zdHJfdmFsdWUYAyABKAwSGQoRY29tbWFuZF92YWx1ZV9p",
-            "bnQYBCABKAMSGwoTY29tbWFuZF92YWx1ZV9mbG9hdBgFIAEoARIZChFjb21t",
-            "YW5kX3ZhbHVlX3N0chgGIAEoDBIqChRjb21tYW5kX3ZhbHVlX29iamVjdBgH",
-            "IAEoCzIMLk5GTXNnLklkZW50EgsKA3JvdxgIIAEoBRILCgNjb2wYCSABKAUi",
-            "bwoQRUdhbWVDb21tYW5kVHlwZRIXChNFR0NUX01PRElZX1BST1BFUlRZEAAS",
-            "EwoPRUdDVF9NT0RJWV9JVEVNEAESFgoSRUdDVF9DUkVBVEVfT0JKRUNUEAIS",
-            "FQoRRUdDVF9BRERfUk9MRV9FWFAQA2IGcHJvdG8z"));
+            "AyABKAIiQgoLUHJvcGVydHlJbnQSFQoNcHJvcGVydHlfbmFtZRgBIAEoDBIM",
+            "CgRkYXRhGAIgASgDEg4KBnJlYXNvbhgDIAEoAyJECg1Qcm9wZXJ0eUZsb2F0",
+            "EhUKDXByb3BlcnR5X25hbWUYASABKAwSDAoEZGF0YRgCIAEoAhIOCgZyZWFz",
+            "b24YAyABKAMiRQoOUHJvcGVydHlTdHJpbmcSFQoNcHJvcGVydHlfbmFtZRgB",
+            "IAEoDBIMCgRkYXRhGAIgASgMEg4KBnJlYXNvbhgDIAEoAyJTCg5Qcm9wZXJ0",
+            "eU9iamVjdBIVCg1wcm9wZXJ0eV9uYW1lGAEgASgMEhoKBGRhdGEYAiABKAsy",
+            "DC5ORk1zZy5JZGVudBIOCgZyZWFzb24YAyABKAMiVgoPUHJvcGVydHlWZWN0",
+            "b3IyEhUKDXByb3BlcnR5X25hbWUYASABKAwSHAoEZGF0YRgCIAEoCzIOLk5G",
+            "TXNnLlZlY3RvcjISDgoGcmVhc29uGAMgASgDIlYKD1Byb3BlcnR5VmVjdG9y",
+            "MxIVCg1wcm9wZXJ0eV9uYW1lGAEgASgMEhwKBGRhdGEYAiABKAsyDi5ORk1z",
+            "Zy5WZWN0b3IzEg4KBnJlYXNvbhgDIAEoAyIzCglSZWNvcmRJbnQSCwoDcm93",
+            "GAEgASgFEgsKA2NvbBgCIAEoBRIMCgRkYXRhGAMgASgDIjUKC1JlY29yZEZs",
+            "b2F0EgsKA3JvdxgBIAEoBRILCgNjb2wYAiABKAUSDAoEZGF0YRgDIAEoAiI2",
+            "CgxSZWNvcmRTdHJpbmcSCwoDcm93GAEgASgFEgsKA2NvbBgCIAEoBRIMCgRk",
+            "YXRhGAMgASgMIkQKDFJlY29yZE9iamVjdBILCgNyb3cYASABKAUSCwoDY29s",
+            "GAIgASgFEhoKBGRhdGEYAyABKAsyDC5ORk1zZy5JZGVudCJHCg1SZWNvcmRW",
+            "ZWN0b3IyEgsKA3JvdxgBIAEoBRILCgNjb2wYAiABKAUSHAoEZGF0YRgDIAEo",
+            "CzIOLk5GTXNnLlZlY3RvcjIiRwoNUmVjb3JkVmVjdG9yMxILCgNyb3cYASAB",
+            "KAUSCwoDY29sGAIgASgFEhwKBGRhdGEYAyABKAsyDi5ORk1zZy5WZWN0b3Iz",
+            "IsMCChJSZWNvcmRBZGRSb3dTdHJ1Y3QSCwoDcm93GAEgASgFEikKD3JlY29y",
+            "ZF9pbnRfbGlzdBgCIAMoCzIQLk5GTXNnLlJlY29yZEludBItChFyZWNvcmRf",
+            "ZmxvYXRfbGlzdBgDIAMoCzISLk5GTXNnLlJlY29yZEZsb2F0Ei8KEnJlY29y",
+            "ZF9zdHJpbmdfbGlzdBgEIAMoCzITLk5GTXNnLlJlY29yZFN0cmluZxIvChJy",
+            "ZWNvcmRfb2JqZWN0X2xpc3QYBSADKAsyEy5ORk1zZy5SZWNvcmRPYmplY3QS",
+            "MQoTcmVjb3JkX3ZlY3RvcjJfbGlzdBgGIAMoCzIULk5GTXNnLlJlY29yZFZl",
+            "Y3RvcjISMQoTcmVjb3JkX3ZlY3RvcjNfbGlzdBgHIAMoCzIULk5GTXNnLlJl",
+            "Y29yZFZlY3RvcjMiVgoQT2JqZWN0UmVjb3JkQmFzZRITCgtyZWNvcmRfbmFt",
+            "ZRgBIAEoDBItCgpyb3dfc3RydWN0GAIgAygLMhkuTkZNc2cuUmVjb3JkQWRk",
+            "Um93U3RydWN0Il8KEU9iamVjdFByb3BlcnR5SW50Eh8KCXBsYXllcl9pZBgB",
+            "IAEoCzIMLk5GTXNnLklkZW50EikKDXByb3BlcnR5X2xpc3QYAiADKAsyEi5O",
+            "Rk1zZy5Qcm9wZXJ0eUludCJjChNPYmplY3RQcm9wZXJ0eUZsb2F0Eh8KCXBs",
+            "YXllcl9pZBgBIAEoCzIMLk5GTXNnLklkZW50EisKDXByb3BlcnR5X2xpc3QY",
+            "AiADKAsyFC5ORk1zZy5Qcm9wZXJ0eUZsb2F0ImUKFE9iamVjdFByb3BlcnR5",
+            "U3RyaW5nEh8KCXBsYXllcl9pZBgBIAEoCzIMLk5GTXNnLklkZW50EiwKDXBy",
+            "b3BlcnR5X2xpc3QYAiADKAsyFS5ORk1zZy5Qcm9wZXJ0eVN0cmluZyJlChRP",
+            "YmplY3RQcm9wZXJ0eU9iamVjdBIfCglwbGF5ZXJfaWQYASABKAsyDC5ORk1z",
+            "Zy5JZGVudBIsCg1wcm9wZXJ0eV9saXN0GAIgAygLMhUuTkZNc2cuUHJvcGVy",
+            "dHlPYmplY3QiZwoVT2JqZWN0UHJvcGVydHlWZWN0b3IyEh8KCXBsYXllcl9p",
+            "ZBgBIAEoCzIMLk5GTXNnLklkZW50Ei0KDXByb3BlcnR5X2xpc3QYAiADKAsy",
+            "Fi5ORk1zZy5Qcm9wZXJ0eVZlY3RvcjIiZwoVT2JqZWN0UHJvcGVydHlWZWN0",
+            "b3IzEh8KCXBsYXllcl9pZBgBIAEoCzIMLk5GTXNnLklkZW50Ei0KDXByb3Bl",
+            "cnR5X2xpc3QYAiADKAsyFi5ORk1zZy5Qcm9wZXJ0eVZlY3RvcjMicAoPT2Jq",
+            "ZWN0UmVjb3JkSW50Eh8KCXBsYXllcl9pZBgBIAEoCzIMLk5GTXNnLklkZW50",
+            "EhMKC3JlY29yZF9uYW1lGAIgASgMEicKDXByb3BlcnR5X2xpc3QYAyADKAsy",
+            "EC5ORk1zZy5SZWNvcmRJbnQidAoRT2JqZWN0UmVjb3JkRmxvYXQSHwoJcGxh",
+            "eWVyX2lkGAEgASgLMgwuTkZNc2cuSWRlbnQSEwoLcmVjb3JkX25hbWUYAiAB",
+            "KAwSKQoNcHJvcGVydHlfbGlzdBgDIAMoCzISLk5GTXNnLlJlY29yZEZsb2F0",
+            "InYKEk9iamVjdFJlY29yZFN0cmluZxIfCglwbGF5ZXJfaWQYASABKAsyDC5O",
+            "Rk1zZy5JZGVudBITCgtyZWNvcmRfbmFtZRgCIAEoDBIqCg1wcm9wZXJ0eV9s",
+            "aXN0GAMgAygLMhMuTkZNc2cuUmVjb3JkU3RyaW5nInYKEk9iamVjdFJlY29y",
+            "ZE9iamVjdBIfCglwbGF5ZXJfaWQYASABKAsyDC5ORk1zZy5JZGVudBITCgty",
+            "ZWNvcmRfbmFtZRgCIAEoDBIqCg1wcm9wZXJ0eV9saXN0GAMgAygLMhMuTkZN",
+            "c2cuUmVjb3JkT2JqZWN0IngKE09iamVjdFJlY29yZFZlY3RvcjISHwoJcGxh",
+            "eWVyX2lkGAEgASgLMgwuTkZNc2cuSWRlbnQSEwoLcmVjb3JkX25hbWUYAiAB",
+            "KAwSKwoNcHJvcGVydHlfbGlzdBgDIAMoCzIULk5GTXNnLlJlY29yZFZlY3Rv",
+            "cjIieAoTT2JqZWN0UmVjb3JkVmVjdG9yMxIfCglwbGF5ZXJfaWQYASABKAsy",
+            "DC5ORk1zZy5JZGVudBITCgtyZWNvcmRfbmFtZRgCIAEoDBIrCg1wcm9wZXJ0",
+            "eV9saXN0GAMgAygLMhQuTkZNc2cuUmVjb3JkVmVjdG9yMyKTAQoQT2JqZWN0",
+            "UmVjb3JkU3dhcBIfCglwbGF5ZXJfaWQYASABKAsyDC5ORk1zZy5JZGVudBIa",
+            "ChJvcmlnaW5fcmVjb3JkX25hbWUYAiABKAwSGgoSdGFyZ2V0X3JlY29yZF9u",
+            "YW1lGAMgASgMEhIKCnJvd19vcmlnaW4YBCABKAUSEgoKcm93X3RhcmdldBgF",
+            "IAEoBSJ3ChJPYmplY3RSZWNvcmRBZGRSb3cSHwoJcGxheWVyX2lkGAEgASgL",
+            "MgwuTkZNc2cuSWRlbnQSEwoLcmVjb3JkX25hbWUYAiABKAwSKwoIcm93X2Rh",
+            "dGEYAyADKAsyGS5ORk1zZy5SZWNvcmRBZGRSb3dTdHJ1Y3QiXgoST2JqZWN0",
+            "UmVjb3JkUmVtb3ZlEh8KCXBsYXllcl9pZBgBIAEoCzIMLk5GTXNnLklkZW50",
+            "EhMKC3JlY29yZF9uYW1lGAIgASgMEhIKCnJlbW92ZV9yb3cYAyADKAUi7wIK",
+            "Ek9iamVjdFByb3BlcnR5TGlzdBIfCglwbGF5ZXJfaWQYASABKAsyDC5ORk1z",
+            "Zy5JZGVudBItChFwcm9wZXJ0eV9pbnRfbGlzdBgCIAMoCzISLk5GTXNnLlBy",
+            "b3BlcnR5SW50EjEKE3Byb3BlcnR5X2Zsb2F0X2xpc3QYAyADKAsyFC5ORk1z",
+            "Zy5Qcm9wZXJ0eUZsb2F0EjMKFHByb3BlcnR5X3N0cmluZ19saXN0GAQgAygL",
+            "MhUuTkZNc2cuUHJvcGVydHlTdHJpbmcSMwoUcHJvcGVydHlfb2JqZWN0X2xp",
+            "c3QYBSADKAsyFS5ORk1zZy5Qcm9wZXJ0eU9iamVjdBI1ChVwcm9wZXJ0eV92",
+            "ZWN0b3IyX2xpc3QYBiADKAsyFi5ORk1zZy5Qcm9wZXJ0eVZlY3RvcjISNQoV",
+            "cHJvcGVydHlfdmVjdG9yM19saXN0GAcgAygLMhYuTkZNc2cuUHJvcGVydHlW",
+            "ZWN0b3IzIlMKF011bHRpT2JqZWN0UHJvcGVydHlMaXN0EjgKFW11bHRpX3Bs",
+            "YXllcl9wcm9wZXJ0eRgBIAMoCzIZLk5GTXNnLk9iamVjdFByb3BlcnR5TGlz",
+            "dCJhChBPYmplY3RSZWNvcmRMaXN0Eh8KCXBsYXllcl9pZBgBIAEoCzIMLk5G",
+            "TXNnLklkZW50EiwKC3JlY29yZF9saXN0GAIgAygLMhcuTkZNc2cuT2JqZWN0",
+            "UmVjb3JkQmFzZSJNChVNdWx0aU9iamVjdFJlY29yZExpc3QSNAoTbXVsdGlf",
+            "cGxheWVyX3JlY29yZBgBIAMoCzIXLk5GTXNnLk9iamVjdFJlY29yZExpc3Qi",
+            "iAEKB01zZ0Jhc2USHwoJcGxheWVyX2lkGAEgASgLMgwuTkZNc2cuSWRlbnQS",
+            "EAoIbXNnX2RhdGEYAiABKAwSKAoScGxheWVyX0NsaWVudF9saXN0GAMgAygL",
+            "MgwuTkZNc2cuSWRlbnQSIAoKaGFzaF9pZGVudBgEIAEoCzIMLk5GTXNnLklk",
+            "ZW50Ih4KDVJlcUFja0xhZ1Rlc3QSDQoFaW5kZXgYASABKAUiiwMKClJlcUNv",
+            "bW1hbmQSIAoKY29udHJvbF9pZBgBIAEoCzIMLk5GTXNnLklkZW50EjYKCmNv",
+            "bW1hbmRfaWQYAiABKA4yIi5ORk1zZy5SZXFDb21tYW5kLkVHYW1lQ29tbWFu",
+            "ZFR5cGUSGQoRY29tbWFuZF9zdHJfdmFsdWUYAyABKAwSGQoRY29tbWFuZF92",
+            "YWx1ZV9pbnQYBCABKAMSGwoTY29tbWFuZF92YWx1ZV9mbG9hdBgFIAEoARIZ",
+            "ChFjb21tYW5kX3ZhbHVlX3N0chgGIAEoDBIqChRjb21tYW5kX3ZhbHVlX29i",
+            "amVjdBgHIAEoCzIMLk5GTXNnLklkZW50EgsKA3JvdxgIIAEoBRILCgNjb2wY",
+            "CSABKAUibwoQRUdhbWVDb21tYW5kVHlwZRIXChNFR0NUX01PRElZX1BST1BF",
+            "UlRZEAASEwoPRUdDVF9NT0RJWV9JVEVNEAESFgoSRUdDVF9DUkVBVEVfT0JK",
+            "RUNUEAISFQoRRUdDVF9BRERfUk9MRV9FWFAQA2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.Ident), global::NFMsg.Ident.Parser, new[]{ "Svrid", "Index" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.Vector2), global::NFMsg.Vector2.Parser, new[]{ "X", "Y" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.Vector3), global::NFMsg.Vector3.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyInt), global::NFMsg.PropertyInt.Parser, new[]{ "PropertyName", "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyFloat), global::NFMsg.PropertyFloat.Parser, new[]{ "PropertyName", "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyString), global::NFMsg.PropertyString.Parser, new[]{ "PropertyName", "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyObject), global::NFMsg.PropertyObject.Parser, new[]{ "PropertyName", "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyVector2), global::NFMsg.PropertyVector2.Parser, new[]{ "PropertyName", "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyVector3), global::NFMsg.PropertyVector3.Parser, new[]{ "PropertyName", "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyInt), global::NFMsg.PropertyInt.Parser, new[]{ "PropertyName", "Data", "Reason" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyFloat), global::NFMsg.PropertyFloat.Parser, new[]{ "PropertyName", "Data", "Reason" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyString), global::NFMsg.PropertyString.Parser, new[]{ "PropertyName", "Data", "Reason" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyObject), global::NFMsg.PropertyObject.Parser, new[]{ "PropertyName", "Data", "Reason" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyVector2), global::NFMsg.PropertyVector2.Parser, new[]{ "PropertyName", "Data", "Reason" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PropertyVector3), global::NFMsg.PropertyVector3.Parser, new[]{ "PropertyName", "Data", "Reason" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.RecordInt), global::NFMsg.RecordInt.Parser, new[]{ "Row", "Col", "Data" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.RecordFloat), global::NFMsg.RecordFloat.Parser, new[]{ "Row", "Col", "Data" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.RecordString), global::NFMsg.RecordString.Parser, new[]{ "Row", "Col", "Data" }, null, null, null, null),
@@ -860,6 +862,7 @@ namespace NFMsg {
     public PropertyInt(PropertyInt other) : this() {
       propertyName_ = other.propertyName_;
       data_ = other.data_;
+      reason_ = other.reason_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -890,6 +893,17 @@ namespace NFMsg {
       }
     }
 
+    /// <summary>Field number for the "reason" field.</summary>
+    public const int ReasonFieldNumber = 3;
+    private long reason_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Reason {
+      get { return reason_; }
+      set {
+        reason_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PropertyInt);
@@ -905,6 +919,7 @@ namespace NFMsg {
       }
       if (PropertyName != other.PropertyName) return false;
       if (Data != other.Data) return false;
+      if (Reason != other.Reason) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -913,6 +928,7 @@ namespace NFMsg {
       int hash = 1;
       if (PropertyName.Length != 0) hash ^= PropertyName.GetHashCode();
       if (Data != 0L) hash ^= Data.GetHashCode();
+      if (Reason != 0L) hash ^= Reason.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -937,6 +953,10 @@ namespace NFMsg {
         output.WriteRawTag(16);
         output.WriteInt64(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -954,6 +974,10 @@ namespace NFMsg {
         output.WriteRawTag(16);
         output.WriteInt64(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -968,6 +992,9 @@ namespace NFMsg {
       }
       if (Data != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Data);
+      }
+      if (Reason != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Reason);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -985,6 +1012,9 @@ namespace NFMsg {
       }
       if (other.Data != 0L) {
         Data = other.Data;
+      }
+      if (other.Reason != 0L) {
+        Reason = other.Reason;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1008,6 +1038,10 @@ namespace NFMsg {
             Data = input.ReadInt64();
             break;
           }
+          case 24: {
+            Reason = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -1028,6 +1062,10 @@ namespace NFMsg {
           }
           case 16: {
             Data = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            Reason = input.ReadInt64();
             break;
           }
         }
@@ -1068,6 +1106,7 @@ namespace NFMsg {
     public PropertyFloat(PropertyFloat other) : this() {
       propertyName_ = other.propertyName_;
       data_ = other.data_;
+      reason_ = other.reason_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1098,6 +1137,17 @@ namespace NFMsg {
       }
     }
 
+    /// <summary>Field number for the "reason" field.</summary>
+    public const int ReasonFieldNumber = 3;
+    private long reason_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Reason {
+      get { return reason_; }
+      set {
+        reason_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PropertyFloat);
@@ -1113,6 +1163,7 @@ namespace NFMsg {
       }
       if (PropertyName != other.PropertyName) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Data, other.Data)) return false;
+      if (Reason != other.Reason) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1121,6 +1172,7 @@ namespace NFMsg {
       int hash = 1;
       if (PropertyName.Length != 0) hash ^= PropertyName.GetHashCode();
       if (Data != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Data);
+      if (Reason != 0L) hash ^= Reason.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1145,6 +1197,10 @@ namespace NFMsg {
         output.WriteRawTag(21);
         output.WriteFloat(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1162,6 +1218,10 @@ namespace NFMsg {
         output.WriteRawTag(21);
         output.WriteFloat(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1176,6 +1236,9 @@ namespace NFMsg {
       }
       if (Data != 0F) {
         size += 1 + 4;
+      }
+      if (Reason != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Reason);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1193,6 +1256,9 @@ namespace NFMsg {
       }
       if (other.Data != 0F) {
         Data = other.Data;
+      }
+      if (other.Reason != 0L) {
+        Reason = other.Reason;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1216,6 +1282,10 @@ namespace NFMsg {
             Data = input.ReadFloat();
             break;
           }
+          case 24: {
+            Reason = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -1236,6 +1306,10 @@ namespace NFMsg {
           }
           case 21: {
             Data = input.ReadFloat();
+            break;
+          }
+          case 24: {
+            Reason = input.ReadInt64();
             break;
           }
         }
@@ -1276,6 +1350,7 @@ namespace NFMsg {
     public PropertyString(PropertyString other) : this() {
       propertyName_ = other.propertyName_;
       data_ = other.data_;
+      reason_ = other.reason_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1306,6 +1381,17 @@ namespace NFMsg {
       }
     }
 
+    /// <summary>Field number for the "reason" field.</summary>
+    public const int ReasonFieldNumber = 3;
+    private long reason_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Reason {
+      get { return reason_; }
+      set {
+        reason_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PropertyString);
@@ -1321,6 +1407,7 @@ namespace NFMsg {
       }
       if (PropertyName != other.PropertyName) return false;
       if (Data != other.Data) return false;
+      if (Reason != other.Reason) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1329,6 +1416,7 @@ namespace NFMsg {
       int hash = 1;
       if (PropertyName.Length != 0) hash ^= PropertyName.GetHashCode();
       if (Data.Length != 0) hash ^= Data.GetHashCode();
+      if (Reason != 0L) hash ^= Reason.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1353,6 +1441,10 @@ namespace NFMsg {
         output.WriteRawTag(18);
         output.WriteBytes(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1370,6 +1462,10 @@ namespace NFMsg {
         output.WriteRawTag(18);
         output.WriteBytes(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1384,6 +1480,9 @@ namespace NFMsg {
       }
       if (Data.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
+      }
+      if (Reason != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Reason);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1401,6 +1500,9 @@ namespace NFMsg {
       }
       if (other.Data.Length != 0) {
         Data = other.Data;
+      }
+      if (other.Reason != 0L) {
+        Reason = other.Reason;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1424,6 +1526,10 @@ namespace NFMsg {
             Data = input.ReadBytes();
             break;
           }
+          case 24: {
+            Reason = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -1444,6 +1550,10 @@ namespace NFMsg {
           }
           case 18: {
             Data = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Reason = input.ReadInt64();
             break;
           }
         }
@@ -1484,6 +1594,7 @@ namespace NFMsg {
     public PropertyObject(PropertyObject other) : this() {
       propertyName_ = other.propertyName_;
       data_ = other.data_ != null ? other.data_.Clone() : null;
+      reason_ = other.reason_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1514,6 +1625,17 @@ namespace NFMsg {
       }
     }
 
+    /// <summary>Field number for the "reason" field.</summary>
+    public const int ReasonFieldNumber = 3;
+    private long reason_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Reason {
+      get { return reason_; }
+      set {
+        reason_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PropertyObject);
@@ -1529,6 +1651,7 @@ namespace NFMsg {
       }
       if (PropertyName != other.PropertyName) return false;
       if (!object.Equals(Data, other.Data)) return false;
+      if (Reason != other.Reason) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1537,6 +1660,7 @@ namespace NFMsg {
       int hash = 1;
       if (PropertyName.Length != 0) hash ^= PropertyName.GetHashCode();
       if (data_ != null) hash ^= Data.GetHashCode();
+      if (Reason != 0L) hash ^= Reason.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1561,6 +1685,10 @@ namespace NFMsg {
         output.WriteRawTag(18);
         output.WriteMessage(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1578,6 +1706,10 @@ namespace NFMsg {
         output.WriteRawTag(18);
         output.WriteMessage(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1592,6 +1724,9 @@ namespace NFMsg {
       }
       if (data_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Data);
+      }
+      if (Reason != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Reason);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1612,6 +1747,9 @@ namespace NFMsg {
           Data = new global::NFMsg.Ident();
         }
         Data.MergeFrom(other.Data);
+      }
+      if (other.Reason != 0L) {
+        Reason = other.Reason;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1638,6 +1776,10 @@ namespace NFMsg {
             input.ReadMessage(Data);
             break;
           }
+          case 24: {
+            Reason = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -1661,6 +1803,10 @@ namespace NFMsg {
               Data = new global::NFMsg.Ident();
             }
             input.ReadMessage(Data);
+            break;
+          }
+          case 24: {
+            Reason = input.ReadInt64();
             break;
           }
         }
@@ -1701,6 +1847,7 @@ namespace NFMsg {
     public PropertyVector2(PropertyVector2 other) : this() {
       propertyName_ = other.propertyName_;
       data_ = other.data_ != null ? other.data_.Clone() : null;
+      reason_ = other.reason_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1731,6 +1878,17 @@ namespace NFMsg {
       }
     }
 
+    /// <summary>Field number for the "reason" field.</summary>
+    public const int ReasonFieldNumber = 3;
+    private long reason_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Reason {
+      get { return reason_; }
+      set {
+        reason_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PropertyVector2);
@@ -1746,6 +1904,7 @@ namespace NFMsg {
       }
       if (PropertyName != other.PropertyName) return false;
       if (!object.Equals(Data, other.Data)) return false;
+      if (Reason != other.Reason) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1754,6 +1913,7 @@ namespace NFMsg {
       int hash = 1;
       if (PropertyName.Length != 0) hash ^= PropertyName.GetHashCode();
       if (data_ != null) hash ^= Data.GetHashCode();
+      if (Reason != 0L) hash ^= Reason.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1778,6 +1938,10 @@ namespace NFMsg {
         output.WriteRawTag(18);
         output.WriteMessage(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1795,6 +1959,10 @@ namespace NFMsg {
         output.WriteRawTag(18);
         output.WriteMessage(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1809,6 +1977,9 @@ namespace NFMsg {
       }
       if (data_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Data);
+      }
+      if (Reason != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Reason);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1829,6 +2000,9 @@ namespace NFMsg {
           Data = new global::NFMsg.Vector2();
         }
         Data.MergeFrom(other.Data);
+      }
+      if (other.Reason != 0L) {
+        Reason = other.Reason;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1855,6 +2029,10 @@ namespace NFMsg {
             input.ReadMessage(Data);
             break;
           }
+          case 24: {
+            Reason = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -1878,6 +2056,10 @@ namespace NFMsg {
               Data = new global::NFMsg.Vector2();
             }
             input.ReadMessage(Data);
+            break;
+          }
+          case 24: {
+            Reason = input.ReadInt64();
             break;
           }
         }
@@ -1918,6 +2100,7 @@ namespace NFMsg {
     public PropertyVector3(PropertyVector3 other) : this() {
       propertyName_ = other.propertyName_;
       data_ = other.data_ != null ? other.data_.Clone() : null;
+      reason_ = other.reason_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1948,6 +2131,17 @@ namespace NFMsg {
       }
     }
 
+    /// <summary>Field number for the "reason" field.</summary>
+    public const int ReasonFieldNumber = 3;
+    private long reason_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Reason {
+      get { return reason_; }
+      set {
+        reason_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PropertyVector3);
@@ -1963,6 +2157,7 @@ namespace NFMsg {
       }
       if (PropertyName != other.PropertyName) return false;
       if (!object.Equals(Data, other.Data)) return false;
+      if (Reason != other.Reason) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1971,6 +2166,7 @@ namespace NFMsg {
       int hash = 1;
       if (PropertyName.Length != 0) hash ^= PropertyName.GetHashCode();
       if (data_ != null) hash ^= Data.GetHashCode();
+      if (Reason != 0L) hash ^= Reason.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1995,6 +2191,10 @@ namespace NFMsg {
         output.WriteRawTag(18);
         output.WriteMessage(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2012,6 +2212,10 @@ namespace NFMsg {
         output.WriteRawTag(18);
         output.WriteMessage(Data);
       }
+      if (Reason != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2026,6 +2230,9 @@ namespace NFMsg {
       }
       if (data_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Data);
+      }
+      if (Reason != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Reason);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2046,6 +2253,9 @@ namespace NFMsg {
           Data = new global::NFMsg.Vector3();
         }
         Data.MergeFrom(other.Data);
+      }
+      if (other.Reason != 0L) {
+        Reason = other.Reason;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2072,6 +2282,10 @@ namespace NFMsg {
             input.ReadMessage(Data);
             break;
           }
+          case 24: {
+            Reason = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -2095,6 +2309,10 @@ namespace NFMsg {
               Data = new global::NFMsg.Vector3();
             }
             input.ReadMessage(Data);
+            break;
+          }
+          case 24: {
+            Reason = input.ReadInt64();
             break;
           }
         }

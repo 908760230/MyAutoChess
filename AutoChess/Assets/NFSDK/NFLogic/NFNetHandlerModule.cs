@@ -103,8 +103,8 @@ namespace NFrame
             mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckObjectEntry, EGMI_ACK_OBJECT_ENTRY);
             mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckObjectLeave, EGMI_ACK_OBJECT_LEAVE);
             mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckMove, EGMI_ACK_MOVE);
-            mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckMoveImmune, EGMI_ACK_MOVE_IMMUNE);
-            mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckPosSync, EGMI_ACK_POS_SYNC);
+            //mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckMoveImmune, EGMI_ACK_MOVE_IMMUNE);
+            //mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckPosSync, EGMI_ACK_POS_SYNC);
 
             mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckPropertyInt, EGMI_ACK_PROPERTY_INT);
             mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckPropertyFloat, EGMI_ACK_PROPERTY_FLOAT);

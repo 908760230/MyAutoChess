@@ -29,8 +29,14 @@
 
 bool NFHelloWorld3Module::Init()
 {
+
+	m_pKernelModule = pPluginManager->FindModule<NFIKernelModule>();
+	m_pElementModule = pPluginManager->FindModule<NFIElementModule>();
+	m_pEventModule = pPluginManager->FindModule<NFIEventModule>();
+	m_pScheduleModule = pPluginManager->FindModule<NFIScheduleModule>();
+
+
 	std::cout << "Hello, world3, Init" << std::endl;
-	m_pScheduleModule->AddSchedule(NFGUID(), "OnHeartBe22222", this, &NFHelloWorld3Module::OnHeartBeat, 6.0f, 10 );
 
 	return true;
 }
@@ -74,7 +80,7 @@ int NFHelloWorld3Module::OnClassCallBackEvent(const NFGUID& self, const std::str
 	return 0;
 }
 
-int NFHelloWorld3Module::OnPropertyCallBackEvent( const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar)
+int NFHelloWorld3Module::OnPropertyCallBackEvent( const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const int64_t reason)
 {
 	
 	std::cout << "OnPropertyCallBackEvent Property: " << propertyName << " OldValue: " << oldVar.GetInt() << " NewValue: " << newVar.GetInt() << std::endl;
@@ -82,7 +88,7 @@ int NFHelloWorld3Module::OnPropertyCallBackEvent( const NFGUID& self, const std:
 	return 0;
 }
 
-int NFHelloWorld3Module::OnPropertyStrCallBackEvent( const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar)
+int NFHelloWorld3Module::OnPropertyStrCallBackEvent( const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const int64_t reason)
 {
 	
 	std::cout << "OnPropertyCallBackEvent Property: " << propertyName << " OldValue: " << oldVar.GetString() << " NewValue: " << newVar.GetString() << std::endl;
@@ -95,15 +101,10 @@ bool NFHelloWorld3Module::AfterInit()
 	
 	std::cout << "Hello, world3, AfterInit" << std::endl;
 
-	m_pKernelModule = pPluginManager->FindModule<NFIKernelModule>();
-	m_pElementModule = pPluginManager->FindModule<NFIElementModule>();
-	m_pEventModule = pPluginManager->FindModule<NFIEventModule>();
-	m_pScheduleModule = pPluginManager->FindModule<NFIScheduleModule>();
-	
-	
 	m_pKernelModule->CreateScene(1);
 
 	m_pKernelModule->AddClassCallBack(NFrame::Player::ThisName(), this, &NFHelloWorld3Module::OnClassCallBackEvent);
+	m_pScheduleModule->AddSchedule(NFGUID(), "OnHeartBe22222", this, &NFHelloWorld3Module::OnHeartBeat, 6.0f, 10 );
 
 	
 	NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->CreateObject(NFGUID(0, 10), 1, 0, NFrame::Player::ThisName(), "", NFDataList::Empty());

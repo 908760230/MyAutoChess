@@ -33,7 +33,7 @@
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFComm/NFCore/NFList.hpp"
 #include "Dependencies/RapidXML/rapidxml.hpp"
-//#include "Dependencies/RapidXML/rapidxml_iterators.hpp"
+#include "Dependencies/RapidXML/rapidxml_iterators.hpp"
 #include "Dependencies/RapidXML/rapidxml_print.hpp"
 #include "Dependencies/RapidXML/rapidxml_utils.hpp"
 #include "NFComm/NFMessageDefine/NFProtocolDefine.hpp"
@@ -72,6 +72,7 @@ protected:
 	bool CreateSceneBaseGroup(const std::string& strSceneIDName);
 
 protected:
+
     int OnObjectClassEvent(const NFGUID& self, const std::string& className, const CLASS_OBJECT_EVENT classEvent, const NFDataList& var);
 	
 	int EnterSceneConditionEvent(const NFGUID& self, const int sceneID, const int groupID, const int type, const NFDataList& argList);
@@ -91,8 +92,6 @@ private:
 	NFISceneModule* m_pSceneModule;
 	NFICellModule* m_pCellModule;
     NFIGameServerNet_ServerModule* m_pGameServerNet_ServerModule;
-    NFINetModule* m_pNetModule;
-
 };
 
 #endif

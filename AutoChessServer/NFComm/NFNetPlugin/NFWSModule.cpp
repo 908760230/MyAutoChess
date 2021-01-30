@@ -278,17 +278,22 @@ void NFWSModule::OnError(const NFSOCK sockIndex, const std::error_code & e)
 {
     // may write/print error log
     // then close socket
-
+#if NF_PLATFORM != NF_PLATFORM_WIN
+	NF_CRASH_TRY
+#endif
     for (auto& cb : mxEventCallBackList)
     {
         NET_EVENT_FUNCTOR_PTR& pFunPtr = cb;
         NET_EVENT_FUNCTOR* pFunc = pFunPtr.get();
-        //NF_CRASH_TRY
+
         pFunc->operator()(sockIndex, NF_NET_EVENT::NF_NET_EVENT_ERROR, m_pNet);
-        //NF_CRASH_END_TRY
     }
 
-    std::ostringstream stream;
+#if NF_PLATFORM != NF_PLATFORM_WIN
+	NF_CRASH_END
+#endif
+
+	std::ostringstream stream;
     stream << "WebSocket error: ";
     stream << e.value();
     stream << " ";
@@ -369,52 +374,44 @@ void NFWSModule::OnReceiveNetPack(const NFSOCK sockIndex, const int msgID, const
     else
     {
         m_pLogModule->LogInfo("OnReceiveNetPack " + std::to_string(msgID), __FUNCTION__, __LINE__);
-
-        std::map<int, std::list<NET_RECEIVE_FUNCTOR_PTR>>::iterator it = mxReceiveCallBack.find(msgID);
+#if NF_PLATFORM != NF_PLATFORM_WIN
+		NF_CRASH_TRY
+#endif
+		auto it = mxReceiveCallBack.find(msgID);
         if (mxReceiveCallBack.end() != it)
         {
-            std::list<NET_RECEIVE_FUNCTOR_PTR>& xFunList = it->second;
-            for (std::list<NET_RECEIVE_FUNCTOR_PTR>::iterator itList = xFunList.begin(); itList != xFunList.end(); ++itList)
+			auto& xFunList = it->second;
+            for (auto itList = xFunList.begin(); itList != xFunList.end(); ++itList)
             {
-                NET_RECEIVE_FUNCTOR_PTR& pFunPtr = *itList;
-                NET_RECEIVE_FUNCTOR* pFunc = pFunPtr.get();
-                //NF_CRASH_TRY
+				auto& pFunPtr = *itList;
+				auto pFunc = pFunPtr.get();
+
                 pFunc->operator()(sockIndex, msgID, msg, len);
-                //NF_CRASH_END_TRY
             }
         } 
         else
         {
-            for (std::list<NET_RECEIVE_FUNCTOR_PTR>::iterator itList = mxCallBackList.begin(); itList != mxCallBackList.end(); ++itList)
+            for (auto itList = mxCallBackList.begin(); itList != mxCallBackList.end(); ++itList)
             {
-                NET_RECEIVE_FUNCTOR_PTR& pFunPtr = *itList;
-                NET_RECEIVE_FUNCTOR* pFunc = pFunPtr.get();
-                //NF_CRASH_TRY
+				auto& pFunPtr = *itList;
+				auto pFunc = pFunPtr.get();
+
                 pFunc->operator()(sockIndex, msgID, msg, len);
-                //NF_CRASH_END_TRY
             }
         }
+#if NF_PLATFORM != NF_PLATFORM_WIN
+        NF_CRASH_END
+#endif
     }
-
-    NFPerformance performance;
-    if (performance.CheckTimePoint(1))
-    {
-        std::ostringstream os;
-        os << "---------------net module performance problem------------------- ";
-        os << performance.TimeScope();
-        os << "---------- ";
-        m_pLogModule->LogWarning(NFGUID(0, msgID), os, __FUNCTION__, __LINE__);
-    }
-
 }
 
 void NFWSModule::OnSocketNetEvent(const NFSOCK sockIndex, const NF_NET_EVENT eEvent, NFINet* pNet)
 {
-    for (std::list<NET_EVENT_FUNCTOR_PTR>::iterator it = mxEventCallBackList.begin();
+    for (auto it = mxEventCallBackList.begin();
          it != mxEventCallBackList.end(); ++it)
     {
-        NET_EVENT_FUNCTOR_PTR& pFunPtr = *it;
-        NET_EVENT_FUNCTOR* pFunc = pFunPtr.get();
+		auto& pFunPtr = *it;
+		auto pFunc = pFunPtr.get();
         pFunc->operator()(sockIndex, eEvent, pNet);
     }
 }

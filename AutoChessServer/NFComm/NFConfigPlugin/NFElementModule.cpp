@@ -259,7 +259,7 @@ bool NFElementModule::Load(rapidxml::xml_node<>* attrNode, NF_SHARE_PTR<NFIClass
     //ElementConfigInfo* pElementInfo = CreateElement( configID, pElementInfo );
     NF_SHARE_PTR<NFIPropertyManager> pElementPropertyManager = pElementInfo->GetPropertyManager();
     NF_SHARE_PTR<NFIRecordManager> pElementRecordManager = pElementInfo->GetRecordManager();
-    // 把class 里面的 property 付给 pElementPropertyManager
+
     //1.add property
     //2.set the default value  of them
     NF_SHARE_PTR<NFIPropertyManager> pClassPropertyManager = pLogicClass->GetPropertyManager();

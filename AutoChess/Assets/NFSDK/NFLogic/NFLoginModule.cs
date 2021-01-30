@@ -355,7 +355,7 @@ namespace NFrame
             {
                 NFMsg.RoleLiteInfo info = xData.CharData[i];
 
-                Debug.Log("QueryRoleList  SUCCESS : " + info.NickName.ToStringUtf8());
+                Debug.Log("QueryRoleList  SUCCESS : " + info.NoobName.ToStringUtf8());
                 mRoleList.Add(info);
             }
 
@@ -411,7 +411,7 @@ namespace NFrame
 
             NFMsg.ReqCreateRole xData = new NFMsg.ReqCreateRole();
             xData.Sex = bySex;
-            xData.NickName = ByteString.CopyFromUtf8(strRoleName);
+            xData.NoobName = ByteString.CopyFromUtf8(strRoleName);
 			xData.Account = ByteString.CopyFromUtf8(mAccount);
 
             mxBody.SetLength(0);
@@ -496,7 +496,7 @@ namespace NFrame
             NFMsg.RoleLiteInfo info = (NFMsg.RoleLiteInfo)roleList[nIndex];
 
             mRoleID = mHelpModule.PBToNF(info.Id);
-            mRoleName = info.NickName.ToStringUtf8();
+            mRoleName = info.NoobName.ToStringUtf8();
 
             mNetModule.RequireEnterGameServer();
         }

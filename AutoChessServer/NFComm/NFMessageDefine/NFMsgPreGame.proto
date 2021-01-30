@@ -133,15 +133,17 @@ message ReqRoleList
 message RoleLiteInfo
 {
 	Ident 		id = 1;
-    int32 		sex = 2;
-    bytes 		nick_name = 3;
-    int32 		game_id = 4;
-	int32 		role_level = 5;
-	int32		delete_time = 6;
-	int32		reg_time = 7;
-	int32		last_offline_time = 8;
-	int32		last_offline_ip = 9;
-	bytes		view_record = 10;
+	int32 		career = 2;
+    int32 		sex = 3;
+    int32 		race = 4;
+    bytes 		noob_name = 5;
+    int32 		game_id = 6;
+	int32 		role_level = 7;
+	int32		delete_time = 8;
+	int32		reg_time = 9;
+	int32		last_offline_time = 10;
+	int32		last_offline_ip = 11;
+	bytes		view_record = 12;
 }
 
 message AckRoleLiteInfoList
@@ -153,8 +155,10 @@ message AckRoleLiteInfoList
 message ReqCreateRole
 {
 	bytes 		account = 1;
-    int32 		sex = 2;
-    bytes 		nick_name = 3;
+	int32 		career = 2;
+    int32 		sex = 3;
+    int32 		race = 4;
+    bytes 		noob_name = 5;
 }
 
 message ReqDeleteRole
@@ -179,7 +183,6 @@ message ServerHeartBeat
 message RoleOnlineNotify
 {
 	Ident self = 1;
-	Ident clan = 2;
 	int32 game = 3;
 	int32 proxy = 4;
 	bytes name = 5;

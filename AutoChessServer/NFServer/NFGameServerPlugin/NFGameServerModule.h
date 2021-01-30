@@ -27,19 +27,17 @@
 #define NF_GAMESERVER_MODULE_H
 
 #include "NFComm/NFCore/NFMap.hpp"
-#include "NFComm/NFCore/NFRecord.h"
-#include "NFComm/NFCore/NFObject.h"
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include "NFComm/NFPluginModule/NFIClassModule.h"
 #include "NFComm/NFPluginModule/NFISceneModule.h"
 #include "NFComm/NFPluginModule/NFINetModule.h"
 
+
 class NFIGameServerModule
     : public NFIModule
 {
 public:
-    virtual  void refreshShopItem(const NFGUID& id) = 0;
-
+    virtual void refreshShopItem(const NFGUID& id) {}
 };
 
 class NFGameServerModule
@@ -65,6 +63,7 @@ protected:
     void OnRefreshShop(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
     void OnBuyLvL(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
     void OnBuyChampion(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
+
     bool SetHeroOnInventory(NFGUID self, const string& element, const string& race);
 
 protected:

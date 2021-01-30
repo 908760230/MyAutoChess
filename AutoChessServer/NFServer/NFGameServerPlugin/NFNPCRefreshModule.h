@@ -62,23 +62,13 @@ public:
 protected:
     int OnObjectClassEvent( const NFGUID& self, const std::string& className, const CLASS_OBJECT_EVENT classEvent, const NFDataList& var );
 
-    int OnObjectHPEvent( const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar);
-    int OnTagetChangeEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar);
-    int OnAttackSpeedChangeEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar);
+    int OnObjectHPEvent( const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const NFINT64 reason);
 
-    int OnNPCAttack(const NFGUID& self, const std::string& heartBeat, const float time, const int count);
 	int OnNPCDeadDestroyHeart(const NFGUID& self, const std::string& heartBeat, const float time, const int count);
 	int OnBuildingDeadDestroyHeart( const NFGUID& self, const std::string& heartBeat, const float time, const int count);
 
 protected:
 	int OnObjectBeKilled( const NFGUID& self, const NFGUID& killer );
-
-
-    virtual bool AddHP(const NFGUID& self, const int nValue);
-    virtual bool ConsumeHP(const NFGUID& self, const int nValue);
-    virtual bool EnoughHP(const NFGUID& self, const int nValue);
-    virtual bool DamageHP(const NFGUID& self, const int nValue);
-
 
 private:
 	NFIEventModule* m_pEventModule;

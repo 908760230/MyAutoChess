@@ -55,7 +55,7 @@ public class NFFirstMap : ChessPlane
 
     void OnOwnInventoryChange(NFGUID self, string strRecordName, NFIRecord.ERecordOptype eType, int nRow, int nCol, NFDataList.TData oldVar, NFDataList.TData newVar)
     {
-        NFIRecord record = mKernelModule.FindRecord(PlayerID, strRecordName);
+        NFIRecord record = mKernelModule.FindRecord((NFGUID)mSceneModule.playerList[0], strRecordName);
         if(eType == NFIRecord.ERecordOptype.Add && record.IsUsed(nRow))
         {
                 NFGUID npcID = record.QueryObject(nRow, 0);

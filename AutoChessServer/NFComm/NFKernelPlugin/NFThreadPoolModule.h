@@ -70,7 +70,7 @@ protected:
 					}
 
 					//repush the result to the main thread
-					//and, do we must to tell the result?
+					//and, do we must to tell the result to the main thread?
 					if (task.xEndFunc)
 					{
 						m_pThreadPoolModule->TaskResult(task);
@@ -115,8 +115,6 @@ protected:
 	void ExecuteTaskResult();
 
 private:
-	int mCPUCount = 1;
-
 	NFQueue<NFThreadTask> mTaskResult;
 	std::vector<NF_SHARE_PTR<NFThreadCell>> mThreadPool;
 };

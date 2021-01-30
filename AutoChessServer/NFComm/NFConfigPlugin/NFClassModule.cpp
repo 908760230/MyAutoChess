@@ -87,7 +87,7 @@ bool NFClassModule::Init()
 {
 	for (int i = 0; i < mThreadClasses.size(); ++i)
 	{
-		mThreadClasses[i].classModule->Awake();
+		mThreadClasses[i].classModule->Init();
 	}
     return true;
 }
@@ -96,7 +96,7 @@ bool NFClassModule::Shut()
 {
 	for (int i = 0; i < mThreadClasses.size(); ++i)
 	{
-		mThreadClasses[i].classModule->Awake();
+		mThreadClasses[i].classModule->Shut();
 	}
 
     ClearAll();
@@ -462,14 +462,14 @@ bool NFClassModule::Load(rapidxml::xml_node<>* attrNode, NF_SHARE_PTR<NFIClass> 
     //printf( "%s:\n", pstrLogicClassName );
 
     NF_SHARE_PTR<NFIClass> pClass(NF_NEW NFClass(pstrLogicClassName));
-    AddElement(pstrLogicClassName, pClass); // 将 class 名字和实例对象保存到 map 里面
+    AddElement(pstrLogicClassName, pClass);
     pClass->SetParent(pParentClass);
-    pClass->SetInstancePath(pstrInstancePath);  //保存ini的 class 路径
-    // 将struct内的路径 和 class 进行映射
+    pClass->SetInstancePath(pstrInstancePath);
+
     AddClass(pstrPath, pClass);
 
     for (rapidxml::xml_node<>* pDataNode = attrNode->first_node(); pDataNode; pDataNode = pDataNode->next_sibling())
-    {   // logicClass 的parent 为null 其子类（group player...）的parent 为 logicClass
+    {
         //her children
         Load(pDataNode, pClass);
     }
@@ -490,7 +490,7 @@ bool NFClassModule::Load()
     //support for unlimited layer class inherits
     rapidxml::xml_node<>* root = xDoc.first_node();
     for (rapidxml::xml_node<>* attrNode = root->first_node(); attrNode; attrNode = attrNode->next_sibling())
-    {   // 加载 logicClass.Xml里面的内容
+    {
         Load(attrNode, NULL);
     }
 

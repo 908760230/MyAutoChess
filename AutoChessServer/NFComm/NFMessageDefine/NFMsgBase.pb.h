@@ -816,6 +816,7 @@ class PropertyInt PROTOBUF_FINAL :
   enum : int {
     kPropertyNameFieldNumber = 1,
     kDataFieldNumber = 2,
+    kReasonFieldNumber = 3,
   };
   // bytes property_name = 1;
   void clear_property_name();
@@ -842,6 +843,15 @@ class PropertyInt PROTOBUF_FINAL :
   void _internal_set_data(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
+  // int64 reason = 3;
+  void clear_reason();
+  ::PROTOBUF_NAMESPACE_ID::int64 reason() const;
+  void set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_reason() const;
+  void _internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:NFMsg.PropertyInt)
  private:
   class _Internal;
@@ -851,6 +861,7 @@ class PropertyInt PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_name_;
   ::PROTOBUF_NAMESPACE_ID::int64 data_;
+  ::PROTOBUF_NAMESPACE_ID::int64 reason_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_NFMsgBase_2eproto;
 };
@@ -970,6 +981,7 @@ class PropertyFloat PROTOBUF_FINAL :
 
   enum : int {
     kPropertyNameFieldNumber = 1,
+    kReasonFieldNumber = 3,
     kDataFieldNumber = 2,
   };
   // bytes property_name = 1;
@@ -986,6 +998,15 @@ class PropertyFloat PROTOBUF_FINAL :
   const std::string& _internal_property_name() const;
   void _internal_set_property_name(const std::string& value);
   std::string* _internal_mutable_property_name();
+  public:
+
+  // int64 reason = 3;
+  void clear_reason();
+  ::PROTOBUF_NAMESPACE_ID::int64 reason() const;
+  void set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_reason() const;
+  void _internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
   // float data = 2;
@@ -1005,6 +1026,7 @@ class PropertyFloat PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_name_;
+  ::PROTOBUF_NAMESPACE_ID::int64 reason_;
   float data_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_NFMsgBase_2eproto;
@@ -1126,6 +1148,7 @@ class PropertyString PROTOBUF_FINAL :
   enum : int {
     kPropertyNameFieldNumber = 1,
     kDataFieldNumber = 2,
+    kReasonFieldNumber = 3,
   };
   // bytes property_name = 1;
   void clear_property_name();
@@ -1159,6 +1182,15 @@ class PropertyString PROTOBUF_FINAL :
   std::string* _internal_mutable_data();
   public:
 
+  // int64 reason = 3;
+  void clear_reason();
+  ::PROTOBUF_NAMESPACE_ID::int64 reason() const;
+  void set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_reason() const;
+  void _internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:NFMsg.PropertyString)
  private:
   class _Internal;
@@ -1168,6 +1200,7 @@ class PropertyString PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
+  ::PROTOBUF_NAMESPACE_ID::int64 reason_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_NFMsgBase_2eproto;
 };
@@ -1288,6 +1321,7 @@ class PropertyObject PROTOBUF_FINAL :
   enum : int {
     kPropertyNameFieldNumber = 1,
     kDataFieldNumber = 2,
+    kReasonFieldNumber = 3,
   };
   // bytes property_name = 1;
   void clear_property_name();
@@ -1323,6 +1357,15 @@ class PropertyObject PROTOBUF_FINAL :
       ::NFMsg::Ident* data);
   ::NFMsg::Ident* unsafe_arena_release_data();
 
+  // int64 reason = 3;
+  void clear_reason();
+  ::PROTOBUF_NAMESPACE_ID::int64 reason() const;
+  void set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_reason() const;
+  void _internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:NFMsg.PropertyObject)
  private:
   class _Internal;
@@ -1332,6 +1375,7 @@ class PropertyObject PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_name_;
   ::NFMsg::Ident* data_;
+  ::PROTOBUF_NAMESPACE_ID::int64 reason_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_NFMsgBase_2eproto;
 };
@@ -1452,6 +1496,7 @@ class PropertyVector2 PROTOBUF_FINAL :
   enum : int {
     kPropertyNameFieldNumber = 1,
     kDataFieldNumber = 2,
+    kReasonFieldNumber = 3,
   };
   // bytes property_name = 1;
   void clear_property_name();
@@ -1487,6 +1532,15 @@ class PropertyVector2 PROTOBUF_FINAL :
       ::NFMsg::Vector2* data);
   ::NFMsg::Vector2* unsafe_arena_release_data();
 
+  // int64 reason = 3;
+  void clear_reason();
+  ::PROTOBUF_NAMESPACE_ID::int64 reason() const;
+  void set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_reason() const;
+  void _internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:NFMsg.PropertyVector2)
  private:
   class _Internal;
@@ -1496,6 +1550,7 @@ class PropertyVector2 PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_name_;
   ::NFMsg::Vector2* data_;
+  ::PROTOBUF_NAMESPACE_ID::int64 reason_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_NFMsgBase_2eproto;
 };
@@ -1616,6 +1671,7 @@ class PropertyVector3 PROTOBUF_FINAL :
   enum : int {
     kPropertyNameFieldNumber = 1,
     kDataFieldNumber = 2,
+    kReasonFieldNumber = 3,
   };
   // bytes property_name = 1;
   void clear_property_name();
@@ -1651,6 +1707,15 @@ class PropertyVector3 PROTOBUF_FINAL :
       ::NFMsg::Vector3* data);
   ::NFMsg::Vector3* unsafe_arena_release_data();
 
+  // int64 reason = 3;
+  void clear_reason();
+  ::PROTOBUF_NAMESPACE_ID::int64 reason() const;
+  void set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_reason() const;
+  void _internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:NFMsg.PropertyVector3)
  private:
   class _Internal;
@@ -1660,6 +1725,7 @@ class PropertyVector3 PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr property_name_;
   ::NFMsg::Vector3* data_;
+  ::PROTOBUF_NAMESPACE_ID::int64 reason_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_NFMsgBase_2eproto;
 };
@@ -7350,6 +7416,26 @@ inline void PropertyInt::set_data(::PROTOBUF_NAMESPACE_ID::int64 value) {
   // @@protoc_insertion_point(field_set:NFMsg.PropertyInt.data)
 }
 
+// int64 reason = 3;
+inline void PropertyInt::clear_reason() {
+  reason_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyInt::_internal_reason() const {
+  return reason_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyInt::reason() const {
+  // @@protoc_insertion_point(field_get:NFMsg.PropertyInt.reason)
+  return _internal_reason();
+}
+inline void PropertyInt::_internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  reason_ = value;
+}
+inline void PropertyInt::set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_reason(value);
+  // @@protoc_insertion_point(field_set:NFMsg.PropertyInt.reason)
+}
+
 // -------------------------------------------------------------------
 
 // PropertyFloat
@@ -7434,6 +7520,26 @@ inline void PropertyFloat::_internal_set_data(float value) {
 inline void PropertyFloat::set_data(float value) {
   _internal_set_data(value);
   // @@protoc_insertion_point(field_set:NFMsg.PropertyFloat.data)
+}
+
+// int64 reason = 3;
+inline void PropertyFloat::clear_reason() {
+  reason_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyFloat::_internal_reason() const {
+  return reason_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyFloat::reason() const {
+  // @@protoc_insertion_point(field_get:NFMsg.PropertyFloat.reason)
+  return _internal_reason();
+}
+inline void PropertyFloat::_internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  reason_ = value;
+}
+inline void PropertyFloat::set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_reason(value);
+  // @@protoc_insertion_point(field_set:NFMsg.PropertyFloat.reason)
 }
 
 // -------------------------------------------------------------------
@@ -7562,6 +7668,26 @@ inline void PropertyString::set_allocated_data(std::string* data) {
   data_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), data,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:NFMsg.PropertyString.data)
+}
+
+// int64 reason = 3;
+inline void PropertyString::clear_reason() {
+  reason_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyString::_internal_reason() const {
+  return reason_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyString::reason() const {
+  // @@protoc_insertion_point(field_get:NFMsg.PropertyString.reason)
+  return _internal_reason();
+}
+inline void PropertyString::_internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  reason_ = value;
+}
+inline void PropertyString::set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_reason(value);
+  // @@protoc_insertion_point(field_set:NFMsg.PropertyString.reason)
 }
 
 // -------------------------------------------------------------------
@@ -7713,6 +7839,26 @@ inline void PropertyObject::set_allocated_data(::NFMsg::Ident* data) {
   // @@protoc_insertion_point(field_set_allocated:NFMsg.PropertyObject.data)
 }
 
+// int64 reason = 3;
+inline void PropertyObject::clear_reason() {
+  reason_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyObject::_internal_reason() const {
+  return reason_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyObject::reason() const {
+  // @@protoc_insertion_point(field_get:NFMsg.PropertyObject.reason)
+  return _internal_reason();
+}
+inline void PropertyObject::_internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  reason_ = value;
+}
+inline void PropertyObject::set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_reason(value);
+  // @@protoc_insertion_point(field_set:NFMsg.PropertyObject.reason)
+}
+
 // -------------------------------------------------------------------
 
 // PropertyVector2
@@ -7862,6 +8008,26 @@ inline void PropertyVector2::set_allocated_data(::NFMsg::Vector2* data) {
   // @@protoc_insertion_point(field_set_allocated:NFMsg.PropertyVector2.data)
 }
 
+// int64 reason = 3;
+inline void PropertyVector2::clear_reason() {
+  reason_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyVector2::_internal_reason() const {
+  return reason_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyVector2::reason() const {
+  // @@protoc_insertion_point(field_get:NFMsg.PropertyVector2.reason)
+  return _internal_reason();
+}
+inline void PropertyVector2::_internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  reason_ = value;
+}
+inline void PropertyVector2::set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_reason(value);
+  // @@protoc_insertion_point(field_set:NFMsg.PropertyVector2.reason)
+}
+
 // -------------------------------------------------------------------
 
 // PropertyVector3
@@ -8009,6 +8175,26 @@ inline void PropertyVector3::set_allocated_data(::NFMsg::Vector3* data) {
   }
   data_ = data;
   // @@protoc_insertion_point(field_set_allocated:NFMsg.PropertyVector3.data)
+}
+
+// int64 reason = 3;
+inline void PropertyVector3::clear_reason() {
+  reason_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyVector3::_internal_reason() const {
+  return reason_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PropertyVector3::reason() const {
+  // @@protoc_insertion_point(field_get:NFMsg.PropertyVector3.reason)
+  return _internal_reason();
+}
+inline void PropertyVector3::_internal_set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  reason_ = value;
+}
+inline void PropertyVector3::set_reason(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_reason(value);
+  // @@protoc_insertion_point(field_set:NFMsg.PropertyVector3.reason)
 }
 
 // -------------------------------------------------------------------

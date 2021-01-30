@@ -36,33 +36,33 @@ namespace NFMsg {
             "KAwSEAoIc2NlbmVfaWQYCCABKAUSEAoIY2xhc3NfaWQYCSABKAwiQQoSQWNr",
             "UGxheWVyRW50cnlMaXN0EisKC29iamVjdF9saXN0GAEgAygLMhYuTkZNc2cu",
             "UGxheWVyRW50cnlJbmZvIjcKEkFja1BsYXllckxlYXZlTGlzdBIhCgtvYmpl",
-            "Y3RfbGlzdBgBIAMoCzIMLk5GTXNnLklkZW50IpMCCgtQb3NTeW5jVW5pdBIb",
-            "CgVtb3ZlchgBIAEoCzIMLk5GTXNnLklkZW50EhsKA25vdxgCIAEoCzIOLk5G",
-            "TXNnLlZlY3RvcjMSGwoDcG9zGAMgASgLMg4uTkZNc2cuVmVjdG9yMxIhCglk",
-            "aXJlY3Rpb24YBCABKAsyDi5ORk1zZy5WZWN0b3IzEg4KBnN0YXR1cxgFIAEo",
-            "BRIMCgR0aW1lGAYgASgCEi8KCW1vdmVfdHlwZRgHIAEoDjIcLk5GTXNnLlBv",
-            "c1N5bmNVbml0LkVNb3ZlVHlwZSI7CglFTW92ZVR5cGUSDAoIRU1UX1dBTEsQ",
-            "ABIOCgpFRVRfU1BFRURZEAESEAoMRUVUX1RFTEVQT1JUEAIiPAoTUmVxQWNr",
-            "UGxheWVyUG9zU3luYxIlCglzeW5jX3VuaXQYASADKAsyEi5ORk1zZy5Qb3NT",
-            "eW5jVW5pdCLhAQoKRWZmZWN0RGF0YRIiCgxlZmZlY3RfaWRlbnQYASABKAsy",
-            "DC5ORk1zZy5JZGVudBIUCgxlZmZlY3RfdmFsdWUYAiABKAUSMQoKZWZmZWN0",
-            "X3JsdBgDIAEoDjIdLk5GTXNnLkVmZmVjdERhdGEuRVJlc3VsdFR5cGUiZgoL",
-            "RVJlc3VsdFR5cGUSDAoIRUVUX0ZBSUwQABIPCgtFRVRfU1VDQ0VTUxABEg4K",
-            "CkVFVF9SRUZVU0UQAhIMCghFRVRfTUlTUxADEgwKCEVFVF9DUklUEAQSDAoI",
-            "RUVUX1VMVEkQBSJ5Cg5SZXFBY2tVc2VTa2lsbBIaCgR1c2VyGAEgASgLMgwu",
-            "TkZNc2cuSWRlbnQSEAoIc2tpbGxfaWQYAiABKAwSEQoJdXNlX2luZGV4GAMg",
-            "ASgFEiYKC2VmZmVjdF9kYXRhGAQgAygLMhEuTkZNc2cuRWZmZWN0RGF0YSJ6",
-            "Cg9SZXFBY2tTd2FwU2NlbmUSFQoNdHJhbnNmZXJfdHlwZRgBIAEoBRIQCghz",
-            "Y2VuZV9pZBgCIAEoBRIPCgdsaW5lX2lkGAMgASgFEgkKAXgYBCABKAISCQoB",
-            "eRgFIAEoAhIJCgF6GAYgASgCEgwKBGRhdGEYByABKAwi5wIKEFJlcUFja1Bs",
-            "YXllckNoYXQSHwoJcGxheWVyX2lkGAEgASgLMgwuTkZNc2cuSWRlbnQSEwoL",
-            "cGxheWVyX25hbWUYAiABKAwSPgoMY2hhdF9jaGFubmVsGAMgASgOMiguTkZN",
-            "c2cuUmVxQWNrUGxheWVyQ2hhdC5FR2FtZUNoYXRDaGFubmVsEjgKCWNoYXRf",
-            "dHlwZRgEIAEoDjIlLk5GTXNnLlJlcUFja1BsYXllckNoYXQuRUdhbWVDaGF0",
-            "VHlwZRIRCgljaGF0X2luZm8YBSABKAwiUAoQRUdhbWVDaGF0Q2hhbm5lbBIP",
-            "CgtFR0NDX0dMT0JBTBAAEg0KCUVHQ0NfQ0xBThABEg0KCUVHQ0NfUk9PTRAC",
-            "Eg0KCUVHQ0NfVEVBTRADIj4KDUVHYW1lQ2hhdFR5cGUSDQoJRUdDVF9URVhU",
-            "EAASDgoKRUdDVF9WT0lDRRABEg4KCkVHQ1RfRU1PSkkQAmIGcHJvdG8z"));
+            "Y3RfbGlzdBgBIAMoCzIMLk5GTXNnLklkZW50IuUBCgtQb3NTeW5jVW5pdBIb",
+            "CgVtb3ZlchgBIAEoCzIMLk5GTXNnLklkZW50EhsKA3BvcxgCIAEoCzIOLk5G",
+            "TXNnLlZlY3RvcjMSIwoLb3JpZW50YXRpb24YAyABKAsyDi5ORk1zZy5WZWN0",
+            "b3IzEg4KBnN0YXR1cxgEIAEoBRIqCgR0eXBlGAUgASgOMhwuTkZNc2cuUG9z",
+            "U3luY1VuaXQuRU1vdmVUeXBlIjsKCUVNb3ZlVHlwZRIMCghFTVRfV0FMSxAA",
+            "Eg4KCkVFVF9TUEVFRFkQARIQCgxFRVRfVEVMRVBPUlQQAiJOChNSZXFBY2tQ",
+            "bGF5ZXJQb3NTeW5jEhAKCHNlcXVlbmNlGAEgASgFEiUKCXN5bmNfdW5pdBgC",
+            "IAMoCzISLk5GTXNnLlBvc1N5bmNVbml0IuEBCgpFZmZlY3REYXRhEiIKDGVm",
+            "ZmVjdF9pZGVudBgBIAEoCzIMLk5GTXNnLklkZW50EhQKDGVmZmVjdF92YWx1",
+            "ZRgCIAEoBRIxCgplZmZlY3Rfcmx0GAMgASgOMh0uTkZNc2cuRWZmZWN0RGF0",
+            "YS5FUmVzdWx0VHlwZSJmCgtFUmVzdWx0VHlwZRIMCghFRVRfRkFJTBAAEg8K",
+            "C0VFVF9TVUNDRVNTEAESDgoKRUVUX1JFRlVTRRACEgwKCEVFVF9NSVNTEAMS",
+            "DAoIRUVUX0NSSVQQBBIMCghFRVRfVUxUSRAFIpIBCg5SZXFBY2tVc2VTa2ls",
+            "bBIaCgR1c2VyGAEgASgLMgwuTkZNc2cuSWRlbnQSEAoIc2tpbGxfaWQYAiAB",
+            "KAwSFAoMY2xpZW50X2luZGV4GAMgASgFEhQKDHNlcnZlcl9pbmRleBgEIAEo",
+            "AxImCgtlZmZlY3RfZGF0YRgFIAMoCzIRLk5GTXNnLkVmZmVjdERhdGEiegoP",
+            "UmVxQWNrU3dhcFNjZW5lEhUKDXRyYW5zZmVyX3R5cGUYASABKAUSEAoIc2Nl",
+            "bmVfaWQYAiABKAUSDwoHbGluZV9pZBgDIAEoBRIJCgF4GAQgASgCEgkKAXkY",
+            "BSABKAISCQoBehgGIAEoAhIMCgRkYXRhGAcgASgMIucCChBSZXFBY2tQbGF5",
+            "ZXJDaGF0Eh8KCXBsYXllcl9pZBgBIAEoCzIMLk5GTXNnLklkZW50EhMKC3Bs",
+            "YXllcl9uYW1lGAIgASgMEj4KDGNoYXRfY2hhbm5lbBgDIAEoDjIoLk5GTXNn",
+            "LlJlcUFja1BsYXllckNoYXQuRUdhbWVDaGF0Q2hhbm5lbBI4CgljaGF0X3R5",
+            "cGUYBCABKA4yJS5ORk1zZy5SZXFBY2tQbGF5ZXJDaGF0LkVHYW1lQ2hhdFR5",
+            "cGUSEQoJY2hhdF9pbmZvGAUgASgMIlAKEEVHYW1lQ2hhdENoYW5uZWwSDwoL",
+            "RUdDQ19HTE9CQUwQABINCglFR0NDX0NMQU4QARINCglFR0NDX1JPT00QAhIN",
+            "CglFR0NDX1RFQU0QAyI+Cg1FR2FtZUNoYXRUeXBlEg0KCUVHQ1RfVEVYVBAA",
+            "Eg4KCkVHQ1RfVk9JQ0UQARIOCgpFR0NUX0VNT0pJEAJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::NFMsg.NFDefineReflection.Descriptor, global::NFMsg.NFMsgBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -73,10 +73,10 @@ namespace NFMsg {
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PlayerEntryInfo), global::NFMsg.PlayerEntryInfo.Parser, new[]{ "ObjectGuid", "X", "Y", "Z", "CareerType", "PlayerState", "ConfigId", "SceneId", "ClassId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.AckPlayerEntryList), global::NFMsg.AckPlayerEntryList.Parser, new[]{ "ObjectList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.AckPlayerLeaveList), global::NFMsg.AckPlayerLeaveList.Parser, new[]{ "ObjectList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PosSyncUnit), global::NFMsg.PosSyncUnit.Parser, new[]{ "Mover", "Now", "Pos", "Direction", "Status", "Time", "MoveType" }, null, new[]{ typeof(global::NFMsg.PosSyncUnit.Types.EMoveType) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqAckPlayerPosSync), global::NFMsg.ReqAckPlayerPosSync.Parser, new[]{ "SyncUnit" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.PosSyncUnit), global::NFMsg.PosSyncUnit.Parser, new[]{ "Mover", "Pos", "Orientation", "Status", "Type" }, null, new[]{ typeof(global::NFMsg.PosSyncUnit.Types.EMoveType) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqAckPlayerPosSync), global::NFMsg.ReqAckPlayerPosSync.Parser, new[]{ "Sequence", "SyncUnit" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.EffectData), global::NFMsg.EffectData.Parser, new[]{ "EffectIdent", "EffectValue", "EffectRlt" }, null, new[]{ typeof(global::NFMsg.EffectData.Types.EResultType) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqAckUseSkill), global::NFMsg.ReqAckUseSkill.Parser, new[]{ "User", "SkillId", "UseIndex", "EffectData" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqAckUseSkill), global::NFMsg.ReqAckUseSkill.Parser, new[]{ "User", "SkillId", "ClientIndex", "ServerIndex", "EffectData" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqAckSwapScene), global::NFMsg.ReqAckSwapScene.Parser, new[]{ "TransferType", "SceneId", "LineId", "X", "Y", "Z", "Data" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NFMsg.ReqAckPlayerChat), global::NFMsg.ReqAckPlayerChat.Parser, new[]{ "PlayerId", "PlayerName", "ChatChannel", "ChatType", "ChatInfo" }, null, new[]{ typeof(global::NFMsg.ReqAckPlayerChat.Types.EGameChatChannel), typeof(global::NFMsg.ReqAckPlayerChat.Types.EGameChatType) }, null, null)
           }));
@@ -1714,12 +1714,10 @@ namespace NFMsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PosSyncUnit(PosSyncUnit other) : this() {
       mover_ = other.mover_ != null ? other.mover_.Clone() : null;
-      now_ = other.now_ != null ? other.now_.Clone() : null;
       pos_ = other.pos_ != null ? other.pos_.Clone() : null;
-      direction_ = other.direction_ != null ? other.direction_.Clone() : null;
+      orientation_ = other.orientation_ != null ? other.orientation_.Clone() : null;
       status_ = other.status_;
-      time_ = other.time_;
-      moveType_ = other.moveType_;
+      type_ = other.type_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1739,19 +1737,8 @@ namespace NFMsg {
       }
     }
 
-    /// <summary>Field number for the "now" field.</summary>
-    public const int NowFieldNumber = 2;
-    private global::NFMsg.Vector3 now_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::NFMsg.Vector3 Now {
-      get { return now_; }
-      set {
-        now_ = value;
-      }
-    }
-
     /// <summary>Field number for the "pos" field.</summary>
-    public const int PosFieldNumber = 3;
+    public const int PosFieldNumber = 2;
     private global::NFMsg.Vector3 pos_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::NFMsg.Vector3 Pos {
@@ -1761,19 +1748,19 @@ namespace NFMsg {
       }
     }
 
-    /// <summary>Field number for the "direction" field.</summary>
-    public const int DirectionFieldNumber = 4;
-    private global::NFMsg.Vector3 direction_;
+    /// <summary>Field number for the "orientation" field.</summary>
+    public const int OrientationFieldNumber = 3;
+    private global::NFMsg.Vector3 orientation_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::NFMsg.Vector3 Direction {
-      get { return direction_; }
+    public global::NFMsg.Vector3 Orientation {
+      get { return orientation_; }
       set {
-        direction_ = value;
+        orientation_ = value;
       }
     }
 
     /// <summary>Field number for the "status" field.</summary>
-    public const int StatusFieldNumber = 5;
+    public const int StatusFieldNumber = 4;
     private int status_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Status {
@@ -1783,25 +1770,14 @@ namespace NFMsg {
       }
     }
 
-    /// <summary>Field number for the "time" field.</summary>
-    public const int TimeFieldNumber = 6;
-    private float time_;
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 5;
+    private global::NFMsg.PosSyncUnit.Types.EMoveType type_ = global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public float Time {
-      get { return time_; }
+    public global::NFMsg.PosSyncUnit.Types.EMoveType Type {
+      get { return type_; }
       set {
-        time_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "move_type" field.</summary>
-    public const int MoveTypeFieldNumber = 7;
-    private global::NFMsg.PosSyncUnit.Types.EMoveType moveType_ = global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::NFMsg.PosSyncUnit.Types.EMoveType MoveType {
-      get { return moveType_; }
-      set {
-        moveType_ = value;
+        type_ = value;
       }
     }
 
@@ -1819,12 +1795,10 @@ namespace NFMsg {
         return true;
       }
       if (!object.Equals(Mover, other.Mover)) return false;
-      if (!object.Equals(Now, other.Now)) return false;
       if (!object.Equals(Pos, other.Pos)) return false;
-      if (!object.Equals(Direction, other.Direction)) return false;
+      if (!object.Equals(Orientation, other.Orientation)) return false;
       if (Status != other.Status) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Time, other.Time)) return false;
-      if (MoveType != other.MoveType) return false;
+      if (Type != other.Type) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1832,12 +1806,10 @@ namespace NFMsg {
     public override int GetHashCode() {
       int hash = 1;
       if (mover_ != null) hash ^= Mover.GetHashCode();
-      if (now_ != null) hash ^= Now.GetHashCode();
       if (pos_ != null) hash ^= Pos.GetHashCode();
-      if (direction_ != null) hash ^= Direction.GetHashCode();
+      if (orientation_ != null) hash ^= Orientation.GetHashCode();
       if (Status != 0) hash ^= Status.GetHashCode();
-      if (Time != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Time);
-      if (MoveType != global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk) hash ^= MoveType.GetHashCode();
+      if (Type != global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk) hash ^= Type.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1858,29 +1830,21 @@ namespace NFMsg {
         output.WriteRawTag(10);
         output.WriteMessage(Mover);
       }
-      if (now_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Now);
-      }
       if (pos_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteMessage(Pos);
       }
-      if (direction_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Direction);
+      if (orientation_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Orientation);
       }
       if (Status != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(32);
         output.WriteInt32(Status);
       }
-      if (Time != 0F) {
-        output.WriteRawTag(53);
-        output.WriteFloat(Time);
-      }
-      if (MoveType != global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk) {
-        output.WriteRawTag(56);
-        output.WriteEnum((int) MoveType);
+      if (Type != global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) Type);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1895,29 +1859,21 @@ namespace NFMsg {
         output.WriteRawTag(10);
         output.WriteMessage(Mover);
       }
-      if (now_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Now);
-      }
       if (pos_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteMessage(Pos);
       }
-      if (direction_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Direction);
+      if (orientation_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Orientation);
       }
       if (Status != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(32);
         output.WriteInt32(Status);
       }
-      if (Time != 0F) {
-        output.WriteRawTag(53);
-        output.WriteFloat(Time);
-      }
-      if (MoveType != global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk) {
-        output.WriteRawTag(56);
-        output.WriteEnum((int) MoveType);
+      if (Type != global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) Type);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1931,23 +1887,17 @@ namespace NFMsg {
       if (mover_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Mover);
       }
-      if (now_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Now);
-      }
       if (pos_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pos);
       }
-      if (direction_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Direction);
+      if (orientation_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Orientation);
       }
       if (Status != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Status);
       }
-      if (Time != 0F) {
-        size += 1 + 4;
-      }
-      if (MoveType != global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) MoveType);
+      if (Type != global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1966,32 +1916,23 @@ namespace NFMsg {
         }
         Mover.MergeFrom(other.Mover);
       }
-      if (other.now_ != null) {
-        if (now_ == null) {
-          Now = new global::NFMsg.Vector3();
-        }
-        Now.MergeFrom(other.Now);
-      }
       if (other.pos_ != null) {
         if (pos_ == null) {
           Pos = new global::NFMsg.Vector3();
         }
         Pos.MergeFrom(other.Pos);
       }
-      if (other.direction_ != null) {
-        if (direction_ == null) {
-          Direction = new global::NFMsg.Vector3();
+      if (other.orientation_ != null) {
+        if (orientation_ == null) {
+          Orientation = new global::NFMsg.Vector3();
         }
-        Direction.MergeFrom(other.Direction);
+        Orientation.MergeFrom(other.Orientation);
       }
       if (other.Status != 0) {
         Status = other.Status;
       }
-      if (other.Time != 0F) {
-        Time = other.Time;
-      }
-      if (other.MoveType != global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk) {
-        MoveType = other.MoveType;
+      if (other.Type != global::NFMsg.PosSyncUnit.Types.EMoveType.EmtWalk) {
+        Type = other.Type;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2015,36 +1956,25 @@ namespace NFMsg {
             break;
           }
           case 18: {
-            if (now_ == null) {
-              Now = new global::NFMsg.Vector3();
-            }
-            input.ReadMessage(Now);
-            break;
-          }
-          case 26: {
             if (pos_ == null) {
               Pos = new global::NFMsg.Vector3();
             }
             input.ReadMessage(Pos);
             break;
           }
-          case 34: {
-            if (direction_ == null) {
-              Direction = new global::NFMsg.Vector3();
+          case 26: {
+            if (orientation_ == null) {
+              Orientation = new global::NFMsg.Vector3();
             }
-            input.ReadMessage(Direction);
+            input.ReadMessage(Orientation);
             break;
           }
-          case 40: {
+          case 32: {
             Status = input.ReadInt32();
             break;
           }
-          case 53: {
-            Time = input.ReadFloat();
-            break;
-          }
-          case 56: {
-            MoveType = (global::NFMsg.PosSyncUnit.Types.EMoveType) input.ReadEnum();
+          case 40: {
+            Type = (global::NFMsg.PosSyncUnit.Types.EMoveType) input.ReadEnum();
             break;
           }
         }
@@ -2069,36 +1999,25 @@ namespace NFMsg {
             break;
           }
           case 18: {
-            if (now_ == null) {
-              Now = new global::NFMsg.Vector3();
-            }
-            input.ReadMessage(Now);
-            break;
-          }
-          case 26: {
             if (pos_ == null) {
               Pos = new global::NFMsg.Vector3();
             }
             input.ReadMessage(Pos);
             break;
           }
-          case 34: {
-            if (direction_ == null) {
-              Direction = new global::NFMsg.Vector3();
+          case 26: {
+            if (orientation_ == null) {
+              Orientation = new global::NFMsg.Vector3();
             }
-            input.ReadMessage(Direction);
+            input.ReadMessage(Orientation);
             break;
           }
-          case 40: {
+          case 32: {
             Status = input.ReadInt32();
             break;
           }
-          case 53: {
-            Time = input.ReadFloat();
-            break;
-          }
-          case 56: {
-            MoveType = (global::NFMsg.PosSyncUnit.Types.EMoveType) input.ReadEnum();
+          case 40: {
+            Type = (global::NFMsg.PosSyncUnit.Types.EMoveType) input.ReadEnum();
             break;
           }
         }
@@ -2150,6 +2069,7 @@ namespace NFMsg {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ReqAckPlayerPosSync(ReqAckPlayerPosSync other) : this() {
+      sequence_ = other.sequence_;
       syncUnit_ = other.syncUnit_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -2159,10 +2079,21 @@ namespace NFMsg {
       return new ReqAckPlayerPosSync(this);
     }
 
+    /// <summary>Field number for the "sequence" field.</summary>
+    public const int SequenceFieldNumber = 1;
+    private int sequence_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Sequence {
+      get { return sequence_; }
+      set {
+        sequence_ = value;
+      }
+    }
+
     /// <summary>Field number for the "sync_unit" field.</summary>
-    public const int SyncUnitFieldNumber = 1;
+    public const int SyncUnitFieldNumber = 2;
     private static readonly pb::FieldCodec<global::NFMsg.PosSyncUnit> _repeated_syncUnit_codec
-        = pb::FieldCodec.ForMessage(10, global::NFMsg.PosSyncUnit.Parser);
+        = pb::FieldCodec.ForMessage(18, global::NFMsg.PosSyncUnit.Parser);
     private readonly pbc::RepeatedField<global::NFMsg.PosSyncUnit> syncUnit_ = new pbc::RepeatedField<global::NFMsg.PosSyncUnit>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::NFMsg.PosSyncUnit> SyncUnit {
@@ -2182,6 +2113,7 @@ namespace NFMsg {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Sequence != other.Sequence) return false;
       if(!syncUnit_.Equals(other.syncUnit_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2189,6 +2121,7 @@ namespace NFMsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (Sequence != 0) hash ^= Sequence.GetHashCode();
       hash ^= syncUnit_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2206,6 +2139,10 @@ namespace NFMsg {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (Sequence != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Sequence);
+      }
       syncUnit_.WriteTo(output, _repeated_syncUnit_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2216,6 +2153,10 @@ namespace NFMsg {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Sequence != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Sequence);
+      }
       syncUnit_.WriteTo(ref output, _repeated_syncUnit_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2226,6 +2167,9 @@ namespace NFMsg {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (Sequence != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Sequence);
+      }
       size += syncUnit_.CalculateSize(_repeated_syncUnit_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2237,6 +2181,9 @@ namespace NFMsg {
     public void MergeFrom(ReqAckPlayerPosSync other) {
       if (other == null) {
         return;
+      }
+      if (other.Sequence != 0) {
+        Sequence = other.Sequence;
       }
       syncUnit_.Add(other.syncUnit_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -2253,7 +2200,11 @@ namespace NFMsg {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 8: {
+            Sequence = input.ReadInt32();
+            break;
+          }
+          case 18: {
             syncUnit_.AddEntriesFrom(input, _repeated_syncUnit_codec);
             break;
           }
@@ -2271,7 +2222,11 @@ namespace NFMsg {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 8: {
+            Sequence = input.ReadInt32();
+            break;
+          }
+          case 18: {
             syncUnit_.AddEntriesFrom(ref input, _repeated_syncUnit_codec);
             break;
           }
@@ -2582,7 +2537,8 @@ namespace NFMsg {
     public ReqAckUseSkill(ReqAckUseSkill other) : this() {
       user_ = other.user_ != null ? other.user_.Clone() : null;
       skillId_ = other.skillId_;
-      useIndex_ = other.useIndex_;
+      clientIndex_ = other.clientIndex_;
+      serverIndex_ = other.serverIndex_;
       effectData_ = other.effectData_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -2614,24 +2570,38 @@ namespace NFMsg {
       }
     }
 
-    /// <summary>Field number for the "use_index" field.</summary>
-    public const int UseIndexFieldNumber = 3;
-    private int useIndex_;
+    /// <summary>Field number for the "client_index" field.</summary>
+    public const int ClientIndexFieldNumber = 3;
+    private int clientIndex_;
     /// <summary>
     ///因为客户端要先展示
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int UseIndex {
-      get { return useIndex_; }
+    public int ClientIndex {
+      get { return clientIndex_; }
       set {
-        useIndex_ = value;
+        clientIndex_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "server_index" field.</summary>
+    public const int ServerIndexFieldNumber = 4;
+    private long serverIndex_;
+    /// <summary>
+    ///因为客户端要先展示
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ServerIndex {
+      get { return serverIndex_; }
+      set {
+        serverIndex_ = value;
       }
     }
 
     /// <summary>Field number for the "effect_data" field.</summary>
-    public const int EffectDataFieldNumber = 4;
+    public const int EffectDataFieldNumber = 5;
     private static readonly pb::FieldCodec<global::NFMsg.EffectData> _repeated_effectData_codec
-        = pb::FieldCodec.ForMessage(34, global::NFMsg.EffectData.Parser);
+        = pb::FieldCodec.ForMessage(42, global::NFMsg.EffectData.Parser);
     private readonly pbc::RepeatedField<global::NFMsg.EffectData> effectData_ = new pbc::RepeatedField<global::NFMsg.EffectData>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::NFMsg.EffectData> EffectData {
@@ -2653,7 +2623,8 @@ namespace NFMsg {
       }
       if (!object.Equals(User, other.User)) return false;
       if (SkillId != other.SkillId) return false;
-      if (UseIndex != other.UseIndex) return false;
+      if (ClientIndex != other.ClientIndex) return false;
+      if (ServerIndex != other.ServerIndex) return false;
       if(!effectData_.Equals(other.effectData_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2663,7 +2634,8 @@ namespace NFMsg {
       int hash = 1;
       if (user_ != null) hash ^= User.GetHashCode();
       if (SkillId.Length != 0) hash ^= SkillId.GetHashCode();
-      if (UseIndex != 0) hash ^= UseIndex.GetHashCode();
+      if (ClientIndex != 0) hash ^= ClientIndex.GetHashCode();
+      if (ServerIndex != 0L) hash ^= ServerIndex.GetHashCode();
       hash ^= effectData_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2689,9 +2661,13 @@ namespace NFMsg {
         output.WriteRawTag(18);
         output.WriteBytes(SkillId);
       }
-      if (UseIndex != 0) {
+      if (ClientIndex != 0) {
         output.WriteRawTag(24);
-        output.WriteInt32(UseIndex);
+        output.WriteInt32(ClientIndex);
+      }
+      if (ServerIndex != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(ServerIndex);
       }
       effectData_.WriteTo(output, _repeated_effectData_codec);
       if (_unknownFields != null) {
@@ -2711,9 +2687,13 @@ namespace NFMsg {
         output.WriteRawTag(18);
         output.WriteBytes(SkillId);
       }
-      if (UseIndex != 0) {
+      if (ClientIndex != 0) {
         output.WriteRawTag(24);
-        output.WriteInt32(UseIndex);
+        output.WriteInt32(ClientIndex);
+      }
+      if (ServerIndex != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(ServerIndex);
       }
       effectData_.WriteTo(ref output, _repeated_effectData_codec);
       if (_unknownFields != null) {
@@ -2731,8 +2711,11 @@ namespace NFMsg {
       if (SkillId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(SkillId);
       }
-      if (UseIndex != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(UseIndex);
+      if (ClientIndex != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ClientIndex);
+      }
+      if (ServerIndex != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ServerIndex);
       }
       size += effectData_.CalculateSize(_repeated_effectData_codec);
       if (_unknownFields != null) {
@@ -2755,8 +2738,11 @@ namespace NFMsg {
       if (other.SkillId.Length != 0) {
         SkillId = other.SkillId;
       }
-      if (other.UseIndex != 0) {
-        UseIndex = other.UseIndex;
+      if (other.ClientIndex != 0) {
+        ClientIndex = other.ClientIndex;
+      }
+      if (other.ServerIndex != 0L) {
+        ServerIndex = other.ServerIndex;
       }
       effectData_.Add(other.effectData_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -2785,10 +2771,14 @@ namespace NFMsg {
             break;
           }
           case 24: {
-            UseIndex = input.ReadInt32();
+            ClientIndex = input.ReadInt32();
             break;
           }
-          case 34: {
+          case 32: {
+            ServerIndex = input.ReadInt64();
+            break;
+          }
+          case 42: {
             effectData_.AddEntriesFrom(input, _repeated_effectData_codec);
             break;
           }
@@ -2818,10 +2808,14 @@ namespace NFMsg {
             break;
           }
           case 24: {
-            UseIndex = input.ReadInt32();
+            ClientIndex = input.ReadInt32();
             break;
           }
-          case 34: {
+          case 32: {
+            ServerIndex = input.ReadInt64();
+            break;
+          }
+          case 42: {
             effectData_.AddEntriesFrom(ref input, _repeated_effectData_codec);
             break;
           }

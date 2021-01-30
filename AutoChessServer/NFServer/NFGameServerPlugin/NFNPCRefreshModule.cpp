@@ -107,62 +107,35 @@ int NFNPCRefreshModule::OnObjectClassEvent( const NFGUID& self, const std::strin
 			int nHPMax = m_pKernelModule->GetPropertyInt32(self, NFrame::NPC::MAXHP());
             m_pKernelModule->SetPropertyInt(self, NFrame::NPC::HP(), nHPMax);
 
-            m_pKernelModule->AddPropertyCallBack( self, NFrame::NPC::HP(), this, &NFNPCRefreshModule::OnObjectHPEvent );
-            m_pKernelModule->AddPropertyCallBack(self, NFrame::NPC::Target(), this, NFNPCRefreshModule::OnTagetChangeEvent);
+            m_pKernelModule->AddPropertyCallBack( self, NFrame::NPC::HP(), this, &NFNPCRefreshModule::OnObjectHPEvent);
         }
     }
 
     return 0;
 }
 
-int NFNPCRefreshModule::OnObjectHPEvent( const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar)
+int NFNPCRefreshModule::OnObjectHPEvent( const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const NFINT64 reason)
 {
-    if (newVar.GetInt() == 0) {
-        m_pKernelModule->SetPropertyInt(self, NFrame::NPC::State(), 0);
-    }
-    return 0;
-}
+    /*if ( newVar.GetInt() <= 0 )
+    {
+        const NFGUID& identAttacker = m_pKernelModule->GetPropertyObject( self, NFrame::NPC::LastAttacker());
+        if (!identAttacker.IsNull())
+		{
+			OnObjectBeKilled(self, identAttacker);
+        }
 
-int NFNPCRefreshModule::OnTagetChangeEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar)
-{
-    string name("attack");
-    string oldName =name + oldVar.ToString();
-    string newName = name + newVar.ToString();
-    m_pScheduleModule->RemoveSchedule(self, oldName);
-    float attackSpeed = m_pKernelModule->GetPropertyFloat(self, NFrame::NPC::ATK_SPEED());
-    m_pScheduleModule->AddSchedule(self, newName, this, &NFNPCRefreshModule::OnNPCAttack, 1/attackSpeed, 1000);
-    return 0;
-}
+		m_pScheduleModule->AddSchedule( self, "OnNPCDeadDestroyHeart", this, &NFNPCRefreshModule::OnNPCDeadDestroyHeart, 1.0f, 1 );
+    }*/
 
-int NFNPCRefreshModule::OnAttackSpeedChangeEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar)
-{
-    string name("attack");
-    NFGUID target = m_pKernelModule->GetPropertyObject(self, NFrame::NPC::Target());
-    name += target.ToString();
-    m_pScheduleModule->RemoveSchedule(self, name);
-    float attackSpeed = newVar.GetInt();
-    m_pScheduleModule->AddSchedule(self, name,this, &NFNPCRefreshModule::OnNPCAttack, 1 / attackSpeed, 1000);
-    return 0;
-}
-
-int NFNPCRefreshModule::OnNPCAttack(const NFGUID& self, const std::string& heartBeat, const float time, const int count)
-{
-    int damage = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::ATK_VALUE());
-    NFGUID target = m_pKernelModule->GetPropertyObject(self, NFrame::NPC::Target());
-    int targetHP = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::HP());
-
-    targetHP -= damage;
-    if (targetHP < 0) targetHP = 0;
-    m_pKernelModule->SetPropertyInt(target, NFrame::NPC::HP(),targetHP);
     return 0;
 }
 
 int NFNPCRefreshModule::OnNPCDeadDestroyHeart( const NFGUID& self, const std::string& heartBeat, const float time, const int count)
 {
     //and create new object
-	int sceneID = m_pKernelModule->GetPropertyInt32( self, NFrame::NPC::SceneID());
+	/*int sceneID = m_pKernelModule->GetPropertyInt32( self, NFrame::NPC::SceneID());
 	int groupID = m_pKernelModule->GetPropertyInt32(self, NFrame::NPC::GroupID());
-	/*int npcType = m_pKernelModule->GetPropertyInt32(self, NFrame::NPC::NPCType());
+	int npcType = m_pKernelModule->GetPropertyInt32(self, NFrame::NPC::NPCType());
 
 	if (npcType == NFMsg::ENPCType::NORMAL_NPC)
 	{
@@ -192,8 +165,8 @@ int NFNPCRefreshModule::OnNPCDeadDestroyHeart( const NFGUID& self, const std::st
 	else
 	{
 		m_pKernelModule->DestroySelf(self);
-	}*/
-
+	}
+    */
     return 0;
 }
 
@@ -220,8 +193,8 @@ int NFNPCRefreshModule::OnBuildingDeadDestroyHeart(const NFGUID & self, const st
 		arg << NFrame::NPC::MasterID() << masterID;
 
 		m_pKernelModule->CreateObject(NFGUID(), sceneID, groupID, className, configID, arg);
-	}*/
-	
+	}
+	*/
 	return 0;
 }
 
@@ -237,67 +210,4 @@ int NFNPCRefreshModule::OnObjectBeKilled( const NFGUID& self, const NFGUID& kill
 	}*/
 
 	return 0;
-}
-
-
-bool NFNPCRefreshModule::AddHP(const NFGUID& self, const int nValue)
-{
-    if (nValue <= 0)
-    {
-        return false;
-    }
-
-    int nCurValue = m_pKernelModule->GetPropertyInt32(self, NFrame::NPC::HP());
-    int nMaxValue = m_pKernelModule->GetPropertyInt32(self, NFrame::NPC::MAXHP());
-
-    if (nCurValue > 0)
-    {
-        nCurValue += nValue;
-        if (nCurValue > nMaxValue)
-        {
-            nCurValue = nMaxValue;
-        }
-
-        m_pKernelModule->SetPropertyInt(self, NFrame::NPC::HP(), nCurValue);
-    }
-    return true;
-}
-
-bool NFNPCRefreshModule::EnoughHP(const NFGUID& self, const int nValue)
-{
-    NFINT64 nCurValue = m_pKernelModule->GetPropertyInt(self, NFrame::Player::HP());
-    if ((nCurValue > 0) && (nCurValue - nValue >= 0))
-    {
-        return true;
-    }
-    return false;
-}
-
-bool NFNPCRefreshModule::DamageHP(const NFGUID& self, const int nValue)
-{
-    int nCurValue = m_pKernelModule->GetPropertyInt32(self, NFrame::Player::HP());
-    if (nCurValue > 0)
-    {
-        nCurValue -= nValue;
-        nCurValue = (nCurValue >= 0) ? nCurValue : 0;
-
-        m_pKernelModule->SetPropertyInt(self, NFrame::Player::HP(), nCurValue);
-
-        return true;
-    }
-
-    return false;
-}
-
-bool NFNPCRefreshModule::ConsumeHP(const NFGUID& self, const int nValue)
-{
-    int nCurValue = m_pKernelModule->GetPropertyInt32(self, NFrame::Player::HP());
-    if ((nCurValue > 0) && (nCurValue - nValue >= 0))
-    {
-        nCurValue -= nValue;
-        m_pKernelModule->SetPropertyInt(self, NFrame::Player::HP(), nCurValue);
-
-        return true;
-    }
-    return false;
 }

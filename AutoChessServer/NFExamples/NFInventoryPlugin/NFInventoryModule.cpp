@@ -59,66 +59,66 @@ bool NFInventoryModule::AfterInit()
 
 NFGUID NFInventoryModule::CreateEquip(const NFGUID& self, const std::string& configName, const int count)
 {
-	NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->GetObject( self );
-	if ( NULL == pObject )
-	{
-		return NULL_OBJECT;
-	}
+	//NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->GetObject( self );
+	//if ( NULL == pObject )
+	//{
+	//	return NULL_OBJECT;
+	//}
 
-	
-	bool bExist = m_pElementModule->ExistElement( configName );
-	if ( !bExist )
-	{
-		m_pLogModule->LogError(self, "has no this element:" + configName);
-		return NULL_OBJECT;
-	}
+	//
+	//bool bExist = m_pElementModule->ExistElement( configName );
+	//if ( !bExist )
+	//{
+	//	m_pLogModule->LogError(self, "has no this element:" + configName);
+	//	return NULL_OBJECT;
+	//}
 
-	/*int nItemType = m_pElementModule->GetPropertyInt32(configName, NFrame::Item::ItemType());
-	if ( NFMsg::EItemType::EIT_EQUIP != nItemType )
-	{
-		m_pLogModule->LogError(self, configName + " has no this item type:" + std::to_string(nItemType));
-		return NULL_OBJECT;
-	}
+	//int nItemType = m_pElementModule->GetPropertyInt32(configName, NFrame::Item::ItemType());
+	//if ( NFMsg::EItemType::EIT_EQUIP != nItemType )
+	//{
+	//	m_pLogModule->LogError(self, configName + " has no this item type:" + std::to_string(nItemType));
+	//	return NULL_OBJECT;
+	//}
 
-	NF_SHARE_PTR<NFIRecord> pRecord = pObject->GetRecordManager()->GetElement( NFrame::Player::InventoryEquipment::ThisName() );
-	if (!pRecord)
-	{
-		return NULL_OBJECT;
-	}
+	//NF_SHARE_PTR<NFIRecord> pRecord = pObject->GetRecordManager()->GetElement( NFrame::Player::InventoryEquipment::ThisName() );
+	//if (!pRecord)
+	//{
+	//	return NULL_OBJECT;
+	//}
 
-	NFGUID ident = m_pKernelModule->CreateGUID();
+	//NFGUID ident = m_pKernelModule->CreateGUID();
 
-	NF_SHARE_PTR<NFDataList> var = pRecord->GetInitData();
+	//NF_SHARE_PTR<NFDataList> var = pRecord->GetInitData();
 
-	var->SetObject(NFrame::Player::InventoryEquipment::GUID, ident);
-	var->SetString(NFrame::Player::InventoryEquipment::ConfigID, configName.c_str());
-	var->SetInt(NFrame::Player::InventoryEquipment::Date, pPluginManager->GetNowTime());
+	//var->SetObject(NFrame::Player::InventoryEquipment::GUID, ident);
+	//var->SetString(NFrame::Player::InventoryEquipment::ConfigID, configName.c_str());
+	//var->SetInt(NFrame::Player::InventoryEquipment::Date, pPluginManager->GetNowTime());
 
-	if (count > 1)
-	{
-		for (int i = 0; i < count; ++i)
-		{
-			var->SetObject(NFrame::Player::InventoryEquipment::GUID, m_pKernelModule->CreateGUID());
-			pRecord->AddRow(-1, *var);
-		}
+	//if (count > 1)
+	//{
+	//	for (int i = 0; i < count; ++i)
+	//	{
+	//		var->SetObject(NFrame::Player::InventoryEquipment::GUID, m_pKernelModule->CreateGUID());
+	//		pRecord->AddRow(-1, *var);
+	//	}
 
-		return NULL_OBJECT;
-	}
-	else if (count == 1)
-	{
-		int nAddRow = pRecord->AddRow(-1, *var);
-		if (nAddRow >= 0)
-		{
-			return pRecord->GetObject(nAddRow, NFrame::Player::InventoryEquipment::GUID);
-		}
-	}
+	//	return NULL_OBJECT;
+	//}
+	//else if (count == 1)
+	//{
+	//	int nAddRow = pRecord->AddRow(-1, *var);
+	//	if (nAddRow >= 0)
+	//	{
+	//		return pRecord->GetObject(nAddRow, NFrame::Player::InventoryEquipment::GUID);
+	//	}
+	//}
 
-	return NULL_OBJECT;*/
+	return NULL_OBJECT;
 }
 
 bool NFInventoryModule::CreateItem(const NFGUID& self, const std::string& configName, const int count)
 {
-	if (count <= 0)
+	/*if (count <= 0)
 	{
 		return false;
 	}
@@ -137,33 +137,30 @@ bool NFInventoryModule::CreateItem(const NFGUID& self, const std::string& config
 		return false;
 	}
 
-	/*int nItemType = m_pElementModule->GetPropertyInt32(configName, NFrame::Item::ItemType());
+	int nItemType = m_pElementModule->GetPropertyInt32(configName, NFrame::Item::ItemType());
 	if ( NFMsg::EItemType::EIT_EQUIP == nItemType )
 	{
 		CreateEquip(self, configName, count);
 
 		return false;
-	}
+	}*/
 
-	const int sceneID = m_pKernelModule->GetPropertyInt32(self, NFrame::Player::SceneID());
-	NFMsg::ESceneType eSceneType = (NFMsg::ESceneType)m_pElementModule->GetPropertyInt32(std::to_string(sceneID), NFrame::Scene::Type());
-
-	return CreateItemInNormalBag(self, configName, count);*/
+	return CreateItemInNormalBag(self, configName, count);
 }
 
 bool NFInventoryModule::DeleteEquip(const NFGUID& self, const NFGUID& id )
 {
-	if (id.IsNull())
-	{
-		return false;
-	}
+	//if (id.IsNull())
+	//{
+	//	return false;
+	//}
 
-	
-	NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->GetObject( self );
-	if (nullptr == pObject)
-	{
-		return false;
-	}
+	//
+	//NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->GetObject( self );
+	//if (nullptr == pObject)
+	//{
+	//	return false;
+	//}
 
 	//NF_SHARE_PTR<NFIRecord> pRecord = pObject->GetRecordManager()->GetElement( NFrame::Player::InventoryEquipment::ThisName() );
 	//if (nullptr == pRecord)
@@ -188,7 +185,7 @@ bool NFInventoryModule::DeleteEquip(const NFGUID& self, const NFGUID& id )
 
 bool NFInventoryModule::DeleteItem(const NFGUID& self, const std::string& strItemConfigID, const int count )
 {
-	if(count <= 0)
+	/*if(count <= 0)
 	{
 		return false;
 	}
@@ -206,7 +203,7 @@ bool NFInventoryModule::DeleteItem(const NFGUID& self, const std::string& strIte
 		return false;
 	}
 
-	/*NF_SHARE_PTR<NFIRecord> pRecord = pObject->GetRecordManager()->GetElement( NFrame::Player::Inventory::ThisName() );
+	NF_SHARE_PTR<NFIRecord> pRecord = pObject->GetRecordManager()->GetElement( NFrame::Player::Inventory::ThisName() );
 	if (!pRecord)
 	{
 		return false;
@@ -239,7 +236,7 @@ bool NFInventoryModule::DeleteItem(const NFGUID& self, const std::string& strIte
 
 bool NFInventoryModule::EnoughItem(const NFGUID& self, const std::string& strItemConfigID, const int count )
 {
-    if(count <= 0)
+    /*if(count <= 0)
     {
         return false;
     }
@@ -258,7 +255,7 @@ bool NFInventoryModule::EnoughItem(const NFGUID& self, const std::string& strIte
         return false;
     }
 
-    /*NF_SHARE_PTR<NFIRecord> pRecord = pObject->GetRecordManager()->GetElement( NFrame::Player::Inventory::ThisName() );
+    NF_SHARE_PTR<NFIRecord> pRecord = pObject->GetRecordManager()->GetElement( NFrame::Player::Inventory::ThisName() );
     if (!pRecord)
     {
         return false;
@@ -267,9 +264,9 @@ bool NFInventoryModule::EnoughItem(const NFGUID& self, const std::string& strIte
 	int row = pRecord->FindString(NFrame::Player::Inventory::ConfigID, strItemConfigID);
 	if (row >= 0)
 	{
-		int count = pRecord->GetInt32(row, NFrame::Player::Inventory::ItemCount);
+		int itemCount = pRecord->GetInt32(row, NFrame::Player::Inventory::ItemCount);
 
-		if (count >= count)
+		if (itemCount >= count)
 		{
 			return true;
 		}
@@ -303,8 +300,8 @@ bool NFInventoryModule::CreateItemInNormalBag(const NFGUID & self, const std::st
 	}
 	else
 	{
-		int count = pRecord->GetInt32(row, NFrame::Player::Inventory::ItemCount) + count;
-		pRecord->SetInt(row, NFrame::Player::Inventory::ItemCount, count);
+		int totalCount = pRecord->GetInt32(row, NFrame::Player::Inventory::ItemCount) + count;
+		pRecord->SetInt(row, NFrame::Player::Inventory::ItemCount, totalCount);
 	}
 
 
@@ -316,7 +313,7 @@ bool NFInventoryModule::CreateItemInNormalBag(const NFGUID & self, const std::st
 int NFInventoryModule::ItemCount(const NFGUID &self, const std::string &strItemConfigID)
 {
 
-	NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->GetObject( self );
+	/*NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->GetObject( self );
 	if ( NULL == pObject )
 	{
 		return 0;
@@ -329,7 +326,7 @@ int NFInventoryModule::ItemCount(const NFGUID &self, const std::string &strItemC
 		return 0;
 	}
 
-	/*NF_SHARE_PTR<NFIRecord> pRecord = pObject->GetRecordManager()->GetElement( NFrame::Player::Inventory::ThisName() );
+	NF_SHARE_PTR<NFIRecord> pRecord = pObject->GetRecordManager()->GetElement( NFrame::Player::Inventory::ThisName() );
 	if (!pRecord)
 	{
 		return 0;

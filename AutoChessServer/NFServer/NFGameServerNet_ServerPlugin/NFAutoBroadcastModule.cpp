@@ -98,9 +98,7 @@ int NFAutoBroadcastModule::OnObjectClassEvent(const NFGUID& self, const std::str
 
 int NFAutoBroadcastModule::OnSceneEvent(const NFGUID & self, const int sceneID, const int groupID, const int type, const NFDataList& argList)
 {
-    if (sceneID == 3) return 0;
-
- 	NFVector3 vRelivePos = m_pSceneModule->GetRelivePosition(sceneID, 0);
+	NFVector3 vRelivePos = m_pSceneModule->GetRelivePosition(sceneID);
 
 	NFMsg::ReqAckSwapScene xAckSwapScene;
 	xAckSwapScene.set_scene_id(sceneID);
@@ -111,7 +109,7 @@ int NFAutoBroadcastModule::OnSceneEvent(const NFGUID & self, const int sceneID, 
 	xAckSwapScene.set_z(vRelivePos.Z());
 	xAckSwapScene.set_data("");
 
-	//////buildings
+	//buildings
 
 	m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_SWAP_SCENE, xAckSwapScene, self);
 
@@ -127,7 +125,7 @@ int NFAutoBroadcastModule::OnPropertyEnter(const NFDataList& argVar, const NFGUI
 
 	NFMsg::MultiObjectPropertyList xPublicMsg;
 	NFMsg::MultiObjectPropertyList xPrivateMsg;
-    NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->GetObject(self);
+	NF_SHARE_PTR<NFIObject> pObject = m_pKernelModule->GetObject(self);
 	if (pObject)
 	{
 		NFMsg::ObjectPropertyList* pPublicData = xPublicMsg.add_multi_player_property();
@@ -137,7 +135,9 @@ int NFAutoBroadcastModule::OnPropertyEnter(const NFDataList& argVar, const NFGUI
 		*(pPrivateData->mutable_player_id()) = NFINetModule::NFToPB(self);
 
 		NF_SHARE_PTR<NFIPropertyManager> pPropertyManager = pObject->GetPropertyManager();
-	
+		//std::cout << "OnPropertyEnter auto " << pPropertyManager->Self().ToString() << std::endl;
+		//std::cout << pPropertyManager->ToString() << std::endl;
+
 		NF_SHARE_PTR<NFIProperty> pPropertyInfo = pPropertyManager->First();
 		while (pPropertyInfo)
 		{
@@ -357,7 +357,7 @@ int NFAutoBroadcastModule::OnRecordEnter(const NFDataList& argVar, const NFGUID&
 	return 0;
 }
 
-int NFAutoBroadcastModule::OnPropertyEvent(const NFGUID & self, const std::string & propertyName, const NFData & oldVar, const NFData & newVar, const NFDataList & argVar)
+int NFAutoBroadcastModule::OnPropertyEvent(const NFGUID & self, const std::string & propertyName, const NFData & oldVar, const NFData & newVar, const NFDataList & argVar, const NFINT64 reason)
 {
 	if (NFrame::Player::ThisName() == m_pKernelModule->GetPropertyString(self, NFrame::Player::ClassName()))
 	{
@@ -379,6 +379,7 @@ int NFAutoBroadcastModule::OnPropertyEvent(const NFGUID & self, const std::strin
 		NFMsg::PropertyInt* pDataInt = xPropertyInt.add_property_list();
 		pDataInt->set_property_name(propertyName);
 		pDataInt->set_data(newVar.GetInt());
+		pDataInt->set_reason(reason);
 
 		for (int i = 0; i < argVar.GetCount(); i++)
 		{
@@ -398,6 +399,7 @@ int NFAutoBroadcastModule::OnPropertyEvent(const NFGUID & self, const std::strin
 		NFMsg::PropertyFloat* pDataFloat = xPropertyFloat.add_property_list();
 		pDataFloat->set_property_name(propertyName);
 		pDataFloat->set_data(newVar.GetFloat());
+		pDataFloat->set_reason(reason);
 
 		for (int i = 0; i < argVar.GetCount(); i++)
 		{
@@ -417,6 +419,7 @@ int NFAutoBroadcastModule::OnPropertyEvent(const NFGUID & self, const std::strin
 		NFMsg::PropertyString* pDataString = xPropertyString.add_property_list();
 		pDataString->set_property_name(propertyName);
 		pDataString->set_data(newVar.GetString());
+		pDataString->set_reason(reason);
 
 		for (int i = 0; i < argVar.GetCount(); i++)
 		{
@@ -436,6 +439,7 @@ int NFAutoBroadcastModule::OnPropertyEvent(const NFGUID & self, const std::strin
 		NFMsg::PropertyObject* pDataObject = xPropertyObject.add_property_list();
 		pDataObject->set_property_name(propertyName);
 		*pDataObject->mutable_data() = NFINetModule::NFToPB(newVar.GetObject());
+		pDataObject->set_reason(reason);
 
 		for (int i = 0; i < argVar.GetCount(); i++)
 		{
@@ -454,6 +458,7 @@ int NFAutoBroadcastModule::OnPropertyEvent(const NFGUID & self, const std::strin
 		NFMsg::PropertyVector2* pDataObject = xPropertyVector2.add_property_list();
 		pDataObject->set_property_name(propertyName);
 		*pDataObject->mutable_data() = NFINetModule::NFToPB(newVar.GetVector2());
+		pDataObject->set_reason(reason);
 
 		for (int i = 0; i < argVar.GetCount(); i++)
 		{
@@ -472,6 +477,7 @@ int NFAutoBroadcastModule::OnPropertyEvent(const NFGUID & self, const std::strin
 		NFMsg::PropertyVector3* pDataObject = xPropertyVector3.add_property_list();
 		pDataObject->set_property_name(propertyName);
 		*pDataObject->mutable_data() = NFINetModule::NFToPB(newVar.GetVector3());
+		pDataObject->set_reason(reason);
 
 		for (int i = 0; i < argVar.GetCount(); i++)
 		{
@@ -806,6 +812,7 @@ int NFAutoBroadcastModule::OnObjectListEnter(const NFDataList& self, const NFDat
 		pEntryInfo->set_x(vPos.X());
 		pEntryInfo->set_y(vPos.Y());
 		pEntryInfo->set_z(vPos.Z());
+		//pEntryInfo->set_career_type(m_pKernelModule->GetPropertyInt32(identOld, NFrame::Player::Job()));
 		pEntryInfo->set_player_state(0);
 		pEntryInfo->set_config_id(m_pKernelModule->GetPropertyString(identOld, NFrame::Player::ConfigID()));
 		pEntryInfo->set_scene_id(m_pKernelModule->GetPropertyInt32(identOld, NFrame::Player::SceneID()));
@@ -857,6 +864,7 @@ int NFAutoBroadcastModule::OnObjectDataFinished(const NFDataList & self, const N
 		pEntryInfo->set_x(vPos.X());
 		pEntryInfo->set_y(vPos.Y());
 		pEntryInfo->set_z(vPos.Z());
+		//pEntryInfo->set_career_type(m_pKernelModule->GetPropertyInt32(identOld, NFrame::Player::Job()));
 		pEntryInfo->set_player_state(0);
 		pEntryInfo->set_config_id(m_pKernelModule->GetPropertyString(identOld, NFrame::Player::ConfigID()));
 		pEntryInfo->set_scene_id(m_pKernelModule->GetPropertyInt32(identOld, NFrame::Player::SceneID()));
