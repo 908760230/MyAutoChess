@@ -50,7 +50,7 @@ struct TableStruct_NFMsgShare_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[13]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[14]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -64,6 +64,9 @@ extern AckPlayerEntryListDefaultTypeInternal _AckPlayerEntryList_default_instanc
 class AckPlayerLeaveList;
 class AckPlayerLeaveListDefaultTypeInternal;
 extern AckPlayerLeaveListDefaultTypeInternal _AckPlayerLeaveList_default_instance_;
+class AttackChess;
+class AttackChessDefaultTypeInternal;
+extern AttackChessDefaultTypeInternal _AttackChess_default_instance_;
 class EffectData;
 class EffectDataDefaultTypeInternal;
 extern EffectDataDefaultTypeInternal _EffectData_default_instance_;
@@ -101,6 +104,7 @@ extern ReqLeaveGameServerDefaultTypeInternal _ReqLeaveGameServer_default_instanc
 PROTOBUF_NAMESPACE_OPEN
 template<> ::NFMsg::AckPlayerEntryList* Arena::CreateMaybeMessage<::NFMsg::AckPlayerEntryList>(Arena*);
 template<> ::NFMsg::AckPlayerLeaveList* Arena::CreateMaybeMessage<::NFMsg::AckPlayerLeaveList>(Arena*);
+template<> ::NFMsg::AttackChess* Arena::CreateMaybeMessage<::NFMsg::AttackChess>(Arena*);
 template<> ::NFMsg::EffectData* Arena::CreateMaybeMessage<::NFMsg::EffectData>(Arena*);
 template<> ::NFMsg::PlayerEntryInfo* Arena::CreateMaybeMessage<::NFMsg::PlayerEntryInfo>(Arena*);
 template<> ::NFMsg::PosSyncUnit* Arena::CreateMaybeMessage<::NFMsg::PosSyncUnit>(Arena*);
@@ -2656,6 +2660,152 @@ class ReqAckPlayerChat PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_NFMsgShare_2eproto;
 };
+// -------------------------------------------------------------------
+
+class AttackChess PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:NFMsg.AttackChess) */ {
+ public:
+  inline AttackChess() : AttackChess(nullptr) {}
+  virtual ~AttackChess();
+
+  AttackChess(const AttackChess& from);
+  AttackChess(AttackChess&& from) noexcept
+    : AttackChess() {
+    *this = ::std::move(from);
+  }
+
+  inline AttackChess& operator=(const AttackChess& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AttackChess& operator=(AttackChess&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const AttackChess& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const AttackChess* internal_default_instance() {
+    return reinterpret_cast<const AttackChess*>(
+               &_AttackChess_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(AttackChess& a, AttackChess& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(AttackChess* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AttackChess* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline AttackChess* New() const final {
+    return CreateMaybeMessage<AttackChess>(nullptr);
+  }
+
+  AttackChess* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<AttackChess>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const AttackChess& from);
+  void MergeFrom(const AttackChess& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AttackChess* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "NFMsg.AttackChess";
+  }
+  protected:
+  explicit AttackChess(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_NFMsgShare_2eproto);
+    return ::descriptor_table_NFMsgShare_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlayerIdFieldNumber = 1,
+  };
+  // .NFMsg.Ident player_id = 1;
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  const ::NFMsg::Ident& player_id() const;
+  ::NFMsg::Ident* release_player_id();
+  ::NFMsg::Ident* mutable_player_id();
+  void set_allocated_player_id(::NFMsg::Ident* player_id);
+  private:
+  const ::NFMsg::Ident& _internal_player_id() const;
+  ::NFMsg::Ident* _internal_mutable_player_id();
+  public:
+  void unsafe_arena_set_allocated_player_id(
+      ::NFMsg::Ident* player_id);
+  ::NFMsg::Ident* unsafe_arena_release_player_id();
+
+  // @@protoc_insertion_point(class_scope:NFMsg.AttackChess)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::NFMsg::Ident* player_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_NFMsgShare_2eproto;
+};
 // ===================================================================
 
 
@@ -4480,9 +4630,92 @@ inline void ReqAckPlayerChat::set_allocated_chat_info(std::string* chat_info) {
   // @@protoc_insertion_point(field_set_allocated:NFMsg.ReqAckPlayerChat.chat_info)
 }
 
+// -------------------------------------------------------------------
+
+// AttackChess
+
+// .NFMsg.Ident player_id = 1;
+inline bool AttackChess::_internal_has_player_id() const {
+  return this != internal_default_instance() && player_id_ != nullptr;
+}
+inline bool AttackChess::has_player_id() const {
+  return _internal_has_player_id();
+}
+inline const ::NFMsg::Ident& AttackChess::_internal_player_id() const {
+  const ::NFMsg::Ident* p = player_id_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::NFMsg::Ident*>(
+      &::NFMsg::_Ident_default_instance_);
+}
+inline const ::NFMsg::Ident& AttackChess::player_id() const {
+  // @@protoc_insertion_point(field_get:NFMsg.AttackChess.player_id)
+  return _internal_player_id();
+}
+inline void AttackChess::unsafe_arena_set_allocated_player_id(
+    ::NFMsg::Ident* player_id) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(player_id_);
+  }
+  player_id_ = player_id;
+  if (player_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NFMsg.AttackChess.player_id)
+}
+inline ::NFMsg::Ident* AttackChess::release_player_id() {
+  
+  ::NFMsg::Ident* temp = player_id_;
+  player_id_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::NFMsg::Ident* AttackChess::unsafe_arena_release_player_id() {
+  // @@protoc_insertion_point(field_release:NFMsg.AttackChess.player_id)
+  
+  ::NFMsg::Ident* temp = player_id_;
+  player_id_ = nullptr;
+  return temp;
+}
+inline ::NFMsg::Ident* AttackChess::_internal_mutable_player_id() {
+  
+  if (player_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::NFMsg::Ident>(GetArena());
+    player_id_ = p;
+  }
+  return player_id_;
+}
+inline ::NFMsg::Ident* AttackChess::mutable_player_id() {
+  // @@protoc_insertion_point(field_mutable:NFMsg.AttackChess.player_id)
+  return _internal_mutable_player_id();
+}
+inline void AttackChess::set_allocated_player_id(::NFMsg::Ident* player_id) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(player_id_);
+  }
+  if (player_id) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(player_id)->GetArena();
+    if (message_arena != submessage_arena) {
+      player_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, player_id, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  player_id_ = player_id;
+  // @@protoc_insertion_point(field_set_allocated:NFMsg.AttackChess.player_id)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

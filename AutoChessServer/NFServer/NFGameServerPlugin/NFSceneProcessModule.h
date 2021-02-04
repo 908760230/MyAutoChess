@@ -49,6 +49,8 @@
 #include "NFComm/NFPluginModule/NFICellModule.h"
 #include "NFComm/NFPluginModule/NFIGameServerNet_ServerModule.h"
 
+class NFIGameServerModule;
+
 class NFSceneProcessModule
     : public NFISceneProcessModule
 {
@@ -92,6 +94,7 @@ private:
 	NFISceneModule* m_pSceneModule;
 	NFICellModule* m_pCellModule;
     NFIGameServerNet_ServerModule* m_pGameServerNet_ServerModule;
+    NFIGameServerModule* m_pGameServerModule;
 };
 
 #endif

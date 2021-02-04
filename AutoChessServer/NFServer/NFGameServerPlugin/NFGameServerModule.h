@@ -66,6 +66,9 @@ protected:
 
     bool SetHeroOnInventory(NFGUID self, const string& element, const string& race);
 
+    void fight(int group, const NF_SHARE_PTR<NFIRecord>& record);
+    NFGUID SearchEnemy(const NFGUID& self, const NF_SHARE_PTR<NFIRecord>& record);
+
 protected:
     int64_t preTime;
     int preparationDuration = 15;

@@ -70,8 +70,6 @@ protected:
 
 	int OnObjectPlayerEvent(const NFGUID & self, const std::string & className, const CLASS_OBJECT_EVENT classEvent, const NFDataList & var);
 
-    void OnSwapScene(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
-
 private:
 
 	void AttachData(const NFGUID& self);

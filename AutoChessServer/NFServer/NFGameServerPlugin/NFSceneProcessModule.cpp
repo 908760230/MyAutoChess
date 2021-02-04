@@ -27,6 +27,7 @@
 #include "NFSceneProcessModule.h"
 #include "NFComm/NFMessageDefine/NFProtocolDefine.hpp"
 #include "NFComm/NFMessageDefine/NFMsgDefine.h"
+#include "NFGameServerModule.h"
 
 bool NFSceneProcessModule::Init()
 {
@@ -38,7 +39,8 @@ bool NFSceneProcessModule::Init()
 	m_pSceneModule = pPluginManager->FindModule<NFISceneModule>();
 	m_pCellModule = pPluginManager->FindModule<NFICellModule>();
 	m_pGameServerNet_ServerModule = pPluginManager->FindModule<NFIGameServerNet_ServerModule>();
-	
+	m_pGameServerModule = pPluginManager->FindModule<NFIGameServerModule>();
+
     return true;
 }
 
@@ -107,14 +109,14 @@ bool NFSceneProcessModule::RequestEnterScene(const NFGUID & self, const int scen
 	}
 	else if (eSceneType == NFMsg::ESceneType::NORMAL_SCENE)
 	{
-		const int nMaxGroup = m_pElementModule->GetPropertyInt32(std::to_string(sceneID), NFrame::Scene::MaxGroup());
-		const int nMaxPlayer = m_pElementModule->GetPropertyInt32(std::to_string(sceneID), NFrame::Scene::MaxGroupPlayers());
-		for (int i = 1; i <= nMaxGroup; ++i)
-		{
-			return m_pSceneModule->RequestEnterScene(self, sceneID, 1, type, pos, argList);
-		}
+        const int nMaxGroup = m_pElementModule->GetPropertyInt32(std::to_string(sceneID), NFrame::Scene::MaxGroup());
+        const int nMaxPlayer = m_pElementModule->GetPropertyInt32(std::to_string(sceneID), NFrame::Scene::MaxGroupPlayers());
+        for (int i = 1; i <= nMaxGroup; ++i)
+        {
+            return m_pSceneModule->RequestEnterScene(self, sceneID, 1, type, pos, argList);
+        }
 
-		return false;
+        return false;
 	}
 	else
 	{
@@ -222,12 +224,15 @@ int NFSceneProcessModule::BeforeEnterSceneGroupEvent(const NFGUID & self, const 
 	}
 	else if (eSceneType == NFMsg::ESceneType::MULTI_CLONE_SCENE)
 	{
-		NFDataList varObjectList;
+		/*NFDataList varObjectList;
 		if (m_pKernelModule->GetGroupObjectList(sceneID, groupID, varObjectList, true) && varObjectList.GetCount() <= 0)
 		{
 			m_pSceneModule->CreateSceneNPC(sceneID, groupID, NFDataList::Empty());
-		}
+		}*/
 	}
+    else if (eSceneType == NFMsg::ESceneType::NORMAL_SCENE) {
+
+    }
 
 	return 0;
 }
@@ -240,10 +245,34 @@ int NFSceneProcessModule::AfterEnterSceneGroupEvent(const NFGUID & self, const i
 	}
 	else if (eSceneType == NFMsg::ESceneType::MULTI_CLONE_SCENE)
 	{
+
+        m_pSceneModule->SetPropertyInt(sceneID, groupID, NFrame::Group::GameTime(), 1);
+        m_pSceneModule->SetPropertyInt(sceneID, groupID, NFrame::Group::GameState(), 0);
+
+        NF_SHARE_PTR<NFIRecord> planeOne = m_pSceneModule->FindRecord(sceneID, groupID, NFrame::Group::ChessPlane1::ThisName());
+        int rows = planeOne->GetUsedRows();
+        if (rows < 8) {
+            for (int i = 0; i < 8; i++) planeOne->AddRow(-1);
+        }
+
+        m_pKernelModule->SetPropertyInt(self, NFrame::Player::GameGold(), 500);
+        m_pKernelModule->SetPropertyInt(self, NFrame::Player::MaxHero(), 3);
+        m_pKernelModule->SetPropertyInt(self, NFrame::Player::HP(), 100);
+        m_pKernelModule->SetPropertyInt(self, NFrame::Player::GameLVL(), 1);
+
+        NF_SHARE_PTR<NFIRecord> chessPlane = m_pKernelModule->FindRecord(self, NFrame::Player::ChessPlane::ThisName());
+        
+        rows = planeOne->GetUsedRows();
+        if (rows < 8) {
+            for (int i = 0; i < 8; i++) chessPlane->AddRow(-1);
+        }
+
+        m_pGameServerModule->refreshShopItem(self);
+
 	}
 	else if (eSceneType == NFMsg::ESceneType::NORMAL_SCENE)
 	{
-		
+       
 	}
 
 	return 1;
@@ -292,27 +321,6 @@ bool NFSceneProcessModule::LoadSceneResource(const std::string& strSceneIDName)
 		}
 	}
 
-	/*const std::string& strTagPosition = m_pElementModule->GetPropertyString(strSceneIDName, NFrame::Scene::RelivePosEx());
-	NFDataList xTagPositionList;
-	xTagPositionList.Split(strTagPosition, ";");
-	for (int i = 0; i < xTagPositionList.GetCount(); ++i)
-	{
-		const std::string& strPos = xTagPositionList.String(i);
-		if (!strPos.empty())
-		{
-			NFDataList xPosition;
-			xPosition.Split(strPos, ",");
-			if (xPosition.GetCount() == 3)
-			{
-				float fPosX = lexical_cast<float>(xPosition.String(0));
-				float fPosY = lexical_cast<float>(xPosition.String(1));
-				float fPosZ = lexical_cast<float>(xPosition.String(2));
-				m_pSceneModule->AddTagPosition(sceneID, i, NFVector3(fPosX, fPosY, fPosZ));
-			}
-		}
-	}*/
-
-
     return true;
 }
 
@@ -329,7 +337,7 @@ bool NFSceneProcessModule::CreateSceneBaseGroup(const std::string & strSceneIDNa
 			int groupID = m_pKernelModule->RequestGroupScene(sceneID);
 			if (groupID > 0)
 			{
-				m_pSceneModule->CreateSceneNPC(sceneID, groupID);
+				//m_pSceneModule->CreateSceneNPC(sceneID, groupID);
 			}
 			else
 			{

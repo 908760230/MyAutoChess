@@ -43,6 +43,7 @@ public class NFGameSceneUI : NFUIDialog
     public GameObject bonusContainer;
     public GameObject bonusUIPrefab;
     public GameObject placement;
+    public GameObject championLimit;
 
     public static Vector3 cameraOnePosition = new Vector3(0, (float)26.33, (float)18.56);
     public static Vector3 cameraTwoPosition = new Vector3(100, (float)26.33, (float)18.56);
@@ -83,18 +84,22 @@ public class NFGameSceneUI : NFUIDialog
 
         mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckEventSellChampion, onChampionShopCLicked);
 
-        mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.GameTime, UpdateTimerText);
-        mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.State, onPlayerStateChange);
+        //mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.GameTime, UpdateTimerText);
+        //mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.State, onPlayerStateChange);
         mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.GameGold, onGameGoldChange);
         mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.MaxHero, OnMaxHeroChange);
         mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.GameLVL, OnLVLChange);
         mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.HeroCount, OnHeroCountChange);
         mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.HP, onHpChange);
 
+        mKernelModule.RegisterGroupPropertyCallback(NFrame.Group.GameTime, UpdateTimerText);
+        mKernelModule.RegisterGroupPropertyCallback(NFrame.Group.GameState, onGameStateChange);
+
         mKernelModule.RegisterRecordCallback(mLoginModule.mRoleID, NFrame.Player.ChampionShop.ThisName, onShopRecordEvent);
 
         mEventModule.RegisterCallback((int)NFLoginModule.Event.InitGameUISetting, initGameUI);
         mEventModule.RegisterCallback((int)NFLoginModule.Event.SetCameraPos, setCameraPos);
+
     }
 
     private void onChampionShopCLicked(int id, MemoryStream stream)
@@ -308,7 +313,9 @@ public class NFGameSceneUI : NFUIDialog
     }
     private void onHpChange(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
     {
-        float index = mKernelModule.FindProperty(self, NFrame.Player.Position).GetData().Vector3Val().X();
+        playerOneHP.text = mKernelModule.FindProperty(self, NFrame.Player.HP).GetData().IntVal().ToString();
+
+        /*float index = mKernelModule.FindProperty(self, NFrame.Player.Position).GetData().Vector3Val().X();
         switch ( (int)index )
         {
             case 1:
@@ -317,7 +324,7 @@ public class NFGameSceneUI : NFUIDialog
             case 2:
                 playerTwoHP.text =  mKernelModule.FindProperty(self, NFrame.Player.HP).GetData().IntVal().ToString();
                 break;
-        }
+        }*/
     }
     private void initGameUI(NFDataList valueList)
     {
@@ -338,6 +345,8 @@ public class NFGameSceneUI : NFUIDialog
                 break;
         }
         hidenBonusPanel();
+
+        
     }
     private void onGameGoldChange(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
     {
@@ -345,19 +354,27 @@ public class NFGameSceneUI : NFUIDialog
     }
     private void onPlayerStateChange(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
     {
-        long stage = mKernelModule.FindProperty(self, NFrame.Player.State).GetData().IntVal();
-        if (stage == 1)
-        {
-            placement.SetActive(false); // combat stage
-            GameMain.Instance().currentGameStage = GameStage.Combat;
-        }
-        else if (stage == 0)
-        {
-            placement.SetActive(true); //preparation stage
-            GameMain.Instance().currentGameStage = GameStage.Preparation;
-        }
-
+        
     }
+
+    private void onGameStateChange(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
+    {
+        long gameState = newVar.IntVal();
+        switch (gameState)
+        {
+            case 0:
+                placement.SetActive(true); //preparation stage
+                championLimit.SetActive(true);
+                GameMain.Instance().currentGameStage = GameStage.Preparation;
+                break;
+            case 1:
+                placement.SetActive(false); // combat stage
+                championLimit.SetActive(false);
+                GameMain.Instance().currentGameStage = GameStage.Combat;
+                break;
+        }
+    }
+
     private void OnLVLChange(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
     {
         lvlText.text = newVar.IntVal().ToString();

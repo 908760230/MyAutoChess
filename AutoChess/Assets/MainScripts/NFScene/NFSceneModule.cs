@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NFrame;
@@ -508,46 +509,23 @@ namespace NFSDK
                 NFUIMain mainUI =  mUIModule.ShowUI<NFUIMain>();
                 mainUI.SetDefaultInformation();
             }
-            else
+            else if(nSceneID == 3)
             {
                 NFUILoading xUILoading = mUIModule.ShowUI<NFUILoading>();
                 xUILoading.LoadScene(nSceneID);
-            }
-            
-            Debug.Log(mKernelModule.FindProperty(mLoginModule.mRoleID, NFrame.Player.Position).GetData().ToString());
-            LoadSceneEnd(nSceneID,(int)fX);
-            if (!mhtObject.ContainsKey(mLoginModule.mRoleID))
-            {
-                return;
-            }
-        }
-        
-        private ChessPlane createChessPlane(string name)
-        {
-            GameObject prefab = Resources.Load<GameObject>("Prefabs/ChessPlanes/" + name);
-            GameObject obj = GameObject.Instantiate(prefab);
-            obj.name = name;
-            obj.transform.SetParent(GameMain.Instance().transform);
-            return obj.GetComponent<ChessPlane>();
-        }
-        public void LoadSceneEnd(int nSceneID, int fX)
-        {
-            if (false == mbLoadedScene)
-            {
-                return;
-            }
-            mbLoadedScene = false;
-            if(nSceneID == 3)
-            {
-                ChessPlane firstMap =  createChessPlane("FirstMap");
+
+                ChessPlane firstMap = createChessPlane("FirstMap");
                 ChessPlane secondMap = createChessPlane("SecondMap");
 
-                foreach(NFGUID id in playerList)
-                {
-                    int index = (int)mKernelModule.FindProperty(id, NFrame.Player.Position).GetData().Vector3Val().X();
+                chessPlaneDict[mLoginModule.mRoleID] = firstMap;
+                firstMap.PlayerID = mLoginModule.mRoleID;
 
-                    switch (index)
+                /*for (int i=0;i<playerList.Count;i++)
+                {
+                    NFGUID id = (NFGUID)playerList[i];
+                    switch (i)
                     {
+                       
                         case 1:
                             chessPlaneDict[id] = firstMap;
                             firstMap.PlayerID = id;
@@ -558,16 +536,25 @@ namespace NFSDK
                             break;
                     }
 
-                    
-                }
 
-                //mUIModule.CloseAllUI();
-                gameSceneUI = mUIModule.ShowUI<NFGameSceneUI>();
+                }*/
+
+                mUIModule.ShowUI<NFGameSceneUI>();
+                mUIModule.HidenUI<NFGameSceneUI>();
                 // SetCameraPos 无效
                 mEventModule.DoEvent((int)NFLoginModule.Event.SetCameraPos);
                 mEventModule.DoEvent((int)NFLoginModule.Event.InitGameUISetting);
             }
-
+            
+        }
+        
+        private ChessPlane createChessPlane(string name)
+        {
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/ChessPlanes/" + name);
+            GameObject obj = GameObject.Instantiate(prefab);
+            obj.name = name;
+            obj.transform.SetParent(GameMain.Instance().transform);
+            return obj.GetComponent<ChessPlane>();
         }
 
         public void SetVisibleAll(bool bVisible)
@@ -623,6 +610,15 @@ namespace NFSDK
 
             }
         }
+
+
+        private void MoveToTarget(int id, MemoryStream stream)
+        {
+            NFMsg.MsgBase xMsg = NFMsg.MsgBase.Parser.ParseFrom(stream);
+            NFMsg.AttackChess attackChess = NFMsg.AttackChess.Parser.ParseFrom(xMsg.MsgData);
+
+        }
+
 
     }
 }

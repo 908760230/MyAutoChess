@@ -202,7 +202,9 @@ namespace NFrame
 		public static readonly String SceneID = "SceneID";// int
 		public static readonly String State = "State";// int
 		// Property
-		public static readonly String Completed = "Completed";// int
+		public static readonly String GameState = "GameState";// int
+		public static readonly String GameTime = "GameTime";// int
+		public static readonly String PlaneOne = "PlaneOne";// int
 		public static readonly String PlayerCount = "PlayerCount";// int
 		// Record
 		public class ChessPlane1

@@ -162,6 +162,7 @@ enum EGameMsgID
 	ACK_OFFLINE_NOTIFY						= 601;
 
 	//game logic message id, start from 1000
+	ACK_ATTACK_CHESS						=1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

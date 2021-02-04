@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <XML>
 	<Propertys>
-		<Property Id="Completed" Cache="0" Desc="完成的玩家数量" Force="0" Private="0" Public="0" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="GameState" Cache="0" Desc="游戏状态" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="GameTime" Cache="0" Desc="游戏时间" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="PlaneOne" Cache="0" Desc="棋盘状态" Force="0" Private="0" Public="0" Ref="0" Save="0" Type="int" Upload="0" />
 		<Property Id="PlayerCount" Cache="0" Desc="玩家数量" Force="0" Private="0" Public="0" Ref="0" Save="0" Type="int" Upload="0" />
 	</Propertys>
 	<Records>

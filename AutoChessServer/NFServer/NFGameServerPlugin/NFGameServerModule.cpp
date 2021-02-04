@@ -71,30 +71,89 @@ bool NFGameServerModule::Execute()
 
     vector<int> groups = m_pSceneModule->GetGroups(3);
     for (int& id : groups) {
+
+        if (id == 0) continue;
+
+        NF_SHARE_PTR<NFIRecord> chessPlaneOne = m_pSceneModule->FindRecord(3, id, NFrame::Group::ChessPlane1::ThisName());
+
+        int gameState = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::GameState());
+
         NFDataList playerList;
         m_pKernelModule->GetGroupObjectList(3, id, playerList, true);
-        for (int i = 0; i < playerList.GetCount(); i++) {
-            const NFGUID& playerId = playerList.Object(i);
-            int gameStage = m_pKernelModule->GetPropertyInt(playerId, NFrame::Player::State());
-            if (gameStage == 0) {
-                // preparation stage
-                int oldVal = m_pKernelModule->GetPropertyInt(playerId, NFrame::Player::GameTime());
+        // come in preparation stage  
+        if (!gameState) {
 
-                int newVal = oldVal + deltaTime;
-
-                if (newVal > preparationDuration) {
-                    m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::GameTime(), 0);
-                    // into combat stage
-                    m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::State(), 1);
-                }
-                else
-                    m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::GameTime(), newVal);
-            }
-            else {
-                // combat stage
+            for (int i = 0; i < playerList.GetCount(); i++) {
+                const NFGUID& playerId = playerList.Object(i);
                 m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::State(), 0);
             }
+
+            int currentTime = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::GameTime());
+            currentTime += deltaTime;
+
+            if(currentTime < preparationDuration)
+
+                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameTime(), currentTime);
+            else {
+
+                NF_SHARE_PTR<NFIRecord> playerPlane = m_pKernelModule->FindRecord(playerList.Object(0), NFrame::Player::ChessPlane::ThisName());
+
+                for (int i = 0; i < 4; i++)
+                {
+                    for (int j = 0; j < 7; j++)
+                    {
+                        const NFGUID id = playerPlane->GetObjectA(i, j);
+                        chessPlaneOne->SetObject(i, j, id);
+                    }
+                }
+
+                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameState(), 1);
+                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameTime(), 0);
+
+            }
         }
+        else {
+            /*int planeOne = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::PlaneOne());
+
+            if (!planeOne) {
+                fight(id, chessPlaneOne);
+            }*/
+
+            int currentTime = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::GameTime());
+            currentTime += deltaTime;
+
+            if (currentTime < preparationDuration)
+
+                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameTime(), currentTime);
+            else {
+                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameState(), 0);
+                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameTime(), 0);
+            }
+            //m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameState(), 0);
+        }
+
+        
+        //for (int i = 0; i < playerList.GetCount(); i++) {
+        //    const NFGUID& playerId = playerList.Object(i);
+        //    int gameStage = m_pKernelModule->GetPropertyInt(playerId, NFrame::Player::State());
+        //    if (gameStage == 0) {
+        //        // preparation stage
+        //        int oldVal = m_pKernelModule->GetPropertyInt(playerId, NFrame::Player::GameTime());
+
+        //        int newVal = oldVal + deltaTime;
+
+        //        if (newVal > preparationDuration) {
+        //            m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::GameTime(), 0);
+        //            // into combat stage
+        //            m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::State(), 1);
+        //            m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::PlaneOne(), 0);
+        //        }
+        //        else m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::GameTime(), newVal);
+        //    }
+        //}
+
+        
+        
     }
 
     return true;
@@ -241,11 +300,53 @@ bool NFGameServerModule::SetHeroOnInventory(NFGUID self, const string& element, 
     m_pKernelModule->SetPropertyInt(clonedNpcID, NFrame::NPC::State(), 0);
     m_pKernelModule->SetPropertyString(clonedNpcID, NFrame::NPC::ElementType(), element);
     m_pKernelModule->SetPropertyString(clonedNpcID, NFrame::NPC::RaceType(), race);
+    m_pKernelModule->SetPropertyObject(clonedNpcID, NFrame::NPC::MasterID(), self);
     m_pKernelModule->SetPropertyObject(npcID, NFrame::NPC::Mirror(), clonedNpcID);
+
 
     NFDataList data;
     data.Add(npcID);
     ownInventory->AddRow(-1, data);
 
     return true;
+}
+
+void NFGameServerModule::fight(int group, const NF_SHARE_PTR<NFIRecord>& record)
+{
+    if (record->GetUsedRows() < 8) return;
+
+    NFGUID empty(0, 0);
+    for (int row = 0; row < 8; row++) {
+        for (int col = 0; col < 7; col++) {
+
+            NFGUID id = record->GetObjectA(row, col);
+            if (id != empty) {
+
+                NFGUID target = m_pKernelModule->GetPropertyObject(id, NFrame::NPC::Target());
+                if (target == empty) {
+                    target = SearchEnemy(id, record);
+                    //if (target == empty) m_pSceneModule->SetPropertyInt(3, group, NFrame::Group::PlaneOne(), 1);
+                    m_pKernelModule->SetPropertyObject(id, NFrame::NPC::Target(), target, 0);
+                }
+            }
+        }
+    }
+}
+
+NFGUID NFGameServerModule::SearchEnemy(const NFGUID& self, const NF_SHARE_PTR<NFIRecord>& record)
+{
+    NFGUID empty(0, 0);
+
+    NFGUID selfMaster = m_pKernelModule->GetPropertyObject(self, NFrame::NPC::MasterID());
+    for (int row = 0; row < 8; row++) {
+        for (int col = 0; col < 7; col++) {
+            NFGUID id = record->GetObjectA(row, col);
+            if (id != empty) {
+
+                NFGUID masterID = m_pKernelModule->GetPropertyObject(id, NFrame::NPC::MasterID());
+                if (selfMaster != masterID) return id;
+            }
+        }
+    }
+    return empty;
 }

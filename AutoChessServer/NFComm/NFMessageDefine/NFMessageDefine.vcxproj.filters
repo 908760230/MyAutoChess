@@ -14,6 +14,5 @@
     <ClInclude Include="NFMsgDefine.h" />
     <ClInclude Include="NFMsgPreGame.pb.h" />
     <ClInclude Include="NFMsgShare.pb.h" />
-    <ClInclude Include="NFProtocolDefine.hpp" />
   </ItemGroup>
 </Project>

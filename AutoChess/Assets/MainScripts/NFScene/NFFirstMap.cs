@@ -9,13 +9,10 @@ public class NFFirstMap : ChessPlane
     
     public Dictionary<string,int> bonusData = new Dictionary<string, int>();
 
-    private NFUIModule uiModule;
-    private NFIEventModule mEventModule;
     private void Start()
     {
 
         NFIPluginManager pluginManager = GameMain.Instance().GetPluginManager();
-        uiModule = pluginManager.FindModule<NFUIModule>();
         mEventModule = pluginManager.FindModule<NFIEventModule>();
 
         mKernelModule.RegisterRecordCallback((NFGUID)mSceneModule.playerList[0], NFrame.Player.ownInventory.ThisName, OnOwnInventoryChange);
@@ -26,11 +23,13 @@ public class NFFirstMap : ChessPlane
 
         mEventModule.RegisterCallback((int)NFLoginModule.Event.UpdatePlayerOneBonusUI, updateBonusUI);
 
+        mKernelModule.RegisterGroupPropertyCallback(NFrame.Group.GameState, onGameStateChange);
+
     }
 
     void updateBonusUI(NFDataList valueList)
     {
-        NFGameSceneUI gameUI = uiModule.GetUI<NFGameSceneUI>();
+        NFGameSceneUI gameUI = mUIModule.GetUI<NFGameSceneUI>();
         gameUI.updateBunusPanel(bonusData);
     }
 
@@ -98,6 +97,29 @@ public class NFFirstMap : ChessPlane
         }
 
     }
+
+    private void onGameStateChange(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
+    {
+        long gameSate = newVar.IntVal();
+        NFGUID empty = new NFGUID(0, 0);
+        NFIRecord battlePlane = mKernelModule.FindRecord(empty, NFrame.Group.ChessPlane1.ThisName);
+
+        if (gameSate == 1)
+        {
+            for (int i = 0; i < 4; i++){
+                for (int j = 0; j < 7; j++)
+                {
+                    NFGUID indent = battlePlane.QueryObject(i, j);
+                    if (indent != empty)
+                    {
+                        GameObject gameObject = mSceneModule.GetObject(indent);
+                        gameObject.transform.position = mapGridPositions[i, j];
+                    }
+                }
+            }
+        }
+    }
+
     void caculateBonus()
     {
         bonusData.Clear();

@@ -138,3 +138,8 @@ message ReqAckPlayerChat
 	EGameChatType  chat_type = 4;
 	bytes chat_info = 5;
 }
+
+message AttackChess
+{
+	Ident	player_id = 1;
+}

@@ -23,9 +23,12 @@ public class ChessController : MonoBehaviour
 
     private ChampionAnimation championAnimation;
     private WorldCanvasController worldCanvasController;
+
     private GameObject hpBar;
+    private RectTransform hpBarRectTransform;
 
     public Vector3 gridTargetPosition;
+    long attackRange = 0;
 
     private bool _isDragged = false;
 
@@ -50,7 +53,6 @@ public class ChessController : MonoBehaviour
         get { return _isDragged; }
         set { _isDragged = value; }
     }
-
     private ChessPlane chessPlane;
 
     NFSceneModule sceneModule;
@@ -60,7 +62,10 @@ public class ChessController : MonoBehaviour
     {
         GameObject perfab = Resources.Load<GameObject>("Prefabs/UI/HPCanvas");
         hpBar = Instantiate(perfab);
-        hpBar.transform.position = Camera.main.WorldToScreenPoint(transform.position);
+        hpBar.GetComponent<NFHPBar>().Init(id);
+
+        hpBarRectTransform = hpBar.transform.Find("Panel").GetComponent<RectTransform>();
+        hpBarRectTransform.position = Camera.main.WorldToScreenPoint(transform.position);
         hpBar.transform.SetParent(transform);
     }
 
@@ -73,6 +78,8 @@ public class ChessController : MonoBehaviour
 
         NFGUID masterID = mKernelModule.FindProperty(id, NFrame.NPC.MasterID).QueryObject();
         chessPlane = sceneModule.chessPlaneDict[masterID];
+
+        attackRange = mKernelModule.FindProperty(id, NFrame.NPC.ATTACK_RANGE).QueryInt();
     }
 
     // Update is called once per frame
@@ -108,6 +115,20 @@ public class ChessController : MonoBehaviour
                     this.transform.position = Vector3.Lerp(this.transform.position, gridTargetPosition, 0.1f);
                 }
                 else this.transform.position = gridTargetPosition;
+            }else if(GameMain.Instance().currentGameStage == GameStage.Combat && gridTargetPosition != Vector3.zero)
+            {
+                float distance = Vector3.Distance(gridTargetPosition, this.transform.position);
+
+                if(distance > attackRange)
+                {
+                    Vector3 pos = Vector3.Lerp(this.transform.position, gridTargetPosition, 0.1f);
+                    this.transform.position = pos;
+
+                    NFVector3 data = new NFVector3(pos.x,pos.y,pos.z);
+
+                    mKernelModule.SetPropertyVector3(id, NFrame.NPC.Position, data);
+                }
+                
             }
         }
         /*
@@ -151,6 +172,9 @@ public class ChessController : MonoBehaviour
                 }
             }
         }*/
+
+
+
         updateHPBarPosition();
     }
 
@@ -165,7 +189,12 @@ public class ChessController : MonoBehaviour
 
     void updateHPBarPosition()
     {
-        hpBar.transform.position = Camera.main.WorldToScreenPoint(transform.position);
-        Debug.Log("hp bar " + hpBar.transform.position.ToString());
+        hpBarRectTransform.position = Camera.main.WorldToScreenPoint(transform.position);
+        //Debug.Log("hp bar " + hpBar.transform.position.ToString());
+    }
+
+    public void moveTo(Vector3 position)
+    {
+        gridTargetPosition = position;
     }
 }

@@ -26,6 +26,7 @@
 
 #include <NFComm/NFPluginModule/NFIPropertyModule.h>
 #include "NFComm/NFMessageDefine/NFMsgDefine.h"
+#include "NFGameServerModule.h"
 #include "NFNPCRefreshModule.h"
 
 bool NFNPCRefreshModule::Init()
@@ -54,7 +55,8 @@ bool NFNPCRefreshModule::AfterInit()
 	m_pLogModule = pPluginManager->FindModule<NFILogModule>();
 	m_pPropertyModule = pPluginManager->FindModule<NFIPropertyModule>();
 	m_pSceneModule = pPluginManager->FindModule<NFISceneModule>();
-	
+    m_pGameServerNet_ServerModule = pPluginManager->FindModule<NFIGameServerNet_ServerModule>();
+
 	m_pKernelModule->AddClassCallBack(NFrame::NPC::ThisName(), this, &NFNPCRefreshModule::OnObjectClassEvent);
 
     return true;
@@ -108,6 +110,8 @@ int NFNPCRefreshModule::OnObjectClassEvent( const NFGUID& self, const std::strin
             m_pKernelModule->SetPropertyInt(self, NFrame::NPC::HP(), nHPMax);
 
             m_pKernelModule->AddPropertyCallBack( self, NFrame::NPC::HP(), this, &NFNPCRefreshModule::OnObjectHPEvent);
+            m_pKernelModule->AddPropertyCallBack(self, NFrame::NPC::Target(), this, &NFNPCRefreshModule::OnTagetChangeEvent);
+            m_pKernelModule->AddPropertyCallBack(self, NFrame::NPC::ATK_SPEED(), this, &NFNPCRefreshModule::OnObjectAttackSpeedEvent);
         }
     }
 
@@ -198,6 +202,44 @@ int NFNPCRefreshModule::OnBuildingDeadDestroyHeart(const NFGUID & self, const st
 	return 0;
 }
 
+int NFNPCRefreshModule::OnNPCAttack(const NFGUID& self, const std::string& heartBeat, const float time, const int count)
+{
+
+    NFGUID target = m_pKernelModule->GetPropertyObject(self, NFrame::NPC::Target());
+    NFVector3 targetPos = m_pKernelModule->GetPropertyVector3(target, NFrame::NPC::Position());
+    NFVector3 selfPos = m_pKernelModule->GetPropertyVector3(self, NFrame::NPC::Position());
+    
+    int attackRange = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::ATTACK_RANGE());
+    int distance = selfPos.Distance(targetPos);
+    if (distance > attackRange) {
+
+        NFMsg::PosSyncUnit posUnit;
+        *posUnit.mutable_mover() = NFINetModule::NFToPB(self);
+        *posUnit.mutable_pos() = NFINetModule::NFToPB(targetPos);
+        *posUnit.mutable_orientation() = NFINetModule::NFToPB(targetPos);
+        posUnit.set_status(0);
+        posUnit.set_type(NFMsg::PosSyncUnit::EMT_WALK);
+
+        m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_MOVE, posUnit, self);
+        return 0;
+    }
+
+    NFMsg::AttackChess msgAttackChess;
+    *msgAttackChess.mutable_player_id() = NFINetModule::NFToPB(self);
+
+    m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_ATTACK_CHESS, msgAttackChess, self);
+
+
+    int damage = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::ATK_VALUE());
+    int targetHP = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::HP());
+
+    targetHP -= damage;
+    if (targetHP < 0) targetHP = 0;
+    m_pKernelModule->SetPropertyInt(target, NFrame::NPC::HP(), targetHP);
+    return 0;
+
+}
+
 int NFNPCRefreshModule::OnObjectBeKilled( const NFGUID& self, const NFGUID& killer )
 {
 	/*if ( m_pKernelModule->GetObject(killer) )
@@ -210,4 +252,31 @@ int NFNPCRefreshModule::OnObjectBeKilled( const NFGUID& self, const NFGUID& kill
 	}*/
 
 	return 0;
+}
+
+int NFNPCRefreshModule::OnObjectAttackSpeedEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const NFINT64 reason)
+{
+    string name("attack");
+    NFGUID target = m_pKernelModule->GetPropertyObject(self, NFrame::NPC::Target());
+    name += target.ToString();
+    m_pScheduleModule->RemoveSchedule(self, name);
+    float attackSpeed = newVar.GetInt();
+    m_pScheduleModule->AddSchedule(self, name, this, &NFNPCRefreshModule::OnNPCAttack, 1 / attackSpeed, 100);
+    return 0;
+}
+
+int NFNPCRefreshModule::OnTagetChangeEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const NFINT64 reason)
+{
+    NFGUID empty(0, 0);
+    
+    string name("attack");
+    string oldName = name + oldVar.ToString();
+    string newName = name + newVar.ToString();
+    m_pScheduleModule->RemoveSchedule(self, oldName);
+
+    if (empty == newVar.GetObjectA()) return 0;
+
+    float attackSpeed = m_pKernelModule->GetPropertyFloat(self, NFrame::NPC::ATK_SPEED());
+    m_pScheduleModule->AddSchedule(self, newName, this, &NFNPCRefreshModule::OnNPCAttack, 1 / attackSpeed, 100);
+    return 0;
 }

@@ -206,7 +206,9 @@ namespace NFrame
 		static const std::string& SceneID(){ static std::string x = "SceneID"; return x; };// int
 		static const std::string& State(){ static std::string x = "State"; return x; };// int
 		// Property
-		static const std::string& Completed(){ static std::string x = "Completed"; return x; };// int
+		static const std::string& GameState(){ static std::string x = "GameState"; return x; };// int
+		static const std::string& GameTime(){ static std::string x = "GameTime"; return x; };// int
+		static const std::string& PlaneOne(){ static std::string x = "PlaneOne"; return x; };// int
 		static const std::string& PlayerCount(){ static std::string x = "PlayerCount"; return x; };// int
 		// Record
 		class ChessPlane1

@@ -1002,7 +1002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630044605020511526}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5, y: 0, z: 8.75}
+  m_LocalPosition: {x: -10.5, y: 0, z: 8.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4935428447456823918}
@@ -4365,7 +4365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb3d4e95fadd5d4c913d385ee1129e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownInventoryStartPosition: {fileID: 8429486650270801439}
+  ownInventoryStartPosition: {fileID: 4858971663010808214}
   oponentInventoryStartPosition: {fileID: 8429486650270801424}
   mapStartPosition: {fileID: 8429486650270801425}
   squareIndicator: {fileID: 7016743858594856686, guid: 81da3851a0172af469a3f8d12bcf7b64,

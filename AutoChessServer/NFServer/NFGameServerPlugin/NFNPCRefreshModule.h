@@ -38,6 +38,7 @@
 #include "NFComm/NFPluginModule/NFIEventModule.h"
 #include "NFComm/NFPluginModule/NFIPropertyModule.h"
 #include "NFComm/NFPluginModule/NFISceneModule.h"
+#include "NFComm/NFPluginModule/NFIGameServerNet_ServerModule.h"
 
 class NFINPCRefreshModule : public NFIModule
 {
@@ -66,9 +67,14 @@ protected:
 
 	int OnNPCDeadDestroyHeart(const NFGUID& self, const std::string& heartBeat, const float time, const int count);
 	int OnBuildingDeadDestroyHeart( const NFGUID& self, const std::string& heartBeat, const float time, const int count);
+    int OnNPCAttack(const NFGUID& self, const std::string& heartBeat, const float time, const int count);
 
 protected:
 	int OnObjectBeKilled( const NFGUID& self, const NFGUID& killer );
+
+    int OnObjectAttackSpeedEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const NFINT64 reason);
+    int OnTagetChangeEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const NFINT64 reason);
+
 
 private:
 	NFIEventModule* m_pEventModule;
@@ -79,6 +85,7 @@ private:
 	NFILogModule* m_pLogModule;
 	NFIPropertyModule* m_pPropertyModule;
     NFISceneModule* m_pSceneModule;
+    NFIGameServerNet_ServerModule* m_pGameServerNet_ServerModule;
 };
 
 

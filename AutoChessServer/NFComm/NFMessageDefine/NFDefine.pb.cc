@@ -35,7 +35,7 @@ const char descriptor_table_protodef_NFDefine_2eproto[] PROTOBUF_SECTION_VARIABL
   "ARACTER_NUMOUT\020p\022\025\n\021CHARACTER_INVALID\020q\022"
   "\026\n\022CHARACTER_NOTEXIST\020r\022\023\n\017CHARACTER_USI"
   "NG\020s\022\024\n\020CHARACTER_LOCKED\020t\022\021\n\rZONE_OVERL"
-  "OAD\020u\022\016\n\nNOT_ONLINE\020v*\211\021\n\nEGameMsgID\022\n\n\006"
+  "OAD\020u\022\016\n\nNOT_ONLINE\020v*\240\021\n\nEGameMsgID\022\n\n\006"
   "UNKNOW\020\000\022\020\n\014EVENT_RESULT\020\001\022\023\n\017EVENT_TRAN"
   "SPORT\020\002\022\020\n\014CLOSE_SOCKET\020\003\022\023\n\017EVENT_BUY_L"
   "EVEL\020\004\022\026\n\022EVENT_REFRESH_SHOP\020\005\022\016\n\nEVENT_"
@@ -90,17 +90,18 @@ const char descriptor_table_protodef_NFDefine_2eproto[] PROTOBUF_SECTION_VARIABL
   "SKILL_OBJECTX\020\220\003\022\026\n\021ACK_SKILL_OBJECTX\020\221\003"
   "\022\022\n\rREQ_SKILL_POS\020\222\003\022\022\n\rACK_SKILL_POS\020\223\003"
   "\022\026\n\021ACK_ONLINE_NOTIFY\020\330\004\022\027\n\022ACK_OFFLINE_"
-  "NOTIFY\020\331\004*G\n\tEItemType\022\r\n\tEIT_EQUIP\020\000\022\013\n"
-  "\007EIT_GEM\020\001\022\016\n\nEIT_SUPPLY\020\002\022\016\n\nEIT_SCROLL"
-  "\020\003*\267\001\n\nESkillType\022\026\n\022BRIEF_SINGLE_SKILL\020"
-  "\000\022\025\n\021BRIEF_GROUP_SKILL\020\001\022\027\n\023BULLET_SINGL"
-  "E_SKILL\020\002\022\030\n\024BULLET_REBOUND_SKILL\020\003\022\034\n\030B"
-  "ULLET_TARGET_BOMB_SKILL\020\004\022\031\n\025BULLET_POS_"
-  "BOMB_SKILL\020\005\022\016\n\nFUNC_SKILL\020\006*M\n\nESceneTy"
-  "pe\022\020\n\014NORMAL_SCENE\020\000\022\026\n\022SINGLE_CLONE_SCE"
-  "NE\020\001\022\025\n\021MULTI_CLONE_SCENE\020\002*F\n\010ENPCType\022"
-  "\016\n\nNORMAL_NPC\020\000\022\014\n\010HERO_NPC\020\001\022\016\n\nTURRET_"
-  "NPC\020\002\022\014\n\010FUNC_NPC\020\003b\006proto3"
+  "NOTIFY\020\331\004\022\025\n\020ACK_ATTACK_CHESS\020\350\007*G\n\tEIte"
+  "mType\022\r\n\tEIT_EQUIP\020\000\022\013\n\007EIT_GEM\020\001\022\016\n\nEIT"
+  "_SUPPLY\020\002\022\016\n\nEIT_SCROLL\020\003*\267\001\n\nESkillType"
+  "\022\026\n\022BRIEF_SINGLE_SKILL\020\000\022\025\n\021BRIEF_GROUP_"
+  "SKILL\020\001\022\027\n\023BULLET_SINGLE_SKILL\020\002\022\030\n\024BULL"
+  "ET_REBOUND_SKILL\020\003\022\034\n\030BULLET_TARGET_BOMB"
+  "_SKILL\020\004\022\031\n\025BULLET_POS_BOMB_SKILL\020\005\022\016\n\nF"
+  "UNC_SKILL\020\006*M\n\nESceneType\022\020\n\014NORMAL_SCEN"
+  "E\020\000\022\026\n\022SINGLE_CLONE_SCENE\020\001\022\025\n\021MULTI_CLO"
+  "NE_SCENE\020\002*F\n\010ENPCType\022\016\n\nNORMAL_NPC\020\000\022\014"
+  "\n\010HERO_NPC\020\001\022\016\n\nTURRET_NPC\020\002\022\014\n\010FUNC_NPC"
+  "\020\003b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_NFDefine_2eproto_deps[1] = {
 };
@@ -108,7 +109,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_NFD
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_NFDefine_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_NFDefine_2eproto = {
-  false, false, descriptor_table_protodef_NFDefine_2eproto, "NFDefine.proto", 3067,
+  false, false, descriptor_table_protodef_NFDefine_2eproto, "NFDefine.proto", 3090,
   &descriptor_table_NFDefine_2eproto_once, descriptor_table_NFDefine_2eproto_sccs, descriptor_table_NFDefine_2eproto_deps, 0, 0,
   schemas, file_default_instances, TableStruct_NFDefine_2eproto::offsets,
   file_level_metadata_NFDefine_2eproto, 0, file_level_enum_descriptors_NFDefine_2eproto, file_level_service_descriptors_NFDefine_2eproto,
@@ -251,6 +252,7 @@ bool EGameMsgID_IsValid(int value) {
     case 403:
     case 600:
     case 601:
+    case 1000:
       return true;
     default:
       return false;
