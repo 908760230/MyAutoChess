@@ -114,7 +114,8 @@ enum EGameMsgID : int {
   WTM_WORLD_REGISTERED = 10,
   WTM_WORLD_UNREGISTERED = 11,
   WTM_WORLD_REFRESH = 12,
-  ACK_EVENT_SELL_CHAMPION = 13,
+  ACK_EVENT_BUY_CHAMPION = 13,
+  ACK_EVENT_SELL_CHAMPION = 14,
   LTM_LOGIN_REGISTERED = 20,
   LTM_LOGIN_UNREGISTERED = 21,
   LTM_LOGIN_REFRESH = 22,
@@ -198,12 +199,13 @@ enum EGameMsgID : int {
   ACK_ONLINE_NOTIFY = 600,
   ACK_OFFLINE_NOTIFY = 601,
   ACK_ATTACK_CHESS = 1000,
+  ACK_CHESS_MOVE = 1001,
   EGameMsgID_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   EGameMsgID_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool EGameMsgID_IsValid(int value);
 constexpr EGameMsgID EGameMsgID_MIN = UNKNOW;
-constexpr EGameMsgID EGameMsgID_MAX = ACK_ATTACK_CHESS;
+constexpr EGameMsgID EGameMsgID_MAX = ACK_CHESS_MOVE;
 constexpr int EGameMsgID_ARRAYSIZE = EGameMsgID_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGameMsgID_descriptor();

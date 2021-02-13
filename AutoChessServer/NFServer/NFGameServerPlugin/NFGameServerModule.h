@@ -31,7 +31,7 @@
 #include "NFComm/NFPluginModule/NFIClassModule.h"
 #include "NFComm/NFPluginModule/NFISceneModule.h"
 #include "NFComm/NFPluginModule/NFINetModule.h"
-
+#include "NFIGameServerNet_ServerModule.h"
 
 class NFIGameServerModule
     : public NFIModule
@@ -68,7 +68,9 @@ protected:
 
     void fight(int group, const NF_SHARE_PTR<NFIRecord>& record);
     NFGUID SearchEnemy(const NFGUID& self, const NF_SHARE_PTR<NFIRecord>& record);
+    void RecoverChessState(const NF_SHARE_PTR<NFIRecord>& record);
 
+    int OnGameStateChange(const NFGUID& self, const std::string& propertyName, const NFData& oldVal, const NFData& newVal);
 protected:
     int64_t preTime;
     int preparationDuration = 15;
@@ -76,6 +78,7 @@ protected:
     NFIClassModule* m_pClassModule;
     NFIKernelModule* m_pKernelModule;
     NFINetModule* m_pNetModule;
+    NFIGameServerNet_ServerModule* m_pGameServerNet_ServerModule;
 private:
 };
 

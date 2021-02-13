@@ -47,7 +47,8 @@ enum EGameMsgID
 	WTM_WORLD_UNREGISTERED					= 11;
 	WTM_WORLD_REFRESH						= 12;
 
-    ACK_EVENT_SELL_CHAMPION    				= 13;
+    ACK_EVENT_BUY_CHAMPION    				= 13;
+    ACK_EVENT_SELL_CHAMPION    				= 14;
 
 	LTM_LOGIN_REGISTERED					= 20;
 	LTM_LOGIN_UNREGISTERED					= 21;
@@ -150,6 +151,7 @@ enum EGameMsgID
 	REQ_MOVE								= 300;
 	ACK_MOVE								= 301;
 
+
 	REQ_CHAT								= 350;
 	ACK_CHAT								= 351;
 
@@ -163,6 +165,8 @@ enum EGameMsgID
 
 	//game logic message id, start from 1000
 	ACK_ATTACK_CHESS						=1000;
+	ACK_CHESS_MOVE							=1001;
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

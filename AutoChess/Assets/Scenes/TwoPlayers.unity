@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ff97ed1744ed540a187258b0c41091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldCanvas: {fileID: 0}
+  worldCanvas: {fileID: 888696657}
   floatingTextPrefab: {fileID: 8129387455952600272, guid: 43cd32aafdfaf8948b32cb5e0ff0d391,
     type: 3}
   healthBarPrefab: {fileID: 7923784903547799821, guid: 1d6a954fe5c7aaf4dac9e594db9585b4,

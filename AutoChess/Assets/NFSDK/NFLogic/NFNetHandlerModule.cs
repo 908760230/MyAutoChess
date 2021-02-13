@@ -102,6 +102,7 @@ namespace NFrame
 
             mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckObjectEntry, EGMI_ACK_OBJECT_ENTRY);
             mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckObjectLeave, EGMI_ACK_OBJECT_LEAVE);
+            mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckChessMove, EGMI_ACK_CHESS_MOVE);
             mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckMove, EGMI_ACK_MOVE);
             //mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckMoveImmune, EGMI_ACK_MOVE_IMMUNE);
             //mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckPosSync, EGMI_ACK_POS_SYNC);
@@ -128,6 +129,7 @@ namespace NFrame
             mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckDataFinished, EGMI_ACK_DATA_FINISHED);
 
             mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckSkillObjectx, EGMI_ACK_SKILL_OBJECTX);
+            mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckAttackChess, EGMI_ACK_ATTACK_CHESS);
 
             ////////////////////////////////////////////////////////////////////////
         }
@@ -229,7 +231,10 @@ namespace NFrame
                 if (xGO == null)
                 {
                     ObjectDataBuff xDataBuff = new ObjectDataBuff();
-                    mxObjectDataBuff.Add(xObjectID, xDataBuff);
+
+                    if(!mxObjectDataBuff.ContainsKey(xObjectID))
+                        mxObjectDataBuff.Add(xObjectID, xDataBuff);
+
                     xGO = mKernelModule.CreateObject(xObjectID, xInfo.SceneId, 0, strClassName, strConfigID, var);
                     if (strClassName == "Player"  && !mSceneModule.playerList.Contains(xObjectID))
                     {
@@ -1039,34 +1044,26 @@ namespace NFrame
                 }
             }
         }
-
-        //////////////////////////////////
-        /// 
         private void EGMI_ACK_MOVE(int id, MemoryStream stream)
         {
-            /*Debug.Log("Move " + Time.time);
+
+        }
+        //////////////////////////////////
+        /// 
+        private void EGMI_ACK_CHESS_MOVE(int id, MemoryStream stream)
+        {
+            Debug.Log("Chess Move " + Time.time);
      
             NFMsg.MsgBase xMsg = NFMsg.MsgBase.Parser.ParseFrom(stream);
 
-            NFMsg.ReqAckPlayerPosSync xData = NFMsg.ReqAckPlayerPosSync.Parser.ParseFrom(xMsg.MsgData);
+            NFMsg.PosSyncUnit xData = NFMsg.PosSyncUnit.Parser.ParseFrom(xMsg.MsgData);
 
-            if (xData.SyncUnit.Count <= 0)
-            {
-                return;
-            }
-
-            NFMsg.PosSyncUnit syncUnit = xData.SyncUnit[0];
-
-            NFGUID xMover = mHelpModule.PBToNF(syncUnit.Mover);
+           
+            NFGUID xMover = mHelpModule.PBToNF(xData.Mover);
 
             if (xMover.IsNull())
             {
                 Debug.LogError("xMover " + Time.time);
-                return;
-            }
-
-            if (xMover == mLoginModule.mRoleID)
-            {
                 return;
             }
 
@@ -1077,19 +1074,23 @@ namespace NFrame
                 return;
             }
 
-            NFHeroMotor xHeroMotor = xGameObject.GetComponent<NFHeroMotor>();
-            if (!xHeroMotor)
+            ChessController controller = xGameObject.GetComponent<ChessController>();
+            if (!controller)
             {
-                Debug.LogError("xHeroSync " + Time.time);
+                Debug.LogError("controller " + Time.time);
                 return;
             }
 
-            UnityEngine.Vector3 v = new UnityEngine.Vector3();
-            v.x = syncUnit.Pos.X;
-            v.y = syncUnit.Pos.Y;
-            v.z = syncUnit.Pos.Z;
-            xHeroMotor.MoveTo(v);
-            */
+            NFGUID targetId = mKernelModule.QueryPropertyObject(xMover, NFrame.NPC.Target);
+            controller.MoveTo(targetId);
+            mSceneModule.GetObject(targetId).GetComponent<ChessController>().MoveTo(xMover);
+
+            NFGUID clonedTargetID = mKernelModule.QueryPropertyObject(targetId, NFrame.NPC.Mirror);
+
+            NFGUID clonedID = mKernelModule.QueryPropertyObject(xMover, NFrame.NPC.Mirror);
+            mSceneModule.GetObject(clonedID).GetComponent<ChessController>().MoveTo(clonedTargetID);
+            mSceneModule.GetObject(clonedTargetID).GetComponent<ChessController>().MoveTo(clonedID);
+
         }
 
         private void EGMI_ACK_MOVE_IMMUNE(int id, MemoryStream stream)
@@ -1202,6 +1203,21 @@ namespace NFrame
             }*/
         }
 
+        private void EGMI_ACK_ATTACK_CHESS(int id, MemoryStream stream)
+        {
+            Debug.Log("Chess Attack " + Time.time);
+
+            NFMsg.MsgBase xMsg = NFMsg.MsgBase.Parser.ParseFrom(stream);
+
+            NFMsg.AttackChess xData = NFMsg.AttackChess.Parser.ParseFrom(xMsg.MsgData);
+
+
+            NFGUID playerId = mHelpModule.PBToNF(xData.PlayerId);
+
+        }
+
+
         public override void AfterInit(){}
+
     }
 }

@@ -2605,6 +2605,8 @@ MonoBehaviour:
   ownInventoryStartPosition: {fileID: 2906007329634124188}
   oponentInventoryStartPosition: {fileID: 7308783601721631782}
   mapStartPosition: {fileID: 5690254271490848176}
+  mapTransform: {fileID: 2208172223393898106}
+  structTransform: {fileID: 282028673494105374}
   squareIndicator: {fileID: 7016743858594856686, guid: 81da3851a0172af469a3f8d12bcf7b64,
     type: 3}
   hexaIndicator: {fileID: 4717883552673209890, guid: edc3e12f140820c49bf7c994c080e620,

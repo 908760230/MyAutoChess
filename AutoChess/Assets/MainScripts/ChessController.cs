@@ -10,6 +10,7 @@ public class ChessController : MonoBehaviour
     public GameObject levelupEffectPrefab;
     public GameObject projectileStart;
     public NFGUID id;
+    private NFGUID targetId = NFGUID.Zero;
 
     [HideInInspector]
     public int gridType = 0;
@@ -28,7 +29,6 @@ public class ChessController : MonoBehaviour
     private RectTransform hpBarRectTransform;
 
     public Vector3 gridTargetPosition;
-    long attackRange = 0;
 
     private bool _isDragged = false;
 
@@ -54,6 +54,7 @@ public class ChessController : MonoBehaviour
         set { _isDragged = value; }
     }
     private ChessPlane chessPlane;
+    private Vector3 hpBarOffset = new Vector3(0, 3, 0);
 
     NFSceneModule sceneModule;
     NFIKernelModule mKernelModule;
@@ -62,11 +63,13 @@ public class ChessController : MonoBehaviour
     {
         GameObject perfab = Resources.Load<GameObject>("Prefabs/UI/HPCanvas");
         hpBar = Instantiate(perfab);
-        hpBar.GetComponent<NFHPBar>().Init(id);
 
         hpBarRectTransform = hpBar.transform.Find("Panel").GetComponent<RectTransform>();
-        hpBarRectTransform.position = Camera.main.WorldToScreenPoint(transform.position);
+        hpBarRectTransform.position = Camera.main.WorldToScreenPoint(transform.position+ hpBarOffset);
         hpBar.transform.SetParent(transform);
+
+        worldCanvasController = GameObject.Find("Scripts").GetComponent<WorldCanvasController>();
+
     }
 
     // Start is called before the first frame update
@@ -79,7 +82,10 @@ public class ChessController : MonoBehaviour
         NFGUID masterID = mKernelModule.FindProperty(id, NFrame.NPC.MasterID).QueryObject();
         chessPlane = sceneModule.chessPlaneDict[masterID];
 
-        attackRange = mKernelModule.FindProperty(id, NFrame.NPC.ATTACK_RANGE).QueryInt();
+
+        mKernelModule.RegisterPropertyCallback(id, NFrame.NPC.HP, OnHealthChange);
+        hpBar.GetComponent<NFHPBar>().Init(id);
+
     }
 
     // Update is called once per frame
@@ -115,20 +121,21 @@ public class ChessController : MonoBehaviour
                     this.transform.position = Vector3.Lerp(this.transform.position, gridTargetPosition, 0.1f);
                 }
                 else this.transform.position = gridTargetPosition;
-            }else if(GameMain.Instance().currentGameStage == GameStage.Combat && gridTargetPosition != Vector3.zero)
+            }else if(GameMain.Instance().currentGameStage == GameStage.Combat && targetId != NFGUID.Zero)
             {
-                float distance = Vector3.Distance(gridTargetPosition, this.transform.position);
+                GameObject targetObj = sceneModule.GetObject(targetId);
+                //Vector3 direction = targetObj.transform.position - this.transform.position;
 
-                if(distance > attackRange)
+                long attackRange = mKernelModule.QueryPropertyInt(id, NFrame.NPC.ATTACK_RANGE);
+                Debug.Log(id.ToString()+" attackRange " + attackRange.ToString());
+
+                float distance = Vector3.Distance(this.transform.position, targetObj.transform.position);
+                if (distance > attackRange)
                 {
-                    Vector3 pos = Vector3.Lerp(this.transform.position, gridTargetPosition, 0.1f);
-                    this.transform.position = pos;
-
-                    NFVector3 data = new NFVector3(pos.x,pos.y,pos.z);
-
-                    mKernelModule.SetPropertyVector3(id, NFrame.NPC.Position, data);
+                    //this.transform.Translate(direction.normalized * Time.deltaTime);
+                    this.transform.position = Vector3.Lerp(this.transform.position, targetObj.transform.position,Time.deltaTime);
                 }
-                
+
             }
         }
         /*
@@ -189,12 +196,25 @@ public class ChessController : MonoBehaviour
 
     void updateHPBarPosition()
     {
-        hpBarRectTransform.position = Camera.main.WorldToScreenPoint(transform.position);
-        //Debug.Log("hp bar " + hpBar.transform.position.ToString());
+        hpBarRectTransform.position = Camera.main.WorldToScreenPoint(transform.position+ hpBarOffset);
     }
 
-    public void moveTo(Vector3 position)
+    public void MoveTo(NFGUID value)
     {
-        gridTargetPosition = position;
+        targetId = value;
+    }
+
+    private void OnHealthChange(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
+    {
+        double oldHp = oldVar.FloatVal();
+        double hpValue = newVar.FloatVal();
+        double damgae = oldHp - hpValue;
+
+        if(hpValue >0 && !gameObject.activeSelf) gameObject.SetActive(true);
+        else if(hpValue <= 0 && gameObject.activeSelf) gameObject.SetActive(false);
+
+
+        worldCanvasController.AddDamageText(this.transform.position + new Vector3(0, 2.5f, 0), (float)damgae);
+
     }
 }

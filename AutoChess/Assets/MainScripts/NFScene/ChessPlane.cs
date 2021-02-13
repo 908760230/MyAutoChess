@@ -11,7 +11,7 @@ public class ChessPlane : MonoBehaviour
     protected NFIEventModule mEventModule;
     protected NFIKernelModule mKernelModule;
     protected NFIElementModule mElementModule;
-
+    protected NFLoginModule mLoginModule;
 
     // 声明方格类型
     public static int GRID_TYPE_OWN_INVENTORY = 0;
@@ -36,13 +36,13 @@ public class ChessPlane : MonoBehaviour
     public Color indicatorDefaultColor;
     public Color indicatorActiveColor;
 
-    private NFGUID playerID;
+    protected NFGUID playerID;
     public NFGUID PlayerID
     {
-        get
+        /*get
         {
             return playerID;
-        }
+        }*/
         set
         {
             playerID = value;
@@ -56,8 +56,14 @@ public class ChessPlane : MonoBehaviour
     [HideInInspector]
     public Vector3[,] mapGridPositions;
 
+    public virtual void Init()
+    {
+
+    }
+
     public void Awake()
     {
+       
         CreateGripPosition();
         CreateIndicators();
         HideIndicators();
@@ -72,6 +78,8 @@ public class ChessPlane : MonoBehaviour
         mKernelModule = xPluginManager.FindModule<NFIKernelModule>();
         mElementModule = xPluginManager.FindModule<NFIElementModule>();
         mSceneModule = xPluginManager.FindModule<NFSceneModule>();
+        mLoginModule = xPluginManager.FindModule<NFLoginModule>();
+
     }
 
     protected void CreateGripPosition()
@@ -169,7 +177,7 @@ public class ChessPlane : MonoBehaviour
         // 为地图创建六边形指示器和触发器
         for(int x = 0; x < hexMapSizeX; x++)
         {
-            for(int z = 0; z < hexMapSizeZ; z++)
+            for(int z = 0; z < hexMapSizeZ/2; z++)
             {   //新建一份 指示器
                 GameObject indicatorGO = Instantiate(hexaIndicator);
                 indicatorGO.transform.position = mapGridPositions[x, z];
@@ -242,7 +250,7 @@ public class ChessPlane : MonoBehaviour
     {
         for (int x = 0; x < hexMapSizeX; x++)
         {
-            for (int z = 0; z < hexMapSizeZ; z++)
+            for (int z = 0; z < hexMapSizeZ/2; z++)
             {
                 mapIndicatorArray[x, z].GetComponent<MeshRenderer>().material.color = indicatorDefaultColor;
             }
@@ -315,5 +323,7 @@ public class ChessPlane : MonoBehaviour
         }
         return pos;
     }
+    
+    
     
 }

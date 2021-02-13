@@ -514,41 +514,14 @@ namespace NFSDK
                 NFUILoading xUILoading = mUIModule.ShowUI<NFUILoading>();
                 xUILoading.LoadScene(nSceneID);
 
-                ChessPlane firstMap = createChessPlane("FirstMap");
-                ChessPlane secondMap = createChessPlane("SecondMap");
-
-                chessPlaneDict[mLoginModule.mRoleID] = firstMap;
-                firstMap.PlayerID = mLoginModule.mRoleID;
-
-                /*for (int i=0;i<playerList.Count;i++)
-                {
-                    NFGUID id = (NFGUID)playerList[i];
-                    switch (i)
-                    {
-                       
-                        case 1:
-                            chessPlaneDict[id] = firstMap;
-                            firstMap.PlayerID = id;
-                            break;
-                        case 2:
-                            chessPlaneDict[id] = secondMap;
-                            secondMap.PlayerID = id;
-                            break;
-                    }
-
-
-                }*/
-
                 mUIModule.ShowUI<NFGameSceneUI>();
                 mUIModule.HidenUI<NFGameSceneUI>();
-                // SetCameraPos 无效
-                mEventModule.DoEvent((int)NFLoginModule.Event.SetCameraPos);
-                mEventModule.DoEvent((int)NFLoginModule.Event.InitGameUISetting);
+                
             }
             
         }
         
-        private ChessPlane createChessPlane(string name)
+        public ChessPlane createChessPlane(string name)
         {
             GameObject prefab = Resources.Load<GameObject>("Prefabs/ChessPlanes/" + name);
             GameObject obj = GameObject.Instantiate(prefab);
@@ -619,6 +592,8 @@ namespace NFSDK
 
         }
 
+
+        
 
     }
 }

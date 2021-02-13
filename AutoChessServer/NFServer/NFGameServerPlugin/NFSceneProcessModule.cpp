@@ -122,7 +122,14 @@ bool NFSceneProcessModule::RequestEnterScene(const NFGUID & self, const int scen
 	{
 		if (groupID > 0)
 		{
-			return m_pSceneModule->RequestEnterScene(self, sceneID, groupID, type, pos, argList);
+            NFVector3 tmpPos = pos;
+            playerQueue.push_back(self);
+            
+            tmpPos.SetX(playerQueue.size()-1);
+            
+            if(playerQueue.size()>=2) playerQueue.clear();
+
+			return m_pSceneModule->RequestEnterScene(self, sceneID, 1, type, tmpPos, argList);
 		}
 		else
 		{
@@ -211,6 +218,7 @@ int NFSceneProcessModule::OnObjectClassEvent(const NFGUID& self, const std::stri
 
 int NFSceneProcessModule::EnterSceneConditionEvent(const NFGUID & self, const int sceneID, const int groupID, const int type, const NFDataList & argList)
 {
+    
 	return 0;
 }
 
@@ -251,8 +259,8 @@ int NFSceneProcessModule::AfterEnterSceneGroupEvent(const NFGUID & self, const i
 
         NF_SHARE_PTR<NFIRecord> planeOne = m_pSceneModule->FindRecord(sceneID, groupID, NFrame::Group::ChessPlane1::ThisName());
         int rows = planeOne->GetUsedRows();
-        if (rows < 8) {
-            for (int i = 0; i < 8; i++) planeOne->AddRow(-1);
+        if (rows < 7) {
+            for (int i = 0; i < 7; i++) planeOne->AddRow(-1);
         }
 
         m_pKernelModule->SetPropertyInt(self, NFrame::Player::GameGold(), 500);
@@ -263,8 +271,8 @@ int NFSceneProcessModule::AfterEnterSceneGroupEvent(const NFGUID & self, const i
         NF_SHARE_PTR<NFIRecord> chessPlane = m_pKernelModule->FindRecord(self, NFrame::Player::ChessPlane::ThisName());
         
         rows = planeOne->GetUsedRows();
-        if (rows < 8) {
-            for (int i = 0; i < 8; i++) chessPlane->AddRow(-1);
+        if (rows < 7) {
+            for (int i = 0; i < 7; i++) chessPlane->AddRow(-1);
         }
 
         m_pGameServerModule->refreshShopItem(self);

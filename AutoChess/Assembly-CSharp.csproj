@@ -190,11 +190,9 @@
     <None Include="Assets\Resources\NFDataCfg\ini\Side\NoSqlServer.xml" />
     <None Include="Assets\Resources\NFDataCfg\struct\Server.xml" />
     <None Include="Assets\Resources\NFDataCfg\struct\Item.xml" />
-    <None Include="Assets\Resources\NFDataCfg\ini\Comm\CommonChessPlane.xml" />
     <None Include="Assets\Resources\NFDataCfg\struct\Side\NoSqlServer.xml" />
     <None Include="Assets\Resources\NFDataCfg\ini\Navigation\4.xml" />
     <None Include="Assets\Resources\NFDataCfg\struct\Side\Language.xml" />
-    <None Include="Assets\Resources\NFDataCfg\struct\Comm\CommonChessPlane.xml" />
     <None Include="Assets\Resources\NFDataCfg\ini\NPC.xml" />
     <None Include="Assets\Simple UI\Fonts\OFL.txt" />
     <None Include="Assets\Resources\NFDataCfg\struct\Group.xml" />

@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 8128770489172065935}
   - component: {fileID: 5754773443085050360}
   m_Layer: 5
-  m_Name: NFUISinglePlayerLoading
+  m_Name: NFUILoading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,7 +638,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2894882964850836097}
   m_FillRect: {fileID: 2775849455351783394}
   m_HandleRect: {fileID: 1609594796846285390}

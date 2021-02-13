@@ -82,15 +82,14 @@ public class NFGameSceneUI : NFUIDialog
         BtnChampionFour.onClick.AddListener(OnChampionFourClicked);
         BtnChampionFive.onClick.AddListener(OnChampionFiveClicked);
 
-        mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckEventSellChampion, onChampionShopCLicked);
+        mNetModule.AddReceiveCallBack((int)NFMsg.EGameMsgID.AckEventBuyChampion, onChampionShopCLicked);
 
-        //mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.GameTime, UpdateTimerText);
         //mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.State, onPlayerStateChange);
         mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.GameGold, onGameGoldChange);
         mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.MaxHero, OnMaxHeroChange);
         mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.GameLVL, OnLVLChange);
         mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.HeroCount, OnHeroCountChange);
-        mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.HP, onHpChange);
+        //mKernelModule.RegisterPropertyCallback(mLoginModule.mRoleID, NFrame.Player.HP, onHpChange);
 
         mKernelModule.RegisterGroupPropertyCallback(NFrame.Group.GameTime, UpdateTimerText);
         mKernelModule.RegisterGroupPropertyCallback(NFrame.Group.GameState, onGameStateChange);
@@ -293,15 +292,15 @@ public class NFGameSceneUI : NFUIDialog
     }
     public void setCameraPos(NFDataList valueList)
     {
-        NFIObject obj = mKernelModule.GetObject(mLoginModule.mRoleID);
-        float index = obj.GetPropertyManager().GetProperty(NFrame.Player.Position).GetData().Vector3Val().X();
-        index = 2;
-        switch ((int)index)
+        NFVector3 pos = mKernelModule.QueryPropertyVector3(mLoginModule.mRoleID, NFrame.Player.Position);
+        int index = (int)pos.X();
+
+        switch (index)
         {
-            case 1:
+            case 0:
                 OnPlayerOneButtonClicked();
                 break;
-            case 2:
+            case 1:
                 OnPlayerTwoButtonClicked();
                 break;
         }
@@ -313,40 +312,51 @@ public class NFGameSceneUI : NFUIDialog
     }
     private void onHpChange(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
     {
-        playerOneHP.text = mKernelModule.FindProperty(self, NFrame.Player.HP).GetData().IntVal().ToString();
 
-        /*float index = mKernelModule.FindProperty(self, NFrame.Player.Position).GetData().Vector3Val().X();
-        switch ( (int)index )
+        string HpVal = mKernelModule.FindProperty(self, NFrame.Player.HP).GetData().IntVal().ToString();
+
+        NFVector3 pos = mKernelModule.QueryPropertyVector3(self, NFrame.Player.Position);
+        int index = (int)pos.X();
+
+        switch (index)
         {
+            case 0:
+                playerOneHP.text = HpVal;
+                break;
             case 1:
-                playerOneHP.text = mKernelModule.FindProperty(self, NFrame.Player.HP).GetData().IntVal().ToString();
+                playerTwoHP.text = HpVal;
                 break;
-            case 2:
-                playerTwoHP.text =  mKernelModule.FindProperty(self, NFrame.Player.HP).GetData().IntVal().ToString();
-                break;
-        }*/
+        }
+        
     }
     private void initGameUI(NFDataList valueList)
     {
-        NFIPropertyManager obj = mKernelModule.GetObject(mLoginModule.mRoleID).GetPropertyManager();
-        float index = obj.GetProperty(NFrame.Player.Position).GetData().Vector3Val().X();
-        index = 1;
-        switch ((int)index)
+       
+        for (int i = 0; i < sceneModule.playerList.Count; i++)
         {
-            case 1:
-                
-                playerOneName.text = obj.GetProperty(NFrame.Player.NickName).GetData().StringVal();
-                playerOneHP.text = obj.GetProperty(NFrame.Player.HP).GetData().ToString();
+            NFGUID id = (NFGUID)sceneModule.playerList[i];
+            NFVector3 pos = mKernelModule.QueryPropertyVector3(id, NFrame.Player.Position);
+            Debug.Log(id.ToString()+" position: " + pos.ToString());
+            int index = (int)pos.X();
+            switch (index)
+            {
+                case 0:
+                    playerOneName.text = mKernelModule.FindProperty(id, NFrame.Player.NickName).GetData().StringVal();
+                    playerOneHP.text = mKernelModule.FindProperty(id, NFrame.Player.HP).GetData().IntVal().ToString();
+                    mKernelModule.RegisterPropertyCallback(id, NFrame.Player.HP, onHpChange);
+                    break;
 
-                break;
-            case 2:
-                playerTwoName.text = mKernelModule.FindProperty(mLoginModule.mRoleID, NFrame.Player.NickName).GetData().IntVal().ToString();
-                playerTwoHP.text = mKernelModule.FindProperty(mLoginModule.mRoleID, NFrame.Player.HP).GetData().IntVal().ToString();
-                break;
+                case 1:
+                    playerTwoName.text = mKernelModule.FindProperty(id, NFrame.Player.NickName).GetData().StringVal();
+                    playerTwoHP.text = mKernelModule.FindProperty(id, NFrame.Player.HP).GetData().IntVal().ToString();
+                    mKernelModule.RegisterPropertyCallback(id, NFrame.Player.HP, onHpChange);
+                    break;
+            }
+            
         }
+      
         hidenBonusPanel();
 
-        
     }
     private void onGameGoldChange(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
     {

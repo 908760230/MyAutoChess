@@ -38,6 +38,7 @@ bool NFGameServerModule::Init()
     m_pClassModule = pPluginManager->FindModule<NFIClassModule>();
     m_pSceneModule = pPluginManager->FindModule<NFISceneModule>();
     m_pNetModule = pPluginManager->FindModule<NFINetModule>();
+    m_pGameServerNet_ServerModule = pPluginManager->FindModule<NFIGameServerNet_ServerModule>();
     return true;
 }
 
@@ -72,9 +73,9 @@ bool NFGameServerModule::Execute()
     vector<int> groups = m_pSceneModule->GetGroups(3);
     for (int& id : groups) {
 
-        if (id == 0) continue;
+        if (id != 1) continue;
 
-        NF_SHARE_PTR<NFIRecord> chessPlaneOne = m_pSceneModule->FindRecord(3, id, NFrame::Group::ChessPlane1::ThisName());
+        NF_SHARE_PTR<NFIRecord> groupChessPlaneOne = m_pSceneModule->FindRecord(3, id, NFrame::Group::ChessPlane1::ThisName());
 
         int gameState = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::GameState());
 
@@ -82,11 +83,6 @@ bool NFGameServerModule::Execute()
         m_pKernelModule->GetGroupObjectList(3, id, playerList, true);
         // come in preparation stage  
         if (!gameState) {
-
-            for (int i = 0; i < playerList.GetCount(); i++) {
-                const NFGUID& playerId = playerList.Object(i);
-                m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::State(), 0);
-            }
 
             int currentTime = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::GameTime());
             currentTime += deltaTime;
@@ -96,30 +92,48 @@ bool NFGameServerModule::Execute()
                 m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameTime(), currentTime);
             else {
 
-                NF_SHARE_PTR<NFIRecord> playerPlane = m_pKernelModule->FindRecord(playerList.Object(0), NFrame::Player::ChessPlane::ThisName());
-
-                for (int i = 0; i < 4; i++)
+                NF_SHARE_PTR<NFIRecord> playerTwoPlane = m_pKernelModule->FindRecord(playerList.Object(0), NFrame::Player::ChessPlane::ThisName());
+                for (int col = 0; col < 7; col++)
                 {
-                    for (int j = 0; j < 7; j++)
+                    NFGUID id = playerTwoPlane->GetObjectA(col, 0);
+                    groupChessPlaneOne->SetObject(col, 7, id);
+
+                    id = playerTwoPlane->GetObjectA(col, 1);
+                    groupChessPlaneOne->SetObject(col, 6, id);
+
+                    id = playerTwoPlane->GetObjectA(col, 2);
+                    groupChessPlaneOne->SetObject(col, 5, id);
+
+                    id = playerTwoPlane->GetObjectA(col, 3);
+                    groupChessPlaneOne->SetObject(col, 4, id);
+                }
+
+                NF_SHARE_PTR<NFIRecord> playerPlane = m_pKernelModule->FindRecord(playerList.Object(1), NFrame::Player::ChessPlane::ThisName());
+
+                for (int row = 0; row < 4; row++)
+                {
+                    for (int col = 0; col < 7; col++)
                     {
-                        const NFGUID id = playerPlane->GetObjectA(i, j);
-                        chessPlaneOne->SetObject(i, j, id);
+                        const NFGUID id = playerPlane->GetObjectA(row, col);
+                        groupChessPlaneOne->SetObject(row, col, id);
                     }
                 }
 
+                RecoverChessState(groupChessPlaneOne);
+
+                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::PlaneOne(),0);
                 m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameState(), 1);
                 m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameTime(), 0);
-
             }
         }
         else {
-            /*int planeOne = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::PlaneOne());
+            int planeOne = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::PlaneOne());
 
             if (!planeOne) {
-                fight(id, chessPlaneOne);
-            }*/
+                fight(id, groupChessPlaneOne);
+            }
 
-            int currentTime = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::GameTime());
+            /*int currentTime = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::GameTime());
             currentTime += deltaTime;
 
             if (currentTime < preparationDuration)
@@ -128,31 +142,12 @@ bool NFGameServerModule::Execute()
             else {
                 m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameState(), 0);
                 m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameTime(), 0);
-            }
+
+                
+            }*/
             //m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameState(), 0);
         }
-
-        
-        //for (int i = 0; i < playerList.GetCount(); i++) {
-        //    const NFGUID& playerId = playerList.Object(i);
-        //    int gameStage = m_pKernelModule->GetPropertyInt(playerId, NFrame::Player::State());
-        //    if (gameStage == 0) {
-        //        // preparation stage
-        //        int oldVal = m_pKernelModule->GetPropertyInt(playerId, NFrame::Player::GameTime());
-
-        //        int newVal = oldVal + deltaTime;
-
-        //        if (newVal > preparationDuration) {
-        //            m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::GameTime(), 0);
-        //            // into combat stage
-        //            m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::State(), 1);
-        //            m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::PlaneOne(), 0);
-        //        }
-        //        else m_pKernelModule->SetPropertyInt(playerId, NFrame::Player::GameTime(), newVal);
-        //    }
-        //}
-
-        
+ 
         
     }
 
@@ -165,6 +160,7 @@ bool NFGameServerModule::AfterInit()
     m_pNetModule->AddReceiveCallBack(NFMsg::EVENT_REFRESH_SHOP, this, &NFGameServerModule::OnRefreshShop);
     m_pNetModule->AddReceiveCallBack(NFMsg::EVENT_BUY_LEVEL, this, &NFGameServerModule::OnBuyLvL);
     m_pNetModule->AddReceiveCallBack(NFMsg::EVENT_BUY_CHAMPION, this, &NFGameServerModule::OnBuyChampion);
+    m_pSceneModule->AddGroupPropertyCallBack(NFrame::Group::GameState(),this,&NFGameServerModule::OnGameStateChange);
     return true;
 }
 
@@ -182,26 +178,17 @@ void NFGameServerModule::refreshShopItem(const NFGUID& id)
     int rows = record->GetUsedRows();
     if (rows < 5) {
         for (int i = 0; i < 5; i++) {
-            string race = raceType[(int)m_pKernelModule->Random(0, 3)];
-            string element = elementType[(int)m_pKernelModule->Random(0, 5)];
-
-            NFDataList tmp;
-            tmp.AddString(element);
-            tmp.AddString(race);
-            tmp.AddInt(3);
-            record->AddRow(-1, tmp);
-        }
-    }
-    else {
-        for (int i = 0; i < 5; i++) {
-            string race = raceType[(int)m_pKernelModule->Random(0, 3)];
-            string element = elementType[(int)m_pKernelModule->Random(0, 5)];
-            record->SetString(i, NFrame::Player::ChampionShop::ElementType, element);
-            record->SetString(i, NFrame::Player::ChampionShop::RaceType, race);
-            record->SetInt(i, NFrame::Player::ChampionShop::Cost, 3);
+            record->AddRow(-1);
         }
     }
 
+    for (int i = 0; i < 5; i++) {
+        string race = raceType[(int)m_pKernelModule->Random(0, 3)];
+        string element = elementType[(int)m_pKernelModule->Random(0, 5)];
+        record->SetString(i, NFrame::Player::ChampionShop::ElementType, element);
+        record->SetString(i, NFrame::Player::ChampionShop::RaceType, race);
+        record->SetInt(i, NFrame::Player::ChampionShop::Cost, 3);
+    }
 
     cout << record->GetUsedRows();
     cout << record->ToString() << endl;
@@ -264,10 +251,12 @@ void NFGameServerModule::OnBuyChampion(const NFSOCK sockIndex, const int msgID, 
     string element = championShops->GetString(index, NFrame::Player::ChampionShop::ElementType);
     string race = championShops->GetString(index, NFrame::Player::ChampionShop::RaceType);
     int goldVal = m_pKernelModule->GetPropertyInt(clientID, NFrame::Player::GameGold());
+
     if (goldVal >= 3 && SetHeroOnInventory(clientID, element, race)) {
         goldVal -= 3;
         m_pKernelModule->SetPropertyInt(clientID, NFrame::Player::GameGold(), goldVal);
-        m_pNetModule->SendMsgPB(NFMsg::ACK_EVENT_SELL_CHAMPION, xMsg, sockIndex);
+        
+        m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_EVENT_BUY_CHAMPION, xMsg, clientID);
     }
 
 }
@@ -292,15 +281,14 @@ bool NFGameServerModule::SetHeroOnInventory(NFGUID self, const string& element, 
     m_pKernelModule->CreateObject(npcID, 3, groupID, NFrame::NPC::ThisName(), name, NFDataList::Empty());
     m_pKernelModule->SetPropertyObject(npcID, NFrame::NPC::MasterID(), self);
     m_pKernelModule->SetPropertyInt(npcID, NFrame::NPC::State(), 1);
-    m_pKernelModule->SetPropertyString(npcID, NFrame::NPC::ElementType(), element);
-    m_pKernelModule->SetPropertyString(npcID, NFrame::NPC::RaceType(), race);
+    double maxHp = m_pKernelModule->GetPropertyFloat(npcID, NFrame::NPC::MAXHP());
+    m_pKernelModule->SetPropertyFloat(npcID, NFrame::NPC::HP(), maxHp);
 
     NFGUID clonedNpcID = m_pKernelModule->CreateGUID();
     m_pKernelModule->CreateObject(clonedNpcID, 3, groupID, NFrame::NPC::ThisName(), name, NFDataList::Empty());
     m_pKernelModule->SetPropertyInt(clonedNpcID, NFrame::NPC::State(), 0);
-    m_pKernelModule->SetPropertyString(clonedNpcID, NFrame::NPC::ElementType(), element);
-    m_pKernelModule->SetPropertyString(clonedNpcID, NFrame::NPC::RaceType(), race);
     m_pKernelModule->SetPropertyObject(clonedNpcID, NFrame::NPC::MasterID(), self);
+    m_pKernelModule->SetPropertyFloat(clonedNpcID, NFrame::NPC::HP(), maxHp);
     m_pKernelModule->SetPropertyObject(npcID, NFrame::NPC::Mirror(), clonedNpcID);
 
 
@@ -313,21 +301,27 @@ bool NFGameServerModule::SetHeroOnInventory(NFGUID self, const string& element, 
 
 void NFGameServerModule::fight(int group, const NF_SHARE_PTR<NFIRecord>& record)
 {
-    if (record->GetUsedRows() < 8) return;
 
-    NFGUID empty(0, 0);
-    for (int row = 0; row < 8; row++) {
-        for (int col = 0; col < 7; col++) {
+    for (int row = 0; row < 7; row++) {
+        for (int col = 0; col < 8; col++) {
 
             NFGUID id = record->GetObjectA(row, col);
-            if (id != empty) {
+            if (!id.IsNull()) {
 
                 NFGUID target = m_pKernelModule->GetPropertyObject(id, NFrame::NPC::Target());
-                if (target == empty) {
+                
+                if (target.IsNull()) {
                     target = SearchEnemy(id, record);
-                    //if (target == empty) m_pSceneModule->SetPropertyInt(3, group, NFrame::Group::PlaneOne(), 1);
-                    m_pKernelModule->SetPropertyObject(id, NFrame::NPC::Target(), target, 0);
                 }
+                else {
+                    int hpValue = m_pKernelModule->GetPropertyInt(target, NFrame::NPC::HP());
+                    if (hpValue <= 0) {
+                        target = SearchEnemy(id, record);
+                    }
+                    else continue;
+                }
+                m_pKernelModule->SetPropertyObject(id, NFrame::NPC::Target(), target, 0);
+                if (target.IsNull()) m_pSceneModule->SetPropertyInt(3, group, NFrame::Group::PlaneOne(), 1);
             }
         }
     }
@@ -335,18 +329,60 @@ void NFGameServerModule::fight(int group, const NF_SHARE_PTR<NFIRecord>& record)
 
 NFGUID NFGameServerModule::SearchEnemy(const NFGUID& self, const NF_SHARE_PTR<NFIRecord>& record)
 {
-    NFGUID empty(0, 0);
 
     NFGUID selfMaster = m_pKernelModule->GetPropertyObject(self, NFrame::NPC::MasterID());
-    for (int row = 0; row < 8; row++) {
-        for (int col = 0; col < 7; col++) {
+    for (int row = 0; row < 7; row++) {
+        for (int col = 0; col < 8; col++) {
             NFGUID id = record->GetObjectA(row, col);
-            if (id != empty) {
+            if (!id.IsNull()) {
 
                 NFGUID masterID = m_pKernelModule->GetPropertyObject(id, NFrame::NPC::MasterID());
-                if (selfMaster != masterID) return id;
+                double hpValue = m_pKernelModule->GetPropertyFloat(id, NFrame::NPC::HP());
+
+                if (selfMaster != masterID && hpValue > 0) return id;
             }
         }
     }
-    return empty;
+    return NFGUID(0,0);
+}
+
+void NFGameServerModule::RecoverChessState(const NF_SHARE_PTR<NFIRecord>& record)
+{
+    NFGUID empty(0, 0);
+    for (int col = 0; col < 7; col++)
+    {
+        for (int row = 0; row < 8; row++)
+        {
+            const NFGUID id = record->GetObjectA(col, row);
+            if (!id.IsNull()) {
+                double maxHp = m_pKernelModule->GetPropertyFloat(id, NFrame::NPC::MAXHP());
+                m_pKernelModule->SetPropertyFloat(id, NFrame::NPC::HP(), maxHp);
+                m_pKernelModule->SetPropertyInt(id, NFrame::NPC::MP(), 0);
+                m_pKernelModule->SetPropertyObject(id, NFrame::NPC::Target(), empty, 0);
+
+                const NFGUID clonedNPC = m_pKernelModule->GetPropertyObject(id, NFrame::NPC::Mirror());
+                m_pKernelModule->SetPropertyFloat(clonedNPC, NFrame::NPC::HP(), maxHp);
+                m_pKernelModule->SetPropertyInt(clonedNPC, NFrame::NPC::MP(), 0);
+                m_pKernelModule->SetPropertyObject(clonedNPC, NFrame::NPC::Target(), empty, 0);
+            }
+        }
+    }
+}
+
+int NFGameServerModule::OnGameStateChange(const NFGUID& self, const std::string& propertyName, const NFData& oldVal, const NFData& newVal)
+{
+    int gameState = newVal.GetInt();
+    if (gameState == 0) {
+
+        int id = m_pKernelModule->GetPropertyInt(self, NFrame::Group::GroupID());
+        NFDataList playerList;
+        m_pKernelModule->GetGroupObjectList(3, id, playerList, true);
+
+        for (int i = 0; i < playerList.GetCount(); i++) {
+            const NFGUID& playerId = playerList.Object(i);
+            refreshShopItem(playerId);
+        }
+
+    }
+    return 0;
 }

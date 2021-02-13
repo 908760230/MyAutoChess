@@ -4,15 +4,15 @@
 	<Object ID="WoodSaber" ConfigID="WoodSaber" X="66.5" Y="95" Z="33" Weight="100" />
 	<Object ID="WaterSaber" ConfigID="WaterSaber" X="77.5" Y="95" Z="55" Weight="100" />
     <Object ID="FireSaber" ConfigID="FireSaber" X="77.5" Y="95" Z="55" Weight="100" />
-    <Object ID="EarchSaber" ConfigID="EarchSaber" X="77.5" Y="95" Z="55" Weight="100" />
+    <Object ID="EarthSaber" ConfigID="EarthSaber" X="77.5" Y="95" Z="55" Weight="100" />
     <Object ID="AurumArcher" ConfigID="AurumArcher" X="77.5" Y="95" Z="55" Weight="100" />
     <Object ID="WoodArcher" ConfigID="WoodArcher" X="77.5" Y="95" Z="55" Weight="100" />
     <Object ID="WaterArcher" ConfigID="WaterArcher" X="77.5" Y="95" Z="55" Weight="100" />
     <Object ID="FireArcher" ConfigID="FireArcher" X="77.5" Y="95" Z="55" Weight="100" />
-    <Object ID="EarchArcher" ConfigID="EarchArcher" X="77.5" Y="95" Z="55" Weight="100" />
+    <Object ID="EarthArcher" ConfigID="EarthArcher" X="77.5" Y="95" Z="55" Weight="100" />
     <Object ID="AurumWizard" ConfigID="AurumWizard" X="77.5" Y="95" Z="55" Weight="100" />
     <Object ID="WoodWizard" ConfigID="WoodWizard" X="77.5" Y="95" Z="55" Weight="100" />
     <Object ID="WaterWizard" ConfigID="WaterWizard" X="77.5" Y="95" Z="55" Weight="100" />
     <Object ID="FireWizard" ConfigID="FireWizard" X="77.5" Y="95" Z="55" Weight="100" />
-    <Object ID="EarchWizard" ConfigID="EarchWizard" X="77.5" Y="95" Z="55" Weight="100" />
+    <Object ID="EarthWizard" ConfigID="EarthWizard" X="77.5" Y="95" Z="55" Weight="100" />
 </XML>

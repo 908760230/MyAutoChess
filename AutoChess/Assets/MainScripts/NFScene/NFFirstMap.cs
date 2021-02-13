@@ -12,19 +12,15 @@ public class NFFirstMap : ChessPlane
     private void Start()
     {
 
-        NFIPluginManager pluginManager = GameMain.Instance().GetPluginManager();
-        mEventModule = pluginManager.FindModule<NFIEventModule>();
-
-        mKernelModule.RegisterRecordCallback((NFGUID)mSceneModule.playerList[0], NFrame.Player.ownInventory.ThisName, OnOwnInventoryChange);
-        mKernelModule.RegisterGroupRecordCallback(Group.ChessPlane1.ThisName, OnBattleMapChange);
-
-        mKernelModule.RegisterPropertyCallback((NFGUID)mSceneModule.playerList[0], Player.State, refreshMap);
-        mKernelModule.RegisterRecordCallback((NFGUID)mSceneModule.playerList[0], NFrame.Player.ChessPlane.ThisName, OnChessPlaneChange);
-
-        mEventModule.RegisterCallback((int)NFLoginModule.Event.UpdatePlayerOneBonusUI, updateBonusUI);
-
         mKernelModule.RegisterGroupPropertyCallback(NFrame.Group.GameState, onGameStateChange);
+        mEventModule.RegisterCallback((int)NFLoginModule.Event.UpdatePlayerOneBonusUI, updateBonusUI);
+    }
 
+    public override void Init()
+    {
+        mKernelModule.RegisterRecordCallback(mLoginModule.mRoleID, NFrame.Player.ChessPlane.ThisName, OnChessPlaneChange);
+        mKernelModule.RegisterRecordCallback(playerID, NFrame.Player.ownInventory.ThisName, OnOwnInventoryChange);
+        mKernelModule.RegisterGroupPropertyCallback(NFrame.Group.GameState, RecoverChessPlane);
     }
 
     void updateBonusUI(NFDataList valueList)
@@ -33,97 +29,43 @@ public class NFFirstMap : ChessPlane
         gameUI.updateBunusPanel(bonusData);
     }
 
-    void OnBattleMapChange(NFGUID self, string strRecordName, NFIRecord.ERecordOptype eType, int nRow, int nCol, NFDataList.TData oldVar, NFDataList.TData newVar)
-    {
-        NFGUID empty = new NFGUID(0, 0);
-        NFGUID id = newVar.ObjectVal();
-        if(id != empty)
-        {
-            GameObject chess = mSceneModule.GetObject(id);
-            ChessController controller = chess.GetComponent<ChessController>();
-            controller.gridTargetPosition = mapGridPositions[nRow,nCol];
-        }
-    }
-
     void OnChessPlaneChange(NFGUID self, string strRecordName, NFIRecord.ERecordOptype eType, int nRow, int nCol, NFDataList.TData oldVar, NFDataList.TData newVar)
     {
-        caculateBonus();
+        caculateBonus(self);
         mEventModule.DoEvent((int)NFLoginModule.Event.UpdatePlayerOneBonusUI);
     }
 
 
-    void OnOwnInventoryChange(NFGUID self, string strRecordName, NFIRecord.ERecordOptype eType, int nRow, int nCol, NFDataList.TData oldVar, NFDataList.TData newVar)
-    {
-        NFIRecord record = mKernelModule.FindRecord((NFGUID)mSceneModule.playerList[0], strRecordName);
-        if(eType == NFIRecord.ERecordOptype.Add && record.IsUsed(nRow))
-        {
-                NFGUID npcID = record.QueryObject(nRow, 0);
-                GameObject npcPrefab = mSceneModule.GetObject(npcID);
-                if (npcPrefab == null) Debug.Log("npc object is null");
-                Debug.Log(ownInventoryGridPositions[nRow]);
-                npcPrefab.transform.position = ownInventoryGridPositions[nRow];
-        }
-    }
-
-    private void refreshMap(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
-    {
-
-        NFIRecord mapRecord = mKernelModule.FindRecord(self, Player.ChessPlane.ThisName);
-        NFIRecord battleMapRecord = mKernelModule.FindRecord(new NFGUID(0,0), Group.ChessPlane1.ThisName);
-
-        if (battleMapRecord == null) Debug.LogError("refreshMap battleMapRecord is null ");
-
-        NFGUID flag = new NFGUID(0, 0);
-
-        for (int row = 0; row < 4; row++)
-        {
-            for (int col = 0; col < 7; col++)
-            {
-                NFGUID indent = null;
-                if (GameMain.Instance().currentGameStage == GameStage.Preparation)
-                {
-                     indent = mapRecord.QueryObject(row, col);
-                }
-                else
-                {
-                     indent = battleMapRecord.QueryObject(row, col);
-                }
-                if (indent != flag)
-                {
-                    GameObject gameObject = mSceneModule.GetObject(indent);
-                    gameObject.transform.position = mapGridPositions[row, col];
-                }
-            }
-        }
-
-    }
-
     private void onGameStateChange(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
     {
         long gameSate = newVar.IntVal();
-        NFGUID empty = new NFGUID(0, 0);
-        NFIRecord battlePlane = mKernelModule.FindRecord(empty, NFrame.Group.ChessPlane1.ThisName);
+        NFIRecord battlePlane = mKernelModule.FindRecord(self, NFrame.Group.ChessPlane1.ThisName);
+       
 
-        if (gameSate == 1)
+        for (int col = 0; col < 7; col++)
         {
-            for (int i = 0; i < 4; i++){
-                for (int j = 0; j < 7; j++)
+            for (int row = 0; row < 8; row++)
+            {
+                NFGUID indent = battlePlane.QueryObject(col, row);
+                if (indent != NFGUID.Zero)
                 {
-                    NFGUID indent = battlePlane.QueryObject(i, j);
-                    if (indent != empty)
+                    GameObject chessObject = mSceneModule.GetObject(indent);
+                    if (gameSate == 1)
                     {
-                        GameObject gameObject = mSceneModule.GetObject(indent);
-                        gameObject.transform.position = mapGridPositions[i, j];
+                        chessObject.transform.position = mapGridPositions[col, row];
+                        ChessController controller = chessObject.GetComponent<ChessController>();
+                        controller.gridTargetPosition = mapGridPositions[col, row];
+                        if (row >= 4) chessObject.transform.Rotate(new Vector3(0, 180, 0));
                     }
                 }
             }
         }
     }
 
-    void caculateBonus()
+    void caculateBonus(NFGUID self)
     {
         bonusData.Clear();
-        NFIRecord mapRecord = mKernelModule.FindRecord((NFGUID)mSceneModule.playerList[0], Player.ChessPlane.ThisName);
+        NFIRecord mapRecord = mKernelModule.FindRecord(self, Player.ChessPlane.ThisName);
         NFGUID empty = new NFGUID(0, 0);
         for(int i = 0; i < 4; i++)
         {
@@ -150,6 +92,42 @@ public class NFFirstMap : ChessPlane
                     else
                     {
                         bonusData.Add(race, 1);
+                    }
+                }
+            }
+        }
+    }
+
+    public void OnOwnInventoryChange(NFGUID self, string strRecordName, NFIRecord.ERecordOptype eType, int nRow, int nCol, NFDataList.TData oldVar, NFDataList.TData newVar)
+    {
+        NFIRecord record = mKernelModule.FindRecord(self, strRecordName);
+        if (eType == NFIRecord.ERecordOptype.Add && record.IsUsed(nRow))
+        {
+            NFGUID npcID = record.QueryObject(nRow, 0);
+            GameObject npcPrefab = mSceneModule.GetObject(npcID);
+            npcPrefab.transform.position = ownInventoryGridPositions[nRow];
+        }
+    }
+
+    public void RecoverChessPlane(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
+    {
+        //long oldGameState = oldVar.IntVal();
+        long gameSate = newVar.IntVal();
+        if (gameSate == 0 )
+        {
+            NFIRecord battlePlane = mKernelModule.FindRecord(playerID, NFrame.Player.ChessPlane.ThisName);
+
+            for (int col = 0; col < 7; col++)
+            {
+                for (int row = 0; row < 4; row++)
+                {
+                    NFGUID indent = battlePlane.QueryObject(col, row);
+                    if (indent != NFGUID.Zero)
+                    {
+                        GameObject chessObject = mSceneModule.GetObject(indent);
+                        chessObject.SetActive(true);
+                        chessObject.transform.position = mapGridPositions[col, row];
+                        chessObject.transform.rotation = Quaternion.Euler(Vector3.up * 180); 
                     }
                 }
             }

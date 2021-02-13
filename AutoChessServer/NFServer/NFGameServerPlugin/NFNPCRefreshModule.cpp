@@ -206,36 +206,52 @@ int NFNPCRefreshModule::OnNPCAttack(const NFGUID& self, const std::string& heart
 {
 
     NFGUID target = m_pKernelModule->GetPropertyObject(self, NFrame::NPC::Target());
+
+    if (target.IsNull()) return 0;
+
+    NFGUID masterID = m_pKernelModule->GetPropertyObject(self, NFrame::NPC::MasterID());
     NFVector3 targetPos = m_pKernelModule->GetPropertyVector3(target, NFrame::NPC::Position());
     NFVector3 selfPos = m_pKernelModule->GetPropertyVector3(self, NFrame::NPC::Position());
     
-    int attackRange = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::ATTACK_RANGE());
+
+    NFMsg::PosSyncUnit posUnit;
+    *posUnit.mutable_mover() = NFINetModule::NFToPB(self);
+    *posUnit.mutable_pos() = NFINetModule::NFToPB(targetPos);
+    *posUnit.mutable_orientation() = NFINetModule::NFToPB(targetPos);
+    posUnit.set_status(0);
+    posUnit.set_type(NFMsg::PosSyncUnit::EMT_WALK);
+
+    m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_CHESS_MOVE, posUnit, masterID);
+
+    /*int attackRange = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::ATTACK_RANGE());
     int distance = selfPos.Distance(targetPos);
     if (distance > attackRange) {
 
-        NFMsg::PosSyncUnit posUnit;
-        *posUnit.mutable_mover() = NFINetModule::NFToPB(self);
-        *posUnit.mutable_pos() = NFINetModule::NFToPB(targetPos);
-        *posUnit.mutable_orientation() = NFINetModule::NFToPB(targetPos);
-        posUnit.set_status(0);
-        posUnit.set_type(NFMsg::PosSyncUnit::EMT_WALK);
-
-        m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_MOVE, posUnit, self);
+       
         return 0;
-    }
+    }*/
 
     NFMsg::AttackChess msgAttackChess;
     *msgAttackChess.mutable_player_id() = NFINetModule::NFToPB(self);
 
-    m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_ATTACK_CHESS, msgAttackChess, self);
+    m_pGameServerNet_ServerModule->SendMsgPBToGate(NFMsg::ACK_ATTACK_CHESS, msgAttackChess, masterID);
 
 
     int damage = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::ATK_VALUE());
-    int targetHP = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::HP());
+    double targetHP = m_pKernelModule->GetPropertyFloat(self, NFrame::NPC::HP());
+    int mpValue = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::MP());
 
     targetHP -= damage;
+    mpValue += 20;
+
     if (targetHP < 0) targetHP = 0;
-    m_pKernelModule->SetPropertyInt(target, NFrame::NPC::HP(), targetHP);
+    m_pKernelModule->SetPropertyFloat(target, NFrame::NPC::HP(), targetHP);
+    m_pKernelModule->SetPropertyInt(target, NFrame::NPC::MP(),mpValue);
+
+    NFGUID clonedId = m_pKernelModule->GetPropertyObject(target, NFrame::NPC::Mirror());
+    m_pKernelModule->SetPropertyFloat(clonedId, NFrame::NPC::HP(), targetHP);
+    m_pKernelModule->SetPropertyInt(clonedId, NFrame::NPC::MP(), mpValue);
+
     return 0;
 
 }
@@ -267,14 +283,12 @@ int NFNPCRefreshModule::OnObjectAttackSpeedEvent(const NFGUID& self, const std::
 
 int NFNPCRefreshModule::OnTagetChangeEvent(const NFGUID& self, const std::string& propertyName, const NFData& oldVar, const NFData& newVar, const NFINT64 reason)
 {
-    NFGUID empty(0, 0);
-    
     string name("attack");
     string oldName = name + oldVar.ToString();
     string newName = name + newVar.ToString();
     m_pScheduleModule->RemoveSchedule(self, oldName);
 
-    if (empty == newVar.GetObjectA()) return 0;
+    if (newVar.GetObjectA().IsNull()) return 0;
 
     float attackSpeed = m_pKernelModule->GetPropertyFloat(self, NFrame::NPC::ATK_SPEED());
     m_pScheduleModule->AddSchedule(self, newName, this, &NFNPCRefreshModule::OnNPCAttack, 1 / attackSpeed, 100);

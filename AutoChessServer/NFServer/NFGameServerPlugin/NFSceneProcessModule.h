@@ -95,6 +95,8 @@ private:
 	NFICellModule* m_pCellModule;
     NFIGameServerNet_ServerModule* m_pGameServerNet_ServerModule;
     NFIGameServerModule* m_pGameServerModule;
+
+    vector<NFGUID> playerQueue;
 };
 
 #endif

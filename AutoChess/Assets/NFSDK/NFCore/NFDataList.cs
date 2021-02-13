@@ -245,22 +245,22 @@ namespace NFSDK
                 {
                     case VARIANT_TYPE.VTYPE_INT:
                         return IntVal().ToString();
-                        break;
+                        
                     case VARIANT_TYPE.VTYPE_FLOAT:
                         return FloatVal().ToString();
-                        break;
+                        
                     case VARIANT_TYPE.VTYPE_OBJECT:
                         return ObjectVal().ToString();
-                        break;
+                        
                     case VARIANT_TYPE.VTYPE_STRING:
                         return StringVal();
-                        break;
+                        
                     case VARIANT_TYPE.VTYPE_VECTOR2:
                         return Vector2Val().ToString();
-                        break;
+                        
                     case VARIANT_TYPE.VTYPE_VECTOR3:
                         return Vector3Val().ToString();
-                        break;
+                        
                     default:
                         break;
                 }
