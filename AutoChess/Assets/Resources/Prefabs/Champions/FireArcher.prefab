@@ -2663,7 +2663,7 @@ Animator:
   m_GameObject: {fileID: 1689385765172174528}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b66809720cd768b4d809e31a9688f6e6, type: 3}
-  m_Controller: {fileID: 9100000, guid: 54ce9f29f5909ea4ba6cf6782dbe63be, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1774a36a4b3cb05428804b9b24abc56a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -6257,8 +6257,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5904177654570877739}
-  - component: {fileID: 3858433098675416327}
   - component: {fileID: 8076402610339648598}
+  - component: {fileID: -8660738476093985971}
   m_Layer: 0
   m_Name: FireArcher
   m_TagString: Untagged
@@ -6281,28 +6281,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!195 &3858433098675416327
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5904177654570877743}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &8076402610339648598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6323,8 +6301,21 @@ MonoBehaviour:
   gridPositionX: 0
   gridPositionZ: 0
   champion: {fileID: 0}
+  gridTargetPosition: {x: 0, y: 0, z: 0}
   isAttacking: 0
   isDead: 0
+--- !u!114 &-8660738476093985971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5904177654570877743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936d60c7cc704e346aa1aa5c9c19fc4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5985034172653170801
 GameObject:
   m_ObjectHideFlags: 0

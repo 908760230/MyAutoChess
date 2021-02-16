@@ -1208,12 +1208,12 @@ namespace NFrame
             Debug.Log("Chess Attack " + Time.time);
 
             NFMsg.MsgBase xMsg = NFMsg.MsgBase.Parser.ParseFrom(stream);
-
             NFMsg.AttackChess xData = NFMsg.AttackChess.Parser.ParseFrom(xMsg.MsgData);
-
-
             NFGUID playerId = mHelpModule.PBToNF(xData.PlayerId);
 
+            GameObject chessObj = mSceneModule.GetObject(playerId);
+            ChessAnimation chessAnimation = chessObj.GetComponent<ChessAnimation>();
+            chessAnimation.DoAttack(true);
         }
 
 

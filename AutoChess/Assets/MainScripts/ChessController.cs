@@ -127,7 +127,7 @@ public class ChessController : MonoBehaviour
                 //Vector3 direction = targetObj.transform.position - this.transform.position;
 
                 long attackRange = mKernelModule.QueryPropertyInt(id, NFrame.NPC.ATTACK_RANGE);
-                Debug.Log(id.ToString()+" attackRange " + attackRange.ToString());
+                //Debug.Log(id.ToString()+" attackRange " + attackRange.ToString());
 
                 float distance = Vector3.Distance(this.transform.position, targetObj.transform.position);
                 if (distance > attackRange)
@@ -217,4 +217,10 @@ public class ChessController : MonoBehaviour
         worldCanvasController.AddDamageText(this.transform.position + new Vector3(0, 2.5f, 0), (float)damgae);
 
     }
+
+    public void OnAttackAnimationFinished()
+    {
+
+    }
+
 }

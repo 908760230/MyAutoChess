@@ -64,6 +64,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MainScripts\AttackAction.cs" />
+    <Compile Include="Assets\MainScripts\ChessAnimation.cs" />
     <Compile Include="Assets\MainScripts\ChessController.cs" />
     <Compile Include="Assets\MainScripts\ConfigXML.cs" />
     <Compile Include="Assets\MainScripts\GameMain.cs" />
