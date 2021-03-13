@@ -238,7 +238,7 @@ int NFNPCRefreshModule::OnNPCAttack(const NFGUID& self, const std::string& heart
 
 
     int damage = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::ATK_VALUE());
-    double targetHP = m_pKernelModule->GetPropertyFloat(self, NFrame::NPC::HP());
+    double targetHP = m_pKernelModule->GetPropertyFloat(target, NFrame::NPC::HP());
     int mpValue = m_pKernelModule->GetPropertyInt(self, NFrame::NPC::MP());
 
     targetHP -= damage;

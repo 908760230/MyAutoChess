@@ -40,26 +40,26 @@ public class NFFirstMap : ChessPlane
     {
         long gameSate = newVar.IntVal();
         NFIRecord battlePlane = mKernelModule.FindRecord(self, NFrame.Group.ChessPlane1.ThisName);
-       
 
-        for (int col = 0; col < 7; col++)
+        if (gameSate == 1)
         {
-            for (int row = 0; row < 8; row++)
+            for (int col = 0; col < 7; col++)
             {
-                NFGUID indent = battlePlane.QueryObject(col, row);
-                if (indent != NFGUID.Zero)
+                for (int row = 0; row < 8; row++)
                 {
-                    GameObject chessObject = mSceneModule.GetObject(indent);
-                    if (gameSate == 1)
+                    NFGUID indent = battlePlane.QueryObject(col, row);
+                    if (indent != NFGUID.Zero)
                     {
+                        GameObject chessObject = mSceneModule.GetObject(indent);
                         chessObject.transform.position = mapGridPositions[col, row];
                         ChessController controller = chessObject.GetComponent<ChessController>();
                         controller.gridTargetPosition = mapGridPositions[col, row];
-                        if (row >= 4) chessObject.transform.Rotate(new Vector3(0, 180, 0));
+                        if (row >= 4) chessObject.transform.rotation = Quaternion.Euler(Vector3.up);
                     }
                 }
             }
         }
+    
     }
 
     void caculateBonus(NFGUID self)
@@ -115,6 +115,7 @@ public class NFFirstMap : ChessPlane
         long gameSate = newVar.IntVal();
         if (gameSate == 0 )
         {
+
             NFIRecord battlePlane = mKernelModule.FindRecord(playerID, NFrame.Player.ChessPlane.ThisName);
 
             for (int col = 0; col < 7; col++)
@@ -127,7 +128,7 @@ public class NFFirstMap : ChessPlane
                         GameObject chessObject = mSceneModule.GetObject(indent);
                         chessObject.SetActive(true);
                         chessObject.transform.position = mapGridPositions[col, row];
-                        chessObject.transform.rotation = Quaternion.Euler(Vector3.up * 180); 
+                        chessObject.transform.rotation = Quaternion.Euler(Vector3.up*180); 
                     }
                 }
             }

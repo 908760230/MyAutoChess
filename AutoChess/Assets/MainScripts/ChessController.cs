@@ -124,15 +124,13 @@ public class ChessController : MonoBehaviour
             }else if(GameMain.Instance().currentGameStage == GameStage.Combat && targetId != NFGUID.Zero)
             {
                 GameObject targetObj = sceneModule.GetObject(targetId);
-                //Vector3 direction = targetObj.transform.position - this.transform.position;
+                this.transform.LookAt(targetObj.transform, Vector3.up);
 
                 long attackRange = mKernelModule.QueryPropertyInt(id, NFrame.NPC.ATTACK_RANGE);
-                //Debug.Log(id.ToString()+" attackRange " + attackRange.ToString());
 
                 float distance = Vector3.Distance(this.transform.position, targetObj.transform.position);
                 if (distance > attackRange)
                 {
-                    //this.transform.Translate(direction.normalized * Time.deltaTime);
                     this.transform.position = Vector3.Lerp(this.transform.position, targetObj.transform.position,Time.deltaTime);
                 }
 

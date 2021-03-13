@@ -5,6 +5,8 @@
 		<Property Id="GameTime" Cache="0" Desc="游戏时间" Force="0" Private="1" Public="1" Ref="0" Save="0" Type="int" Upload="0" />
 		<Property Id="PlaneOne" Cache="0" Desc="棋盘状态" Force="0" Private="0" Public="0" Ref="0" Save="0" Type="int" Upload="0" />
 		<Property Id="PlayerCount" Cache="0" Desc="玩家数量" Force="0" Private="0" Public="0" Ref="0" Save="0" Type="int" Upload="0" />
+		<Property Id="PlayerOne" Cache="0" Desc="玩家一" Force="0" Private="0" Public="0" Ref="0" Save="0" Type="object" Upload="0" />
+		<Property Id="PlayerTwo" Cache="0" Desc="玩家二" Force="0" Private="0" Public="0" Ref="0" Save="0" Type="object" Upload="0" />
 	</Propertys>
 	<Records>
 		<Record Id="ChessPlane1" Cache="0"	 Col="8"	 Force="0"	 Private="1"	 Public="1"	 Ref="0"	 Row="7"	 Save="0"	 Upload="0"	 >

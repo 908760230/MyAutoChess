@@ -80,13 +80,6 @@ public class NFUILoading : NFUIDialog
                             }
                         }
 
-                        foreach (var chessplane in mSceneModule.chessPlaneDict)
-                        {
-                            Debug.Log("Init chess plane id: " + chessplane.Key.ToString());
-                            chessplane.Value.Init();
-                        }
-
-
                         break;
                 }
 

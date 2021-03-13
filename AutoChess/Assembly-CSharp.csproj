@@ -93,7 +93,6 @@
     <Compile Include="Assets\MainScripts\NFUI\NFUIModule.cs" />
     <Compile Include="Assets\MainScripts\NFUI\NFUIPlugin.cs" />
     <Compile Include="Assets\MainScripts\SceneInputController.cs" />
-    <Compile Include="Assets\MainScripts\SecondMap.cs" />
     <Compile Include="Assets\NFSDK\NFConfig\NFClass.cs" />
     <Compile Include="Assets\NFSDK\NFConfig\NFClassModule.cs" />
     <Compile Include="Assets\NFSDK\NFConfig\NFElement.cs" />

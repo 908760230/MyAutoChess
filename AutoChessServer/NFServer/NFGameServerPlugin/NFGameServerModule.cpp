@@ -119,7 +119,8 @@ bool NFGameServerModule::Execute()
                     }
                 }
 
-                RecoverChessState(groupChessPlaneOne);
+                m_pSceneModule->SetPropertyObject(3, id, NFrame::Group::PlayerOne(), playerList.Object(0));
+                m_pSceneModule->SetPropertyObject(3, id, NFrame::Group::PlayerTwo(), playerList.Object(1));
 
                 m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::PlaneOne(),0);
                 m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameState(), 1);
@@ -132,20 +133,57 @@ bool NFGameServerModule::Execute()
             if (!planeOne) {
                 fight(id, groupChessPlaneOne);
             }
-
-            /*int currentTime = m_pSceneModule->GetPropertyInt(3, id, NFrame::Group::GameTime());
-            currentTime += deltaTime;
-
-            if (currentTime < preparationDuration)
-
-                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameTime(), currentTime);
             else {
-                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameState(), 0);
-                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameTime(), 0);
 
-                
-            }*/
-            //m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameState(), 0);
+                for (int i = 0; i < playerList.GetCount(); i++) {
+                    const NFGUID& playerId = playerList.Object(i);
+                    refreshShopItem(playerId);
+                }
+
+                NF_SHARE_PTR<NFIRecord> groupChessPlaneOne = m_pSceneModule->FindRecord(3, id, NFrame::Group::ChessPlane1::ThisName());
+
+                NFGUID playerOne = m_pSceneModule->GetPropertyObject(3, id, NFrame::Group::PlayerOne());
+                NFGUID playerTwo = m_pSceneModule->GetPropertyObject(3, id, NFrame::Group::PlayerTwo());
+                int countOne = 0, countTwo = 0;
+
+                for (int col = 0; col < 7; col++)
+                {
+                    for (int row = 0; row < 8; row++)
+                    {
+                        const NFGUID id = groupChessPlaneOne->GetObjectA(col, row);
+                        if (!id.IsNull()) {
+
+                            NFGUID masterID = m_pKernelModule->GetPropertyObject(id, NFrame::NPC::MasterID());
+                            double hpValue = m_pKernelModule->GetPropertyFloat(id, NFrame::NPC::HP());
+                            if (masterID == playerOne && hpValue) countOne++;
+                            if (masterID == playerTwo && hpValue) countTwo++;
+
+                        }
+                    }
+                }
+                int damage = abs(countOne - countTwo);
+                if (!countOne) {
+                    int playerHp = m_pKernelModule->GetPropertyInt(playerOne, NFrame::Player::HP());
+                    playerHp -= damage;
+                    if (playerHp < 0) playerHp = 0;
+                    m_pKernelModule->SetPropertyInt(playerOne, NFrame::Player::HP(), playerHp);
+                }
+                else if (!countTwo)
+                {
+                    int playerHp = m_pKernelModule->GetPropertyInt(playerTwo, NFrame::Player::HP());
+                    playerHp -= damage;
+                    if (playerHp < 0) playerHp = 0;
+                    m_pKernelModule->SetPropertyInt(playerTwo, NFrame::Player::HP(), playerHp);
+                }
+
+                NF_SHARE_PTR<NFIRecord> playerOneRecord = m_pKernelModule->FindRecord(playerOne, NFrame::Player::ChessPlane::ThisName());
+                RecoverChessState(playerOneRecord);
+                NF_SHARE_PTR<NFIRecord> playerTwoRecord = m_pKernelModule->FindRecord(playerTwo, NFrame::Player::ChessPlane::ThisName());
+                RecoverChessState(playerTwoRecord);
+
+                m_pSceneModule->SetPropertyInt(3, id, NFrame::Group::GameState(), 0);
+            }
+
         }
  
         
@@ -371,18 +409,60 @@ void NFGameServerModule::RecoverChessState(const NF_SHARE_PTR<NFIRecord>& record
 
 int NFGameServerModule::OnGameStateChange(const NFGUID& self, const std::string& propertyName, const NFData& oldVal, const NFData& newVal)
 {
-    int gameState = newVal.GetInt();
+    /*int gameState = newVal.GetInt();
+    int groupId = m_pKernelModule->GetPropertyInt(self, NFrame::Group::GroupID());
+
     if (gameState == 0) {
 
-        int id = m_pKernelModule->GetPropertyInt(self, NFrame::Group::GroupID());
         NFDataList playerList;
-        m_pKernelModule->GetGroupObjectList(3, id, playerList, true);
+        m_pKernelModule->GetGroupObjectList(3, groupId, playerList, true);
 
         for (int i = 0; i < playerList.GetCount(); i++) {
             const NFGUID& playerId = playerList.Object(i);
             refreshShopItem(playerId);
         }
 
-    }
+        NF_SHARE_PTR<NFIRecord> groupChessPlaneOne = m_pSceneModule->FindRecord(3, groupId, NFrame::Group::ChessPlane1::ThisName());
+        
+        NFGUID playerOne = m_pSceneModule->GetPropertyObject(3, groupId, NFrame::Group::PlayerOne());
+        NFGUID playerTwo = m_pSceneModule->GetPropertyObject(3, groupId, NFrame::Group::PlayerTwo());        
+        int countOne = 0, countTwo = 0;
+
+        for (int col = 0; col < 7; col++)
+        {
+            for (int row = 0; row < 8; row++)
+            {
+                const NFGUID id = groupChessPlaneOne->GetObjectA(col, row);
+                if (!id.IsNull()) {
+
+                    NFGUID masterID = m_pKernelModule->GetPropertyObject(id, NFrame::NPC::MasterID());
+                    double hpValue = m_pKernelModule->GetPropertyFloat(id, NFrame::NPC::HP());
+                    if (masterID == playerOne && hpValue) countOne++;
+                    if (masterID == playerTwo && hpValue) countTwo++;
+
+                }
+            }
+        }
+        int damage = abs(countOne - countTwo);
+        if (!countOne) {
+            int playerHp = m_pKernelModule->GetPropertyInt(playerOne, NFrame::Player::HP());
+            playerHp -= damage;
+            if (playerHp < 0) playerHp = 0;
+            m_pKernelModule->SetPropertyInt(playerOne, NFrame::Player::HP(), playerHp);
+        }
+        else if(!countTwo)
+        {
+            int playerHp = m_pKernelModule->GetPropertyInt(playerTwo, NFrame::Player::HP());
+            playerHp -= damage;
+            if (playerHp < 0) playerHp = 0;
+            m_pKernelModule->SetPropertyInt(playerTwo, NFrame::Player::HP(), playerHp);
+        }
+
+        NF_SHARE_PTR<NFIRecord> playerOneRecord = m_pKernelModule->FindRecord(playerOne, NFrame::Player::ChessPlane::ThisName());
+        RecoverChessState(playerOneRecord);
+        NF_SHARE_PTR<NFIRecord> playerTwoRecord = m_pKernelModule->FindRecord(playerTwo, NFrame::Player::ChessPlane::ThisName());
+        RecoverChessState(playerTwoRecord);
+
+    }*/
     return 0;
 }

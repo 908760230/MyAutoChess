@@ -130,6 +130,8 @@ namespace NFrame
 		static const std::string& GameTime(){ static std::string x = "GameTime"; return x; };// int
 		static const std::string& PlaneOne(){ static std::string x = "PlaneOne"; return x; };// int
 		static const std::string& PlayerCount(){ static std::string x = "PlayerCount"; return x; };// int
+		static const std::string& PlayerOne(){ static std::string x = "PlayerOne"; return x; };// object
+		static const std::string& PlayerTwo(){ static std::string x = "PlayerTwo"; return x; };// object
 		// Record
 		class ChessPlane1
 		{

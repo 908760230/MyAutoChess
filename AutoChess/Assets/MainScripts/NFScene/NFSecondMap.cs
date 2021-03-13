@@ -33,12 +33,17 @@ public class NFSecondMap : ChessPlane
                     NFGUID clonedID = mKernelModule.QueryPropertyObject(indent, NFrame.Player.Mirror);
                     GameObject clonedNPC = mSceneModule.GetObject(clonedID);
 
-                    clonedNPC.SetActive(true);
-                    int index = 7 - row;
-                    clonedNPC.transform.position = mapGridPositions[col, index];
-                    ChessController controller = clonedNPC.GetComponent<ChessController>();
-                    controller.gridTargetPosition = mapGridPositions[col, index];
-                    if (index >= 4) clonedNPC.transform.Rotate(new Vector3(0, 180, 0));
+                    if (gameSate == 1)
+                    {
+                        clonedNPC.SetActive(true);
+                        int index = 7 - row;
+                        clonedNPC.transform.position = mapGridPositions[col, index];
+                        ChessController controller = clonedNPC.GetComponent<ChessController>();
+                        controller.gridTargetPosition = mapGridPositions[col, index];
+                        if (index >= 4) clonedNPC.transform.rotation = Quaternion.Euler(Vector3.up);
+                    }
+                    else clonedNPC.SetActive(false);
+                    
                 }
             }
         }
@@ -57,9 +62,10 @@ public class NFSecondMap : ChessPlane
     public void RecoverChessPlane(NFGUID self, string strProperty, NFDataList.TData oldVar, NFDataList.TData newVar)
     {
         long gameSate = newVar.IntVal();
-        Debug.Log("recover second map player id :" + playerID.ToString());
         if (gameSate == 0)
         {
+            Debug.Log("recover second map player id :" + playerID.ToString());
+
             NFIRecord battlePlane = mKernelModule.FindRecord(playerID, NFrame.Player.ChessPlane.ThisName);
 
             for (int col = 0; col < 7; col++)
@@ -71,7 +77,9 @@ public class NFSecondMap : ChessPlane
                     {
                         GameObject chessObject = mSceneModule.GetObject(indent);
                         chessObject.transform.position = mapGridPositions[col,row];
-                        chessObject.transform.rotation = Quaternion.Euler(Vector3.up * 180);
+                        ChessController controller = chessObject.GetComponent<ChessController>();
+                        controller.gridTargetPosition = mapGridPositions[col, row];
+                        chessObject.transform.rotation = Quaternion.Euler(Vector3.up*180);
                     }
                 }
             }

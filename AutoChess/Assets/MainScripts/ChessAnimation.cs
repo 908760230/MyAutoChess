@@ -39,4 +39,5 @@ public class ChessAnimation : MonoBehaviour
     {
         animator.enabled = b;
     }
+
 }

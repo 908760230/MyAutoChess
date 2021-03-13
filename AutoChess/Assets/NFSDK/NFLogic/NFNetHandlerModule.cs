@@ -1214,6 +1214,17 @@ namespace NFrame
             GameObject chessObj = mSceneModule.GetObject(playerId);
             ChessAnimation chessAnimation = chessObj.GetComponent<ChessAnimation>();
             chessAnimation.DoAttack(true);
+
+            NFGUID targetID = mKernelModule.QueryPropertyObject(playerId, NFrame.NPC.Target);
+            chessObj.transform.LookAt(mSceneModule.GetObject(targetID).transform, UnityEngine.Vector3.up);
+
+            NFGUID clonedId = mKernelModule.QueryPropertyObject(playerId, NFrame.NPC.Mirror);
+            GameObject cloneChessObj = mSceneModule.GetObject(clonedId);
+            ChessAnimation clonedChessAnimation = cloneChessObj.GetComponent<ChessAnimation>();
+            clonedChessAnimation.DoAttack(true);
+
+            NFGUID clonedTargetID = mKernelModule.QueryPropertyObject(targetID, NFrame.NPC.Mirror);
+            cloneChessObj.transform.LookAt(mSceneModule.GetObject(clonedTargetID).transform, UnityEngine.Vector3.up);
         }
 
 
