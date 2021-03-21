@@ -22,7 +22,7 @@ public class NFSecondMap : ChessPlane
     {
         long gameSate = newVar.IntVal();
         NFIRecord battlePlane = mKernelModule.FindRecord(self, NFrame.Group.ChessPlane1.ThisName);
-        
+
         for (int col = 0; col < 7; col++)
         {
             for (int row = 0; row < 8; row++)
@@ -43,7 +43,7 @@ public class NFSecondMap : ChessPlane
                         if (index >= 4) clonedNPC.transform.rotation = Quaternion.Euler(Vector3.up);
                     }
                     else clonedNPC.SetActive(false);
-                    
+
                 }
             }
         }
@@ -76,10 +76,10 @@ public class NFSecondMap : ChessPlane
                     if (indent != NFGUID.Zero)
                     {
                         GameObject chessObject = mSceneModule.GetObject(indent);
-                        chessObject.transform.position = mapGridPositions[col,row];
+                        chessObject.transform.position = mapGridPositions[col, row];
                         ChessController controller = chessObject.GetComponent<ChessController>();
                         controller.gridTargetPosition = mapGridPositions[col, row];
-                        chessObject.transform.rotation = Quaternion.Euler(Vector3.up*180);
+                        chessObject.transform.rotation = Quaternion.Euler(Vector3.up * 180);
                     }
                 }
             }

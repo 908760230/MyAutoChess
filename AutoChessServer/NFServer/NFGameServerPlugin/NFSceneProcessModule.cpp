@@ -31,6 +31,7 @@
 
 bool NFSceneProcessModule::Init()
 {
+    m_pNetModule = pPluginManager->FindModule<NFINetModule>();
 	m_pKernelModule = pPluginManager->FindModule<NFIKernelModule>();
 	m_pElementModule = pPluginManager->FindModule<NFIElementModule>();
 	m_pClassModule = pPluginManager->FindModule<NFIClassModule>();
@@ -66,6 +67,9 @@ bool NFSceneProcessModule::AfterInit()
 	m_pSceneModule->AddAfterLeaveSceneGroupCallBack(this, &NFSceneProcessModule::AfterLeaveSceneGroupEvent);
     //////////////////////////////////////////////////////////////////////////
 
+    m_pNetModule->AddReceiveCallBack(NFMsg::REQUIRE_INTO_QUEUE, this, &NFSceneProcessModule::OnRequireIntoQueue);
+    m_pNetModule->AddReceiveCallBack(NFMsg::CANCLE_INTO_QUEUE, this, &NFSceneProcessModule::OnCancelIntoQueue);
+    
     return true;
 }
 
@@ -122,14 +126,8 @@ bool NFSceneProcessModule::RequestEnterScene(const NFGUID & self, const int scen
 	{
 		if (groupID > 0)
 		{
-            NFVector3 tmpPos = pos;
-            playerQueue.push_back(self);
             
-            tmpPos.SetX(playerQueue.size()-1);
-            
-            if(playerQueue.size()>=2) playerQueue.clear();
-
-			return m_pSceneModule->RequestEnterScene(self, sceneID, 1, type, tmpPos, argList);
+			return m_pSceneModule->RequestEnterScene(self, sceneID, 1, type, pos, argList);
 		}
 		else
 		{
@@ -180,6 +178,43 @@ int NFSceneProcessModule::AfterLeaveSceneGroupEvent(const NFGUID & self, const i
 	}
 
 	return 0;
+}
+
+void NFSceneProcessModule::OnRequireIntoQueue(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len)
+{
+    NFGUID clientID;
+    NFMsg::ReqAckSwapScene xMsg;
+    if (!m_pNetModule->ReceivePB(msgID, msg, len, xMsg, clientID))
+    {
+        return;
+    }
+    playerPool.emplace_back(clientID);
+    if (playerPool.size() >= 2) {
+        int groupid = m_pKernelModule->RequestGroupScene(3);
+        for (int i = 0; i < 2; i++) {
+            NFGUID id = playerPool.front();
+            playerPool.pop_front();
+            NFVector3 pos = { (float)i,0,0 };
+            m_pKernelModule->SetPropertyVector3(id, NFrame::Player::Position(), pos, 0);
+            RequestEnterScene(id, 3, groupid, 0, pos, NFDataList::Empty());
+        }
+    }
+}
+
+void NFSceneProcessModule::OnCancelIntoQueue(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len)
+{
+    NFGUID clientID;
+    NFMsg::ReqAckSwapScene xMsg;
+    if (!m_pNetModule->ReceivePB(msgID, msg, len, xMsg, clientID))
+    {
+        return;
+    }
+    for (auto iter = playerPool.begin(); iter != playerPool.end(); ) {
+        if (*iter == clientID) {
+           iter = playerPool.erase(iter);
+        }
+        else iter++;
+    }
 }
 
 int NFSceneProcessModule::OnObjectClassEvent(const NFGUID& self, const std::string& className, const CLASS_OBJECT_EVENT classEvent, const NFDataList& var)

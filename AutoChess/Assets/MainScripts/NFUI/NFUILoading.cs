@@ -31,7 +31,7 @@ public class NFUILoading : NFUIDialog
         mKernelModule = xPluginManager.FindModule<NFIKernelModule>();
     }
 
-    
+
 
     public override void Init()
     {
@@ -40,7 +40,7 @@ public class NFUILoading : NFUIDialog
 
     private void Update()
     {
-        if(async != null)
+        if (async != null)
         {
             progress = (int)(async.progress * 100);
             sliderProgress.value = progress;

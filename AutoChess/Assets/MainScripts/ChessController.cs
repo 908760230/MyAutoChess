@@ -65,7 +65,7 @@ public class ChessController : MonoBehaviour
         hpBar = Instantiate(perfab);
 
         hpBarRectTransform = hpBar.transform.Find("Panel").GetComponent<RectTransform>();
-        hpBarRectTransform.position = Camera.main.WorldToScreenPoint(transform.position+ hpBarOffset);
+        hpBarRectTransform.position = Camera.main.WorldToScreenPoint(transform.position + hpBarOffset);
         hpBar.transform.SetParent(transform);
 
         worldCanvasController = GameObject.Find("Scripts").GetComponent<WorldCanvasController>();
@@ -121,7 +121,8 @@ public class ChessController : MonoBehaviour
                     this.transform.position = Vector3.Lerp(this.transform.position, gridTargetPosition, 0.1f);
                 }
                 else this.transform.position = gridTargetPosition;
-            }else if(GameMain.Instance().currentGameStage == GameStage.Combat && targetId != NFGUID.Zero)
+            }
+            else if (GameMain.Instance().currentGameStage == GameStage.Combat && targetId != NFGUID.Zero)
             {
                 GameObject targetObj = sceneModule.GetObject(targetId);
                 this.transform.LookAt(targetObj.transform, Vector3.up);
@@ -131,7 +132,7 @@ public class ChessController : MonoBehaviour
                 float distance = Vector3.Distance(this.transform.position, targetObj.transform.position);
                 if (distance > attackRange)
                 {
-                    this.transform.position = Vector3.Lerp(this.transform.position, targetObj.transform.position,Time.deltaTime);
+                    this.transform.position = Vector3.Lerp(this.transform.position, targetObj.transform.position, Time.deltaTime);
                 }
 
             }
@@ -151,10 +152,8 @@ public class ChessController : MonoBehaviour
             else
             {
                 // 战斗状态
-
                 // 朝向 目标
                 this.transform.LookAt(target.transform, Vector3.up);
-
                 if (target.GetComponent<ChampionController>().isDead == true)
                 {
                     target = null;
@@ -194,7 +193,7 @@ public class ChessController : MonoBehaviour
 
     void updateHPBarPosition()
     {
-        hpBarRectTransform.position = Camera.main.WorldToScreenPoint(transform.position+ hpBarOffset);
+        hpBarRectTransform.position = Camera.main.WorldToScreenPoint(transform.position + hpBarOffset);
     }
 
     public void MoveTo(NFGUID value)
@@ -208,8 +207,8 @@ public class ChessController : MonoBehaviour
         double hpValue = newVar.FloatVal();
         double damgae = oldHp - hpValue;
 
-        if(hpValue >0 && !gameObject.activeSelf) gameObject.SetActive(true);
-        else if(hpValue <= 0 && gameObject.activeSelf) gameObject.SetActive(false);
+        if (hpValue > 0 && !gameObject.activeSelf) gameObject.SetActive(true);
+        else if (hpValue <= 0 && gameObject.activeSelf) gameObject.SetActive(false);
 
 
         worldCanvasController.AddDamageText(this.transform.position + new Vector3(0, 2.5f, 0), (float)damgae);

@@ -220,7 +220,7 @@ void NFGameServerNet_ServerModule::OnClientSwapSceneProcess(const NFSOCK sockInd
 	}
     else if (sceneType == NFMsg::ESceneType::MULTI_CLONE_SCENE) {
         const NFVector3& pos = m_pSceneModule->GetRelivePosition(xMsg.scene_id());
-        m_pKernelModule->RequestGroupScene(xMsg.scene_id());
+        //m_pKernelModule->RequestGroupScene(xMsg.scene_id());
 
         m_pSceneProcessModule->RequestEnterScene(pObject->Self(), xMsg.scene_id(), 1, 0, pos, NFDataList::Empty());
     }

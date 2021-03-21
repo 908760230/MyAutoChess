@@ -84,8 +84,12 @@ protected:
 	int BeforeLeaveSceneGroupEvent(const NFGUID& self, const int sceneID, const int groupID, const int type, const NFDataList& argList);
 	int AfterLeaveSceneGroupEvent(const NFGUID& self, const int sceneID, const int groupID, const int type, const NFDataList& argList);
 
-private:
 
+    void OnRequireIntoQueue(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
+    void OnCancelIntoQueue(const NFSOCK sockIndex, const int msgID, const char* msg, const uint32_t len);
+
+private:
+    NFINetModule* m_pNetModule;
     NFIElementModule* m_pElementModule;
     NFIClassModule* m_pClassModule;
     NFIKernelModule* m_pKernelModule;
@@ -96,7 +100,7 @@ private:
     NFIGameServerNet_ServerModule* m_pGameServerNet_ServerModule;
     NFIGameServerModule* m_pGameServerModule;
 
-    vector<NFGUID> playerQueue;
+    list<NFGUID> playerPool;
 };
 
 #endif

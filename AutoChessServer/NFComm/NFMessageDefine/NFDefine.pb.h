@@ -200,12 +200,14 @@ enum EGameMsgID : int {
   ACK_OFFLINE_NOTIFY = 601,
   ACK_ATTACK_CHESS = 1000,
   ACK_CHESS_MOVE = 1001,
+  REQUIRE_INTO_QUEUE = 1002,
+  CANCLE_INTO_QUEUE = 1003,
   EGameMsgID_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   EGameMsgID_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool EGameMsgID_IsValid(int value);
 constexpr EGameMsgID EGameMsgID_MIN = UNKNOW;
-constexpr EGameMsgID EGameMsgID_MAX = ACK_CHESS_MOVE;
+constexpr EGameMsgID EGameMsgID_MAX = CANCLE_INTO_QUEUE;
 constexpr int EGameMsgID_ARRAYSIZE = EGameMsgID_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGameMsgID_descriptor();

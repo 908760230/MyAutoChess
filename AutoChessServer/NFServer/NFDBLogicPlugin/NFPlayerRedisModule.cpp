@@ -170,9 +170,13 @@ bool NFPlayerRedisModule::CreateRole(const std::string & account, const std::str
 				{
 					xProperty->SetString(strRoleName);
 				}
+                xProperty = xPropertyManager->GetElement(NFrame::Player::NickName());
+                if (xProperty)
+                {
+                    xProperty->SetString(account);
+                }
 				m_pCommonRedisModule->SavePropertyInfo(id.ToString(), xPropertyManager, false, true);
 			}
-
 			return true;
 		}
 	}

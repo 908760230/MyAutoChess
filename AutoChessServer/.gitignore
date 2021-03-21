@@ -116,3 +116,5 @@ NFComm/NFMessageDefine/protoc.exe
 #OSX .DS_Store
 .DS_Store
 /_Out/NFDataCfg/proto
+
+/_Out/logs

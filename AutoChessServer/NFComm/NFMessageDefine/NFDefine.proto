@@ -16,7 +16,6 @@ enum EGameEventCode
 	VERIFY_KEY_FAIL							= 8;        //
 	SELECTSERVER_SUCCESS					= 9;        //
 	SELECTSERVER_FAIL						= 10;       //
-	
 
 	CHARACTER_EXIST							= 110;       //
 	SVRZONEID_INVALID						= 111;       //
@@ -167,6 +166,8 @@ enum EGameMsgID
 	ACK_ATTACK_CHESS						=1000;
 	ACK_CHESS_MOVE							=1001;
 
+    REQUIRE_INTO_QUEUE                      = 1002;
+    CANCLE_INTO_QUEUE                       = 1003;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

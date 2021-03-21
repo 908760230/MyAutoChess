@@ -6,8 +6,8 @@ using NFrame;
 
 public class NFFirstMap : ChessPlane
 {
-    
-    public Dictionary<string,int> bonusData = new Dictionary<string, int>();
+
+    public Dictionary<string, int> bonusData = new Dictionary<string, int>();
 
     private void Start()
     {
@@ -59,7 +59,7 @@ public class NFFirstMap : ChessPlane
                 }
             }
         }
-    
+
     }
 
     void caculateBonus(NFGUID self)
@@ -67,9 +67,9 @@ public class NFFirstMap : ChessPlane
         bonusData.Clear();
         NFIRecord mapRecord = mKernelModule.FindRecord(self, Player.ChessPlane.ThisName);
         NFGUID empty = new NFGUID(0, 0);
-        for(int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
-            for(int j = 0; j < 7; j++)
+            for (int j = 0; j < 7; j++)
             {
                 NFGUID id = mapRecord.QueryObject(i, j);
                 if (id != empty)
@@ -113,7 +113,7 @@ public class NFFirstMap : ChessPlane
     {
         //long oldGameState = oldVar.IntVal();
         long gameSate = newVar.IntVal();
-        if (gameSate == 0 )
+        if (gameSate == 0)
         {
 
             NFIRecord battlePlane = mKernelModule.FindRecord(playerID, NFrame.Player.ChessPlane.ThisName);
@@ -128,7 +128,7 @@ public class NFFirstMap : ChessPlane
                         GameObject chessObject = mSceneModule.GetObject(indent);
                         chessObject.SetActive(true);
                         chessObject.transform.position = mapGridPositions[col, row];
-                        chessObject.transform.rotation = Quaternion.Euler(Vector3.up*180); 
+                        chessObject.transform.rotation = Quaternion.Euler(Vector3.up * 180);
                     }
                 }
             }

@@ -484,10 +484,9 @@ namespace NFrame
             foreach (NFMsg.RoleLiteInfo info in roleList)
             {
                 OnRoleClick(0);
-                break;
+                return;
             }
-
-            //OnCreateRoleClick();
+            OnCreateRoleClick();
         }
 
         private void OnRoleClick(int nIndex)

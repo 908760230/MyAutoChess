@@ -1,4 +1,4 @@
-AutoChess/log/
-AutoChess/Logs/
-AutoChess/TestBuild/
-AutoChess/Library/
+AutoChess/log
+AutoChess/Logs
+AutoChess/TestBuild
+AutoChess/Library/*
