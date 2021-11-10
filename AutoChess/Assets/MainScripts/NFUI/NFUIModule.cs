@@ -61,6 +61,14 @@ namespace NFSDK
 
             return null;
         }
+        public bool isActive<T>() where T : NFUIDialog
+        {
+            string name = typeof(T).ToString();
+            GameObject uiObject;
+            if (mAllUIs.TryGetValue(name, out uiObject)) return uiObject.activeSelf;
+
+            return false;
+        }
         public T GetUI<T>() where T: NFUIDialog
         {
             string name = typeof(T).ToString();

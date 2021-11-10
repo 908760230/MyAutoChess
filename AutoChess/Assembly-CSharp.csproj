@@ -84,6 +84,7 @@
     <Compile Include="Assets\MainScripts\NFScene\StateMachine\NFAnimaStateMachine.cs" />
     <Compile Include="Assets\MainScripts\NFScene\StateMachine\NFIState.cs" />
     <Compile Include="Assets\MainScripts\NFScene\StateMachine\State\NFIdleState.cs" />
+    <Compile Include="Assets\MainScripts\NFUI\NFChatRoom.cs" />
     <Compile Include="Assets\MainScripts\NFUI\NFGameSceneUI.cs" />
     <Compile Include="Assets\MainScripts\NFUI\NFHPBar.cs" />
     <Compile Include="Assets\MainScripts\NFUI\NFUIDialog.cs" />

@@ -20,6 +20,7 @@ public class SceneInputController : MonoBehaviour
     private NFSceneModule mSceneModule;
     private NFLoginModule mLoginModule;
     private NFIKernelModule mKernelModule;
+    private NFUIModule mUIModule;
 
     [HideInInspector]
     public TriggerInfo triggerInfo = null;
@@ -31,6 +32,7 @@ public class SceneInputController : MonoBehaviour
         mSceneModule = xmanager.FindModule<NFSceneModule>();
         mLoginModule = xmanager.FindModule<NFLoginModule>();
         mKernelModule = xmanager.FindModule<NFIKernelModule>();
+        mUIModule = xmanager.FindModule<NFUIModule>();
 
         rayCastStartPosition = new Vector3(0, 20, 0);
         chessPlane = mSceneModule.chessPlaneDict[mLoginModule.mRoleID];
@@ -71,6 +73,22 @@ public class SceneInputController : MonoBehaviour
 
         //store mouse position
         mousePosition = Input.mousePosition;
+
+
+        activeChatRoom();
+    }
+
+    private void activeChatRoom()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            GameObject chatRoom = mUIModule.GetUI<NFChatRoom>().gameObject;
+            Debug.Log("NFCharRoom Enter!!!!!!!!");
+            if (!chatRoom.activeSelf)
+            {
+                chatRoom.SetActive(true);
+            }
+        }
     }
 
     private void StartDrag()

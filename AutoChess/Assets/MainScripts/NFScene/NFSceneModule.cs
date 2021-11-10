@@ -516,9 +516,10 @@ namespace NFSDK
 
                 mUIModule.ShowUI<NFGameSceneUI>();
                 mUIModule.HidenUI<NFGameSceneUI>();
-                
+                mUIModule.ShowUI<NFChatRoom>();
+                mUIModule.HidenUI<NFChatRoom>();
             }
-            
+
         }
         
         public ChessPlane createChessPlane(string name)
